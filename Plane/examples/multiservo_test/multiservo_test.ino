@@ -1,4 +1,5 @@
 #include <Servo.h>
+
 #define LEFTM 0
 #define RIGHTM 1
 #define ELEVM 2
@@ -26,19 +27,19 @@ void setup() {
 void loop() {
   ESC.write(0);
   int i;
-  for(i = limits[LEFTM][DOWN]; i<limits[LEFTM][UP];i++)
+  for(i = limits[LEFT_AILERON_PIN][DOWN]; i<limits[LEFT_AILERON_PIN][UP];i++)
   {
     LEF.write(i);
     delay(del);
   }
   delay(1000);
-  for(i = limits[RIGHTM][DOWN]; i<limits[RIGHTM][UP];i++)
+  for(i = limits[RIGHT_AILERON_PIN][DOWN]; i<limits[RIGHT_AILERON_PIN][UP];i++)
   {
     RIG.write(i);
     delay(del);
   }
   delay(1000);
-  for(i = limits[ELEVM][DOWN]; i<limits[ELEVM][UP];i++)
+  for(i = limits[ELEV_AILERON_PIN][DOWN]; i<limits[ELEV_AILERON_PIN][UP];i++)
   {
     ELE.write(i);
     delay(del);
