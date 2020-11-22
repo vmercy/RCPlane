@@ -47,7 +47,7 @@ public:
   Battery()
   {
     this->m_nbCells = 0;
-    this->m_cellLevels NULL;
+    this->m_cellLevels = NULL;
     this->m_cellVoltages = NULL;
     this->m_resistorValues = NULL;
     this->m_pinout = NULL;
@@ -61,7 +61,7 @@ public:
       this->m_resistorValues = new int *[this->m_nbCells];
       for (byte i = 0; i < m_nbCells; i++)
         this->m_resistorValues[i] = new int[2];
-      this->m_pinout = new byte[];
+      this->m_pinout = new byte[this->m_nbCells];
       this->m_cellVoltages = new float[this->m_nbCells];
       this->m_cellLevels = new float[this->m_nbCells];
     }
@@ -97,8 +97,8 @@ public:
   {
     for (byte i = 0; i < m_nbCells; i++)
     {
-      m_cellVoltages[i] = (float)ANALOG_REF * (float)analogRead(m_pinout[i]*(1+float(m_resistorValues[i][1])/m_resistorValues[i][0])))/ANALOG_PRECISION;
-      m_cellLevels[i] = map(m_cellVoltages(LIPO_LOWEST_VOLTAGE,LIPO_HIGHEST_VOLTAGE,0,100));
+      m_cellVoltages[i] = (float)ANALOG_REF * (float)analogRead(m_pinout[i]*(1+float(m_resistorValues[i][1])/m_resistorValues[i][0]))/ANALOG_PRECISION;
+      m_cellLevels[i] = map(m_cellVoltages[i],LIPO_LOWEST_VOLTAGE,LIPO_HIGHEST_VOLTAGE,0,100);
     }
   }
 
