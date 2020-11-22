@@ -1,4 +1,21 @@
-#include "/home/valentin/Dropbox/AVION_RC/Prog/Plane/src/aileron.hpp"
+/**
+ * @file main.ino
+ * @author Valentin Mercy (https://github.com/vmercy)
+ * @brief main program
+ * @version 0.1
+ * @date 2020-11-22
+ * 
+ * @copyright Copyright (c) 2020
+ * 
+ */
+
+//#include "/home/valentin/Dropbox/AVION_RC/Prog/Plane/src/aileron.hpp"
+//#include "/home/valentin/Dropbox/AVION_RC/Prog/Plane/src/motor.hpp"
+//#include "/home/valentin/Dropbox/AVION_RC/Prog/Plane/src/battery.hpp"
+
+#include "aileron.hpp"
+#include "motor.hpp"
+#include "battery.hpp"
 
 /* Pinout Declarations */
 #define LEFT_SERVO 5 //Data pin of servomotor controlling left wing aileron
@@ -7,14 +24,26 @@
 
 #define ESC 3 //Brushless motor ESC
 
+#define DT11_DATA 2 //Temperature and humidity sensor
+
+#define NRF24L01_CE 7
+#define NRF24L01_CSN 8
+
+#define LIPO_MIDPOINT A0
+
+#define LIPO_2S 2
+
 /* Servo Limit Angles */
-#define LEFT_UP 20
-#define LEFT_DOWN 180
+#define LEFT_UP 25
+#define LEFT_DOWN 175
 #define RIGHT_UP 0
-#define RIGHT_DOWN 150 
+#define RIGHT_DOWN 150
 #define ELEV_UP 40
 #define ELEV_DOWN 180
 
+/* Lipo Voltage Divider Resistor Values */
+#define R2 1000 //ohms
+#define R3 1000 //ohms
 
 /* Arrays indexes */
 #define LEFT_AILERON 0
@@ -24,62 +53,37 @@
 #define DOWN 0
 #define UP 1
 
-/*
-void setup() {
+/* Others */
+#define STARTUP_AILERONS_SPEED 10 //in percent
+
+Battery lipo(2);
+Motor brushless(LIPO_2S);
+
+Aileron leftAileron(LEFT_AILERON, LEFT_UP, LEFT_DOWN);
+Aileron rightAileron(RIGHT_AILERON, RIGHT_UP, RIGHT_DOWN);
+Aileron elevAileron(ELEV_AILERON, ELEV_UP, ELEV_DOWN);
+
+/**
+ * @brief startup script, checks all components are working well
+ */
+void start()
+{
+leftAileron.moveSpeed(100,STARTUP_AILERONS_SPEED);
+  rightAileron.moveSpeed(100,STARTUP_AILERONS_SPEED);
+  elevAileron.moveSpeed(100,STARTUP_AILERONS_SPEED);
+  brushless.arm();
+}
+
+void setup()
+{
   Serial.begin(9600);
-  LEF.attach(LEFT_SERVO);
-  RIG.attach(right);
-  ELE.attach(elev);
-  ESC.attach(esc,1000,2000);
+  /* const int lipoResistors[2][2] = {{0, 0}, {R2, R3}};
+  lipo.setResistorValues(lipoResistors); */
+  
+
+
 }
 
-void loop() {
-  ESC.write(0);
-  int i;
-  for(i = limits[LEFT_AILERON][DOWN]; i<limits[LEFT_AILERON][UP];i++)
-  {
-    LEF.write(i);
-    delay(del);
-  }
-  delay(1000);
-  for(i = limits[RIGHT_AILERON][DOWN]; i<limits[RIGHT_AILERON][UP];i++)
-  {
-    RIG.write(i);
-    delay(del);
-  }
-  delay(1000);
-  for(i = limits[ELEV_AILERON][DOWN]; i<limits[ELEV_AILERON][UP];i++)
-  {
-    ELE.write(i);
-    delay(del);
-  }
-  delay(1000);
-
-
- ESC.write(2);
- for(i=0;i<10;i++){
-  ESC.write(i*i);
-  delay(500);
- }
-  ESC.write(180);
- delay(1000); 
-
-Serial.println("Pret...");
-int vit = 0;
-while(vit>=0){
-  if(Serial.available()>0){
-    vit = Serial.parseInt();
-    if(vit>0){
-    Serial.print("Nouvelle vitesse : ");
-    Serial.println(vit,DEC);  
-    ESC.write(vit);    
-    }
-        
-  }
+void loop()
+{
 }
-
- Serial.println("STOP");
- ESC.write(0);
-
-}
-*/
