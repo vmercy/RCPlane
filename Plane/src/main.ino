@@ -9,13 +9,9 @@
  * 
  */
 
-//#include "/home/valentin/Dropbox/AVION_RC/Prog/Plane/src/aileron.hpp"
-//#include "/home/valentin/Dropbox/AVION_RC/Prog/Plane/src/motor.hpp"
-//#include "/home/valentin/Dropbox/AVION_RC/Prog/Plane/src/battery.hpp"
-
-#include "aileron.hpp"
-#include "motor.hpp"
-#include "battery.hpp"
+#include "/home/valentin/Dropbox/AVION_RC/Prog/Plane/src/aileron.hpp"
+#include "/home/valentin/Dropbox/AVION_RC/Prog/Plane/src/motor.hpp"
+#include "/home/valentin/Dropbox/AVION_RC/Prog/Plane/src/battery.hpp"
 
 /* Pinout Declarations */
 #define LEFT_SERVO 5 //Data pin of servomotor controlling left wing aileron
@@ -30,6 +26,7 @@
 #define NRF24L01_CSN 8
 
 #define LIPO_MIDPOINT A0
+#define LIPO_VCC A1
 
 #define LIPO_2S 2
 
@@ -56,8 +53,8 @@
 /* Others */
 #define STARTUP_AILERONS_SPEED 10 //in percent
 
-Battery lipo(2);
-Motor brushless(LIPO_2S);
+Battery lipo(LIPO_2S);
+Motor brushless(ESC);
 
 Aileron leftAileron(LEFT_AILERON, LEFT_UP, LEFT_DOWN);
 Aileron rightAileron(RIGHT_AILERON, RIGHT_UP, RIGHT_DOWN);
@@ -77,9 +74,10 @@ leftAileron.moveSpeed(100,STARTUP_AILERONS_SPEED);
 void setup()
 {
   Serial.begin(9600);
-  /* const int lipoResistors[2][2] = {{0, 0}, {R2, R3}};
-  lipo.setResistorValues(lipoResistors); */
-  
+  const int lipoResistors[2][2] = {{0, 0}, {R2, R3}};
+  lipo.setResistorValues(lipoResistors);
+  const byte lipoPinout[2] = {A0,A1};
+  lipo.setPinout(lipoPinout);
 
 
 }

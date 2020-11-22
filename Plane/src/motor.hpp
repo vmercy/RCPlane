@@ -14,7 +14,8 @@
 
 #ifndef SERVO_H
 #define SERVO_H
-#include "/home/valentin/Arduino/libraries/Servo/src/Servo.h"
+//#include "/home/valentin/Arduino/libraries/Servo/src/Servo.h"
+#include <Servo.h>
 #endif
 
 /**
@@ -46,7 +47,7 @@ public:
     Motor();
     m_ESC.attach(dataPin_p);
   }
-  ~Motor();
+  ~Motor(){};
 
   /**
    * @brief Arms the ESC

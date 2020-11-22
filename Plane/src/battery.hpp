@@ -14,6 +14,8 @@
 
 #define LIPO_LOWEST_VOLTAGE 3
 #define LIPO_HIGHEST_VOLTAGE 4.2
+#define ANALOG_REF 5
+#define ANALOG_PRECISION 1023
 
 /**
  * @class battery
@@ -27,7 +29,14 @@ private:
    * @brief values of resistors used in the voltage divider
    * @note set to 0 where there is no resistance
    */
-  //int **m_resistorValues;
+  int **m_resistorValues;
+  /**
+   * @brief array containing voltage divider output pins
+   */
+  byte *m_pinout;
+  /**
+   * @brief individual voltages of battery cells in Volts
+   */
   float *m_cellVoltages;
   /**
    * @brief individual levels of battery cells in percent
@@ -35,15 +44,24 @@ private:
   float *m_cellLevels;
 
 public:
-  Battery();
+  Battery()
+  {
+    this->m_nbCells = 0;
+    this->m_cellLevels NULL;
+    this->m_cellVoltages = NULL;
+    this->m_resistorValues = NULL;
+    this->m_pinout = NULL;
+  }
   Battery(byte NbCells_p)
   {
+    Battery();
     if (NbCells_p)
     {
       m_nbCells = NbCells_p;
-      /* this->m_resistorValues = new int *[this->m_nbCells];
+      this->m_resistorValues = new int *[this->m_nbCells];
       for (byte i = 0; i < m_nbCells; i++)
-        this->m_resistorValues[i] = new int[2]; */
+        this->m_resistorValues[i] = new int[2];
+      this->m_pinout = new byte[];
       this->m_cellVoltages = new float[this->m_nbCells];
       this->m_cellLevels = new float[this->m_nbCells];
     }
@@ -53,15 +71,24 @@ public:
   {
     delete[] this->m_cellLevels;
     delete[] this->m_cellVoltages;
-    //delete[] this->m_resistorValues;
+    for (byte i = 0; i < m_nbCells; i++)
+      delete[] this->m_resistorValues[i];
+    delete[] this->m_resistorValues;
+    delete[] this->m_pinout;
   }
 
-/*   void setResistorValues(const int resistorValues_p[][2])
+  void setResistorValues(const int resistorValues_p[][2])
   {
     for (byte i = 0; i < m_nbCells; i++)
       for (byte j = 0; j < 2; j++)
         m_resistorValues[i][j] = resistorValues_p[i][j];
-  } */
+  }
+
+  void setPinout(const byte pinout_p[])
+  {
+    for (byte i = 0; i < m_nbCells; i++)
+      m_pinout[i] = pinout_p[i];
+  }
 
   /**
    * @brief refreshes all values
@@ -70,6 +97,8 @@ public:
   {
     for (byte i = 0; i < m_nbCells; i++)
     {
+      m_cellVoltages[i] = (float)ANALOG_REF * (float)analogRead(m_pinout[i]*(1+float(m_resistorValues[i][1])/m_resistorValues[i][0])))/ANALOG_PRECISION;
+      m_cellLevels[i] = map(m_cellVoltages(LIPO_LOWEST_VOLTAGE,LIPO_HIGHEST_VOLTAGE,0,100));
     }
   }
 

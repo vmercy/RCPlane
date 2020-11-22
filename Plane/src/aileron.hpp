@@ -64,7 +64,7 @@ public:
 		m_minAngle = min_p;
 		m_maxAngle = max_p;
 	}
-	~Aileron();
+	~Aileron(){};
 	/**
    * @brief reverses the current sense of rotation of the servomotor
    */
