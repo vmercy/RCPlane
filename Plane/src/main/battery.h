@@ -1,0 +1,107 @@
+/**
+ * @file battery.h
+ * @author Valentin Mercy (https://github.com/vmercy)
+ * @brief declaration of battery class
+ * @version 0.1
+ * @date 2020-11-21
+ * 
+ * @copyright Copyright (c) 2020
+ * 
+ */
+
+#ifndef BATTERY_HPP
+#define BATTERY_HPP
+
+#include <stdint.h>
+
+#define LIPO_LOWEST_VOLTAGE 3
+#define LIPO_HIGHEST_VOLTAGE 4.2
+#define ANALOG_REF 5
+#define ANALOG_PRECISION 1023
+
+/**
+ * @class battery
+ * @brief Represents the Lipo battery pack and implements methods to get its charge level
+ */
+class Battery
+{
+private:
+  uint8_t m_nbCells;
+  /**
+   * @brief values of resistors used in the voltage divider
+   * @note set to 0 where there is no resistance
+   */
+  int **m_resistorValues;
+  /**
+   * @brief array containing voltage divider output pins
+   */
+  uint8_t *m_pinout;
+  /**
+   * @brief individual voltages of battery cells in Volts
+   */
+  float *m_cellVoltages;
+  /**
+   * @brief individual levels of battery cells in percent
+   */
+  float *m_cellLevels;
+  /**
+   * @brief global voltage of battery pack
+   */
+  float m_globalVoltage;
+  /**
+   * @brief global level of battery pack
+   */
+  float m_globalLevel;
+
+public:
+  Battery();
+  /**
+   * @brief Construct a new Battery object with a specified number of cells
+   * @param NbCells_p number of cells of the battery pack
+   */
+  Battery(uint8_t NbCells_p);
+  /**
+   * @brief Destroy the Battery object
+   */
+  ~Battery();
+  /**
+   * @brief set all resistor values used in voltage divider
+   * @param resistorValues_p[][2] array containing all resistor values in the format {{R1, R2},{R3, R4}} (see README.md)
+   * @note the size of resistorValues_p must be equal to the number of cells m_nbCells
+   */
+  void setResistorValues(const int resistorValues_p[][2]);
+  /**
+   * @brief Set the Pinout of the voltage divider in the format {}
+   * @note the size of pinout_p must be equal to the number of cells m_nbCells
+   * @param pinout_p 
+   */
+  void setPinout(const uint8_t pinout_p[]);
+  /**
+   * @brief refreshes voltage and level of all battery cells and global voltage and level
+   */
+  void refresh();
+  /**
+   * @brief Get the individual voltage of a battery cell
+   * @param cellSelect_p index of target cell
+   * @return float 
+   */
+  float getCellVoltage(uint8_t cellSelect_p);
+  /**
+   * @brief Get the individual level percentage of a battery cell
+   * @param cellSelect_p index of target cell
+   * @return float selected cell level in percents
+   */
+  float getCellLevel(uint8_t cellSelect_p);
+  /**
+   * @brief Get the Total Voltage of the lipo pack
+   * @return float total voltage in volts
+   */
+  float getGlobalVoltage();
+  /**
+   * @brief Get the Global Level of the lipo pack calculated from global voltage
+   * @return float total level in percents
+   */
+  float getGlobalLevel();
+};
+
+#endif

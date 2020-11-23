@@ -1,8 +1,8 @@
 #include <Servo.h>
 
-#define LEFTM 0
-#define RIGHTM 1
-#define ELEVM 2
+#define LEFT_AILERON_PIN 0
+#define RIGHT_AILERON_PIN 1
+#define ELEV_AILERON_PIN 2
 #define DOWN 0
 #define UP 1
 
@@ -70,7 +70,7 @@ void loop()
         Serial.println(vit, DEC);
         ESC.write(vit);
       }
-      1
+      
     }
   }
 

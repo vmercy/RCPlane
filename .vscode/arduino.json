@@ -1,6 +1,6 @@
 {
-    "sketch": "Plane/src/main.ino",
+    "sketch": "Plane/src/main/main.ino",
     "board": "arduino:avr:nano",
-    "configuration": "cpu=atmega168",
+    "configuration": "cpu=atmega328old",
     "port": "/dev/ttyUSB0"
 }

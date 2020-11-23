@@ -1,7 +1,7 @@
 /**
- * @file aileron.hpp
+ * @file aileron.h
  * @author Valentin Mercy (https://github.com/vmercy)
- * @brief Definition and declaration of aileron class
+ * @brief Declaration of aileron class
  * @version 0.1
  * @date 2020-11-22
  * @copyright Copyright (c) 2020
@@ -10,6 +10,8 @@
 
 #ifndef AILERON_HPP
 #define AILERON_HPP
+
+#include <stdint.h>
 
 /**
  * @brief the delay between two steps (1°) for a the slowest movement available
@@ -20,7 +22,7 @@
 #ifndef SERVO_H
 #define SERVO_H
 //#include "/home/valentin/Arduino/libraries/Servo/src/Servo.h"
-#include <Servo.h>
+#include "Servo.h"
 #endif
 
 /**
@@ -30,107 +32,64 @@
 class Aileron
 {
 private:
+  Servo m_servo;
+  uint8_t m_servoPin;
 	/**
    * @brief minimum angle the servomotor can reach
    */
-	byte m_minAngle;
+	uint8_t m_minAngle;
 	/**
    * @brief maximum angle the servomotor can reach
    */
-	byte m_maxAngle;
+	uint8_t m_maxAngle;
 	/**
    * @brief reverses the sense of rotation if set to true
    */
 	bool m_senseOfRotation;
-	Servo m_servo;
 
 public:
-	Aileron()
-	{
-		m_servo = Servo();
-		m_senseOfRotation = false;
-	}
+	Aileron();
 	/**
-   * @brief Construct a new aileron object with given limit angles
+   * @brief Initialize the servomotor associated with the aileron
    * @note limit angles will be recorded so that m_minAngle <= m_maxAngle regardless of the parameters order. See
    * @param min_p minimum angle the servomotor can reach
    * @param max_p maximum angle the servomotor can reach
    * @param pin_p the pin the servomotor is attached to
    */
-	Aileron(int pin_p, int min_p, int max_p)
-	{
-		m_servo = Servo();
-		m_servo.attach(pin_p);
-		m_minAngle = min_p;
-		m_maxAngle = max_p;
-	}
-	~Aileron(){};
+	void init(int pin_p, int min_p, int max_p);
+	~Aileron();
 	/**
    * @brief reverses the current sense of rotation of the servomotor
    */
-	void reverse()
-	{
-		m_senseOfRotation = !m_senseOfRotation;
-	}
+	void reverse();
 	/**
    * @brief moves aileron with a given angle
    * @return true if target angle is reached
    * @param percent_p final position in percent  
    */
-	bool moveTo(byte percent_p)
-	{
-		int targetAngle = 0;
-		if (m_senseOfRotation)
-			targetAngle = map(percent_p, 0, 100, targetAngle ? m_minAngle : m_maxAngle, targetAngle ? m_maxAngle : m_minAngle);
-		m_servo.write(targetAngle);
-		return (targetAngle == m_servo.read());
-	}
+	void moveTo(uint8_t percent_p);
 
 	/**
    * @brief moves aileron at specified speed
    * @param percent_p final position in percent
    * @param speed_p movement speed (in percent, optional)
    * @param start_p start position (in percent, optional)
-   * @return true if target angle is reached
    */
-	bool moveSpeed(byte final_p, byte speed_p = 100, int start_p = -1)
-	{
-		byte firstStep = 0;
-		if (start_p != -1)
-		{
-			firstStep = start_p;
-			moveTo(start_p);
-		}
-		int stepDelay = map(speed_p, 0, 100, SLOWEST_MOVEMENT_DELAY, 0);
-		for (byte i = firstStep; i <= 100; i++)
-		{
-			moveTo(i);
-			delay(stepDelay);
-		}
-	}
+	void moveSpeed(uint8_t final_p, uint8_t speed_p = 100, int start_p = -1);
 
 	/**
    * @brief moves aileron upward at max speed
    * @return true if maximum angle is reached
    */
-	bool moveUp()
-	{
-		return moveTo(100);
-	}
+	void moveUp();
 
 	/**
    * @brief moves aileron downward at max speed
    * @return true if maximum angle is reached
    */
-	bool moveDown()
-	{
-		return moveTo(0);
-	}
+	void moveDown();
 
-	byte getPosition()
-	{
-		return m_servo.read();
-	}
+	uint8_t getPosition();
 };
 
 #endif
