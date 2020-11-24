@@ -116,6 +116,19 @@ void loop()
   Serial.print("Tension totale : ");
   Serial.print(lipoPack.getGlobalVoltage(),2);
   Serial.println("V");
+  for(uint8_t i = 0; i<2;i++)
+  {
+    Serial.print("Niveau cellule ");
+    Serial.print(i);
+    Serial.print(" : ");
+    Serial.print(lipoPack.getCellLevel(i),2);
+    Serial.println("%");
+  }
+  Serial.print("Niveau total : ");
+  Serial.print(lipoPack.getGlobalLevel(),2);
+  Serial.println("%");
+  Serial.println("********");
+  delay(1000);
   Serial.println("********");
   delay(1000);
 }

@@ -14,7 +14,7 @@
 
 #include <stdint.h>
 
-#define LIPO_LOWEST_VOLTAGE 3.0
+#define LIPO_LOWEST_VOLTAGE 3.3
 #define LIPO_HIGHEST_VOLTAGE 4.2
 #define ANALOG_REF 5.0
 #define ANALOG_PRECISION 1023
@@ -88,13 +88,13 @@ public:
   void refresh();
   /**
    * @brief Get the individual voltage of a battery cell
-   * @param cellSelect_p index of target cell
-   * @return float 
+   * @param cellSelect_p index of target cell (must be < nbCells)
+   * @return float selected cell voltage in volts
    */
   float getCellVoltage(uint8_t cellSelect_p);
   /**
    * @brief Get the individual level percentage of a battery cell
-   * @param cellSelect_p index of target cell
+   * @param cellSelect_p index of target cell (must be < nbCells)
    * @return float selected cell level in percents
    */
   float getCellLevel(uint8_t cellSelect_p);
