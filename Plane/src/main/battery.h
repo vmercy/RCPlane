@@ -14,9 +14,9 @@
 
 #include <stdint.h>
 
-#define LIPO_LOWEST_VOLTAGE 3
+#define LIPO_LOWEST_VOLTAGE 3.0
 #define LIPO_HIGHEST_VOLTAGE 4.2
-#define ANALOG_REF 5
+#define ANALOG_REF 5.0
 #define ANALOG_PRECISION 1023
 
 /**
@@ -52,22 +52,28 @@ private:
    * @brief global level of battery pack
    */
   float m_globalLevel;
+  /**
+   * @brief a coefficient to ajust voltge measurement according to multimiter one
+   */
+  float m_rectifierCoefficient;
 
 public:
   Battery();
   /**
-   * @brief Construct a new Battery object with a specified number of cells
-   * @param NbCells_p number of cells of the battery pack
-   */
-  Battery(uint8_t NbCells_p);
-  /**
    * @brief Destroy the Battery object
    */
   ~Battery();
+    /**
+   * @brief Initialize a Battery object with a specified number of cells
+   * @param NbCells_p number of cells of the battery pack
+   * @param rectifierCoefficient_p the rectifier coefficient to apply on voltage measurements
+   */
+  void init(uint8_t NbCells_p, float rectifierCoefficient_p);
   /**
    * @brief set all resistor values used in voltage divider
    * @param resistorValues_p[][2] array containing all resistor values in the format {{R1, R2},{R3, R4}} (see README.md)
    * @note the size of resistorValues_p must be equal to the number of cells m_nbCells
+   * @note set resistorValues_p[i] to {0,0} if there is no voltage divider to measure i-th cell voltage
    */
   void setResistorValues(const int resistorValues_p[][2]);
   /**

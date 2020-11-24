@@ -73,6 +73,11 @@ void Aileron::moveDown()
   moveTo(0);
 }
 
+void Aileron::moveIdle()
+{
+  moveTo((m_minAngle+m_maxAngle)/2);
+}
+
 uint8_t Aileron::getPosition()
 {
   return m_servo.read();

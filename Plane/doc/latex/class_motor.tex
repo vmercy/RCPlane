@@ -1,0 +1,130 @@
+\hypertarget{class_motor}{}\section{Motor Class Reference}
+\label{class_motor}\index{Motor@{Motor}}
+
+
+{\ttfamily \#include $<$motor.\+h$>$}
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{class_motor_af6106b4c506411265c5face762b6c004}{Motor} ()
+\item 
+void \hyperlink{class_motor_a62bf4d19aed7729c5dd4a2c1148c86f8}{init} (uint8\+\_\+t data\+Pin\+\_\+p)
+\begin{DoxyCompactList}\small\item\em Initialize a new \hyperlink{class_motor}{Motor} object with given attach pin. \end{DoxyCompactList}\item 
+\hyperlink{class_motor_a2e57c7b2681efea1d3b7f253ee88ecd4}{$\sim$\+Motor} ()
+\item 
+void \hyperlink{class_motor_af21376271175d094adf9a077f70d2208}{arm} ()
+\begin{DoxyCompactList}\small\item\em Arms the E\+SC. \end{DoxyCompactList}\item 
+void \hyperlink{class_motor_a0d852462f8afab5d980d2507d1915447}{set\+Speed} (uint8\+\_\+t new\+Speed\+\_\+p)
+\begin{DoxyCompactList}\small\item\em Set new speed. \end{DoxyCompactList}\item 
+void \hyperlink{class_motor_a0cffd54bdf0fa79b4ac7bae5ffd9a103}{idle} ()
+\begin{DoxyCompactList}\small\item\em set motor speed to idle \end{DoxyCompactList}\item 
+bool \hyperlink{class_motor_a9f6e92bbf36d9f68665bc1e02af075b6}{is\+Armed} ()
+\begin{DoxyCompactList}\small\item\em Get the state of E\+SC arming. \end{DoxyCompactList}\item 
+void \hyperlink{class_motor_a0c2e15bba82f033dafb3b45ea874692f}{test} (int duration\+\_\+p)
+\begin{DoxyCompactList}\small\item\em Runs a test of the motor starting from idle and accelerating to max speed. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_motor_af6106b4c506411265c5face762b6c004}\label{class_motor_af6106b4c506411265c5face762b6c004}} 
+\index{Motor@{Motor}!Motor@{Motor}}
+\index{Motor@{Motor}!Motor@{Motor}}
+\subsubsection{\texorpdfstring{Motor()}{Motor()}}
+{\footnotesize\ttfamily Motor\+::\+Motor (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{class_motor_a2e57c7b2681efea1d3b7f253ee88ecd4}\label{class_motor_a2e57c7b2681efea1d3b7f253ee88ecd4}} 
+\index{Motor@{Motor}!````~Motor@{$\sim$\+Motor}}
+\index{````~Motor@{$\sim$\+Motor}!Motor@{Motor}}
+\subsubsection{\texorpdfstring{$\sim$\+Motor()}{~Motor()}}
+{\footnotesize\ttfamily Motor\+::$\sim$\+Motor (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{class_motor_af21376271175d094adf9a077f70d2208}\label{class_motor_af21376271175d094adf9a077f70d2208}} 
+\index{Motor@{Motor}!arm@{arm}}
+\index{arm@{arm}!Motor@{Motor}}
+\subsubsection{\texorpdfstring{arm()}{arm()}}
+{\footnotesize\ttfamily void Motor\+::arm (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Arms the E\+SC. 
+
+\begin{DoxyNote}{Note}
+once the E\+SC is armed, the motor will react to any control signal and keep it 
+\end{DoxyNote}
+\mbox{\Hypertarget{class_motor_a0cffd54bdf0fa79b4ac7bae5ffd9a103}\label{class_motor_a0cffd54bdf0fa79b4ac7bae5ffd9a103}} 
+\index{Motor@{Motor}!idle@{idle}}
+\index{idle@{idle}!Motor@{Motor}}
+\subsubsection{\texorpdfstring{idle()}{idle()}}
+{\footnotesize\ttfamily void Motor\+::idle (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+set motor speed to idle 
+
+\mbox{\Hypertarget{class_motor_a62bf4d19aed7729c5dd4a2c1148c86f8}\label{class_motor_a62bf4d19aed7729c5dd4a2c1148c86f8}} 
+\index{Motor@{Motor}!init@{init}}
+\index{init@{init}!Motor@{Motor}}
+\subsubsection{\texorpdfstring{init()}{init()}}
+{\footnotesize\ttfamily void Motor\+::init (\begin{DoxyParamCaption}\item[{uint8\+\_\+t}]{data\+Pin\+\_\+p }\end{DoxyParamCaption})}
+
+
+
+Initialize a new \hyperlink{class_motor}{Motor} object with given attach pin. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em data\+Pin\+\_\+p} & the pin the E\+SC is attached to \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_motor_a9f6e92bbf36d9f68665bc1e02af075b6}\label{class_motor_a9f6e92bbf36d9f68665bc1e02af075b6}} 
+\index{Motor@{Motor}!is\+Armed@{is\+Armed}}
+\index{is\+Armed@{is\+Armed}!Motor@{Motor}}
+\subsubsection{\texorpdfstring{is\+Armed()}{isArmed()}}
+{\footnotesize\ttfamily bool Motor\+::is\+Armed (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Get the state of E\+SC arming. 
+
+\begin{DoxyReturn}{Returns}
+true if E\+SC is armed 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_motor_a0d852462f8afab5d980d2507d1915447}\label{class_motor_a0d852462f8afab5d980d2507d1915447}} 
+\index{Motor@{Motor}!set\+Speed@{set\+Speed}}
+\index{set\+Speed@{set\+Speed}!Motor@{Motor}}
+\subsubsection{\texorpdfstring{set\+Speed()}{setSpeed()}}
+{\footnotesize\ttfamily void Motor\+::set\+Speed (\begin{DoxyParamCaption}\item[{uint8\+\_\+t}]{new\+Speed\+\_\+p }\end{DoxyParamCaption})}
+
+
+
+Set new speed. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em new\+Speed\+\_\+p} & new desired speed (in percent) \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_motor_a0c2e15bba82f033dafb3b45ea874692f}\label{class_motor_a0c2e15bba82f033dafb3b45ea874692f}} 
+\index{Motor@{Motor}!test@{test}}
+\index{test@{test}!Motor@{Motor}}
+\subsubsection{\texorpdfstring{test()}{test()}}
+{\footnotesize\ttfamily void Motor\+::test (\begin{DoxyParamCaption}\item[{int}]{duration\+\_\+p }\end{DoxyParamCaption})}
+
+
+
+Runs a test of the motor starting from idle and accelerating to max speed. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em duration\+\_\+p} & total duration of test (from idle to max speed) \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+src/main/\hyperlink{motor_8h}{motor.\+h}\item 
+src/main/\hyperlink{motor_8cpp}{motor.\+cpp}\end{DoxyCompactItemize}

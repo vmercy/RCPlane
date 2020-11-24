@@ -1,0 +1,184 @@
+\hypertarget{class_battery}{}\section{Battery Class Reference}
+\label{class_battery}\index{Battery@{Battery}}
+
+
+{\ttfamily \#include $<$battery.\+h$>$}
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{class_battery_a36a6234c583e3b3506f4a77e3eb49989}{Battery} ()
+\item 
+\hyperlink{class_battery_a637d8766eb5cbdb33ab2a19a30622bc3}{$\sim$\+Battery} ()
+\begin{DoxyCompactList}\small\item\em Destroy the \hyperlink{class_battery}{Battery} object. \end{DoxyCompactList}\item 
+void \hyperlink{class_battery_aed541975df2c26475cbc0c37a9ddf659}{init} (uint8\+\_\+t Nb\+Cells\+\_\+p, float rectifier\+Coefficient\+\_\+p)
+\begin{DoxyCompactList}\small\item\em Initialize a \hyperlink{class_battery}{Battery} object with a specified number of cells. \end{DoxyCompactList}\item 
+void \hyperlink{class_battery_afb257ecd2eab7ed446d15ea9e78cc074}{set\+Resistor\+Values} (const int resistor\+Values\+\_\+p\mbox{[}$\,$\mbox{]}\mbox{[}2\mbox{]})
+\begin{DoxyCompactList}\small\item\em set all resistor values used in voltage divider \end{DoxyCompactList}\item 
+void \hyperlink{class_battery_a580d9582fbcf2c5f8185e3007852f73d}{set\+Pinout} (const uint8\+\_\+t pinout\+\_\+p\mbox{[}$\,$\mbox{]})
+\begin{DoxyCompactList}\small\item\em Set the Pinout of the voltage divider in the format \{\}. \end{DoxyCompactList}\item 
+void \hyperlink{class_battery_a7289442b8119494f06080d843c261c74}{refresh} ()
+\begin{DoxyCompactList}\small\item\em refreshes voltage and level of all battery cells and global voltage and level \end{DoxyCompactList}\item 
+float \hyperlink{class_battery_ae449209593f825ca7cefc958d51ba232}{get\+Cell\+Voltage} (uint8\+\_\+t cell\+Select\+\_\+p)
+\begin{DoxyCompactList}\small\item\em Get the individual voltage of a battery cell. \end{DoxyCompactList}\item 
+float \hyperlink{class_battery_a810c22577141039b044fdf59a9f9bdef}{get\+Cell\+Level} (uint8\+\_\+t cell\+Select\+\_\+p)
+\begin{DoxyCompactList}\small\item\em Get the individual level percentage of a battery cell. \end{DoxyCompactList}\item 
+float \hyperlink{class_battery_a288d5d3b5ebbe964751a9d64519aacdb}{get\+Global\+Voltage} ()
+\begin{DoxyCompactList}\small\item\em Get the Total Voltage of the lipo pack. \end{DoxyCompactList}\item 
+float \hyperlink{class_battery_a16e5bfb8a07ce93c08382fbcfb0b19be}{get\+Global\+Level} ()
+\begin{DoxyCompactList}\small\item\em Get the Global Level of the lipo pack calculated from global voltage. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_battery_a36a6234c583e3b3506f4a77e3eb49989}\label{class_battery_a36a6234c583e3b3506f4a77e3eb49989}} 
+\index{Battery@{Battery}!Battery@{Battery}}
+\index{Battery@{Battery}!Battery@{Battery}}
+\subsubsection{\texorpdfstring{Battery()}{Battery()}}
+{\footnotesize\ttfamily Battery\+::\+Battery (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{class_battery_a637d8766eb5cbdb33ab2a19a30622bc3}\label{class_battery_a637d8766eb5cbdb33ab2a19a30622bc3}} 
+\index{Battery@{Battery}!````~Battery@{$\sim$\+Battery}}
+\index{````~Battery@{$\sim$\+Battery}!Battery@{Battery}}
+\subsubsection{\texorpdfstring{$\sim$\+Battery()}{~Battery()}}
+{\footnotesize\ttfamily Battery\+::$\sim$\+Battery (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Destroy the \hyperlink{class_battery}{Battery} object. 
+
+
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{class_battery_a810c22577141039b044fdf59a9f9bdef}\label{class_battery_a810c22577141039b044fdf59a9f9bdef}} 
+\index{Battery@{Battery}!get\+Cell\+Level@{get\+Cell\+Level}}
+\index{get\+Cell\+Level@{get\+Cell\+Level}!Battery@{Battery}}
+\subsubsection{\texorpdfstring{get\+Cell\+Level()}{getCellLevel()}}
+{\footnotesize\ttfamily float Battery\+::get\+Cell\+Level (\begin{DoxyParamCaption}\item[{uint8\+\_\+t}]{cell\+Select\+\_\+p }\end{DoxyParamCaption})}
+
+
+
+Get the individual level percentage of a battery cell. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em cell\+Select\+\_\+p} & index of target cell \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+float selected cell level in percents 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_battery_ae449209593f825ca7cefc958d51ba232}\label{class_battery_ae449209593f825ca7cefc958d51ba232}} 
+\index{Battery@{Battery}!get\+Cell\+Voltage@{get\+Cell\+Voltage}}
+\index{get\+Cell\+Voltage@{get\+Cell\+Voltage}!Battery@{Battery}}
+\subsubsection{\texorpdfstring{get\+Cell\+Voltage()}{getCellVoltage()}}
+{\footnotesize\ttfamily float Battery\+::get\+Cell\+Voltage (\begin{DoxyParamCaption}\item[{uint8\+\_\+t}]{cell\+Select\+\_\+p }\end{DoxyParamCaption})}
+
+
+
+Get the individual voltage of a battery cell. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em cell\+Select\+\_\+p} & index of target cell \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+float 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_battery_a16e5bfb8a07ce93c08382fbcfb0b19be}\label{class_battery_a16e5bfb8a07ce93c08382fbcfb0b19be}} 
+\index{Battery@{Battery}!get\+Global\+Level@{get\+Global\+Level}}
+\index{get\+Global\+Level@{get\+Global\+Level}!Battery@{Battery}}
+\subsubsection{\texorpdfstring{get\+Global\+Level()}{getGlobalLevel()}}
+{\footnotesize\ttfamily float Battery\+::get\+Global\+Level (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Get the Global Level of the lipo pack calculated from global voltage. 
+
+\begin{DoxyReturn}{Returns}
+float total level in percents 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_battery_a288d5d3b5ebbe964751a9d64519aacdb}\label{class_battery_a288d5d3b5ebbe964751a9d64519aacdb}} 
+\index{Battery@{Battery}!get\+Global\+Voltage@{get\+Global\+Voltage}}
+\index{get\+Global\+Voltage@{get\+Global\+Voltage}!Battery@{Battery}}
+\subsubsection{\texorpdfstring{get\+Global\+Voltage()}{getGlobalVoltage()}}
+{\footnotesize\ttfamily float Battery\+::get\+Global\+Voltage (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Get the Total Voltage of the lipo pack. 
+
+\begin{DoxyReturn}{Returns}
+float total voltage in volts 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_battery_aed541975df2c26475cbc0c37a9ddf659}\label{class_battery_aed541975df2c26475cbc0c37a9ddf659}} 
+\index{Battery@{Battery}!init@{init}}
+\index{init@{init}!Battery@{Battery}}
+\subsubsection{\texorpdfstring{init()}{init()}}
+{\footnotesize\ttfamily void Battery\+::init (\begin{DoxyParamCaption}\item[{uint8\+\_\+t}]{Nb\+Cells\+\_\+p,  }\item[{float}]{rectifier\+Coefficient\+\_\+p = {\ttfamily 1.0} }\end{DoxyParamCaption})}
+
+
+
+Initialize a \hyperlink{class_battery}{Battery} object with a specified number of cells. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em Nb\+Cells\+\_\+p} & number of cells of the battery pack \\
+\hline
+{\em rectifier\+Coefficient\+\_\+p} & the rectifier coefficient to apply on voltage measurements \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_battery_a7289442b8119494f06080d843c261c74}\label{class_battery_a7289442b8119494f06080d843c261c74}} 
+\index{Battery@{Battery}!refresh@{refresh}}
+\index{refresh@{refresh}!Battery@{Battery}}
+\subsubsection{\texorpdfstring{refresh()}{refresh()}}
+{\footnotesize\ttfamily void Battery\+::refresh (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+refreshes voltage and level of all battery cells and global voltage and level 
+
+\mbox{\Hypertarget{class_battery_a580d9582fbcf2c5f8185e3007852f73d}\label{class_battery_a580d9582fbcf2c5f8185e3007852f73d}} 
+\index{Battery@{Battery}!set\+Pinout@{set\+Pinout}}
+\index{set\+Pinout@{set\+Pinout}!Battery@{Battery}}
+\subsubsection{\texorpdfstring{set\+Pinout()}{setPinout()}}
+{\footnotesize\ttfamily void Battery\+::set\+Pinout (\begin{DoxyParamCaption}\item[{const uint8\+\_\+t}]{pinout\+\_\+p\mbox{[}$\,$\mbox{]} }\end{DoxyParamCaption})}
+
+
+
+Set the Pinout of the voltage divider in the format \{\}. 
+
+\begin{DoxyNote}{Note}
+the size of pinout\+\_\+p must be equal to the number of cells m\+\_\+nb\+Cells 
+\end{DoxyNote}
+
+\begin{DoxyParams}{Parameters}
+{\em pinout\+\_\+p} & \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_battery_afb257ecd2eab7ed446d15ea9e78cc074}\label{class_battery_afb257ecd2eab7ed446d15ea9e78cc074}} 
+\index{Battery@{Battery}!set\+Resistor\+Values@{set\+Resistor\+Values}}
+\index{set\+Resistor\+Values@{set\+Resistor\+Values}!Battery@{Battery}}
+\subsubsection{\texorpdfstring{set\+Resistor\+Values()}{setResistorValues()}}
+{\footnotesize\ttfamily void Battery\+::set\+Resistor\+Values (\begin{DoxyParamCaption}\item[{const int}]{resistor\+Values\+\_\+p\mbox{[}$\,$\mbox{]}\mbox{[}2\mbox{]} }\end{DoxyParamCaption})}
+
+
+
+set all resistor values used in voltage divider 
+
+
+\begin{DoxyParams}{Parameters}
+{\em resistor\+Values\+\_\+p\mbox{[}$\,$\mbox{]}\mbox{[}2\mbox{]}} & array containing all resistor values in the format \{\{R1, R2\},\{R3, R4\}\} (see R\+E\+A\+D\+M\+E.\+md) \\
+\hline
+\end{DoxyParams}
+\begin{DoxyNote}{Note}
+the size of resistor\+Values\+\_\+p must be equal to the number of cells m\+\_\+nb\+Cells 
+
+set resistor\+Values\+\_\+p\mbox{[}i\mbox{]} to \{0,0\} if there is no voltage divider to measure i-\/th cell voltage 
+\end{DoxyNote}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+src/main/\hyperlink{battery_8h}{battery.\+h}\item 
+src/main/\hyperlink{battery_8cpp}{battery.\+cpp}\end{DoxyCompactItemize}

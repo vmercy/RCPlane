@@ -1,0 +1,155 @@
+\hypertarget{class_aileron}{}\section{Aileron Class Reference}
+\label{class_aileron}\index{Aileron@{Aileron}}
+
+
+{\ttfamily \#include $<$aileron.\+h$>$}
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{class_aileron_ad2f851e39ec1eb19aeb0fbe2bdf4ef9c}{Aileron} ()
+\item 
+void \hyperlink{class_aileron_ad28b0e5e53705b1f43a3fa73c0765a96}{init} (int pin\+\_\+p, int min\+\_\+p, int max\+\_\+p)
+\begin{DoxyCompactList}\small\item\em Initialize the servomotor associated with the aileron. \end{DoxyCompactList}\item 
+\hyperlink{class_aileron_af05fcc71c65e31b919612cce2b0a5449}{$\sim$\+Aileron} ()
+\item 
+void \hyperlink{class_aileron_a5d5579971f2679d708d01657d63da414}{reverse} ()
+\begin{DoxyCompactList}\small\item\em reverses the current sense of rotation of the servomotor \end{DoxyCompactList}\item 
+void \hyperlink{class_aileron_a54db168cd8d880e8ec4b49af69ad70ae}{move\+To} (uint8\+\_\+t percent\+\_\+p)
+\begin{DoxyCompactList}\small\item\em moves aileron with a given angle \end{DoxyCompactList}\item 
+void \hyperlink{class_aileron_a0873615152c2c2811e6c15fb7ce32539}{move\+Speed} (uint8\+\_\+t final\+\_\+p, uint8\+\_\+t speed\+\_\+p=100, int start\+\_\+p=-\/1)
+\begin{DoxyCompactList}\small\item\em moves aileron at specified speed \end{DoxyCompactList}\item 
+void \hyperlink{class_aileron_abeee29a990a1a9b3d8bc884991b7221f}{move\+Up} ()
+\begin{DoxyCompactList}\small\item\em moves aileron upward at max speed \end{DoxyCompactList}\item 
+void \hyperlink{class_aileron_a7c4b7d445e5b0b7469e819e5068db841}{move\+Down} ()
+\begin{DoxyCompactList}\small\item\em moves aileron downward at max speed \end{DoxyCompactList}\item 
+void \hyperlink{class_aileron_a52f780193672d894137866203860f817}{move\+Idle} ()
+\begin{DoxyCompactList}\small\item\em moves aileron to idle position \end{DoxyCompactList}\item 
+uint8\+\_\+t \hyperlink{class_aileron_a2eaf14f5794bb55035b19499f0c1ec6c}{get\+Position} ()
+\end{DoxyCompactItemize}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_aileron_ad2f851e39ec1eb19aeb0fbe2bdf4ef9c}\label{class_aileron_ad2f851e39ec1eb19aeb0fbe2bdf4ef9c}} 
+\index{Aileron@{Aileron}!Aileron@{Aileron}}
+\index{Aileron@{Aileron}!Aileron@{Aileron}}
+\subsubsection{\texorpdfstring{Aileron()}{Aileron()}}
+{\footnotesize\ttfamily Aileron\+::\+Aileron (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{class_aileron_af05fcc71c65e31b919612cce2b0a5449}\label{class_aileron_af05fcc71c65e31b919612cce2b0a5449}} 
+\index{Aileron@{Aileron}!````~Aileron@{$\sim$\+Aileron}}
+\index{````~Aileron@{$\sim$\+Aileron}!Aileron@{Aileron}}
+\subsubsection{\texorpdfstring{$\sim$\+Aileron()}{~Aileron()}}
+{\footnotesize\ttfamily Aileron\+::$\sim$\+Aileron (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{class_aileron_a2eaf14f5794bb55035b19499f0c1ec6c}\label{class_aileron_a2eaf14f5794bb55035b19499f0c1ec6c}} 
+\index{Aileron@{Aileron}!get\+Position@{get\+Position}}
+\index{get\+Position@{get\+Position}!Aileron@{Aileron}}
+\subsubsection{\texorpdfstring{get\+Position()}{getPosition()}}
+{\footnotesize\ttfamily uint8\+\_\+t Aileron\+::get\+Position (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{class_aileron_ad28b0e5e53705b1f43a3fa73c0765a96}\label{class_aileron_ad28b0e5e53705b1f43a3fa73c0765a96}} 
+\index{Aileron@{Aileron}!init@{init}}
+\index{init@{init}!Aileron@{Aileron}}
+\subsubsection{\texorpdfstring{init()}{init()}}
+{\footnotesize\ttfamily void Aileron\+::init (\begin{DoxyParamCaption}\item[{int}]{pin\+\_\+p,  }\item[{int}]{min\+\_\+p,  }\item[{int}]{max\+\_\+p }\end{DoxyParamCaption})}
+
+
+
+Initialize the servomotor associated with the aileron. 
+
+\begin{DoxyNote}{Note}
+limit angles will be recorded so that m\+\_\+min\+Angle $<$= m\+\_\+max\+Angle regardless of the parameters order. See 
+\end{DoxyNote}
+
+\begin{DoxyParams}{Parameters}
+{\em min\+\_\+p} & minimum angle the servomotor can reach \\
+\hline
+{\em max\+\_\+p} & maximum angle the servomotor can reach \\
+\hline
+{\em pin\+\_\+p} & the pin the servomotor is attached to \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_aileron_a7c4b7d445e5b0b7469e819e5068db841}\label{class_aileron_a7c4b7d445e5b0b7469e819e5068db841}} 
+\index{Aileron@{Aileron}!move\+Down@{move\+Down}}
+\index{move\+Down@{move\+Down}!Aileron@{Aileron}}
+\subsubsection{\texorpdfstring{move\+Down()}{moveDown()}}
+{\footnotesize\ttfamily void Aileron\+::move\+Down (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+moves aileron downward at max speed 
+
+\mbox{\Hypertarget{class_aileron_a52f780193672d894137866203860f817}\label{class_aileron_a52f780193672d894137866203860f817}} 
+\index{Aileron@{Aileron}!move\+Idle@{move\+Idle}}
+\index{move\+Idle@{move\+Idle}!Aileron@{Aileron}}
+\subsubsection{\texorpdfstring{move\+Idle()}{moveIdle()}}
+{\footnotesize\ttfamily void Aileron\+::move\+Idle (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+moves aileron to idle position 
+
+\mbox{\Hypertarget{class_aileron_a0873615152c2c2811e6c15fb7ce32539}\label{class_aileron_a0873615152c2c2811e6c15fb7ce32539}} 
+\index{Aileron@{Aileron}!move\+Speed@{move\+Speed}}
+\index{move\+Speed@{move\+Speed}!Aileron@{Aileron}}
+\subsubsection{\texorpdfstring{move\+Speed()}{moveSpeed()}}
+{\footnotesize\ttfamily void Aileron\+::move\+Speed (\begin{DoxyParamCaption}\item[{uint8\+\_\+t}]{final\+\_\+p,  }\item[{uint8\+\_\+t}]{speed\+\_\+p = {\ttfamily 100},  }\item[{int}]{start\+\_\+p = {\ttfamily -\/1} }\end{DoxyParamCaption})}
+
+
+
+moves aileron at specified speed 
+
+
+\begin{DoxyParams}{Parameters}
+{\em percent\+\_\+p} & final position in percent \\
+\hline
+{\em speed\+\_\+p} & movement speed (in percent, optional) \\
+\hline
+{\em start\+\_\+p} & start position (in percent, optional) \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_aileron_a54db168cd8d880e8ec4b49af69ad70ae}\label{class_aileron_a54db168cd8d880e8ec4b49af69ad70ae}} 
+\index{Aileron@{Aileron}!move\+To@{move\+To}}
+\index{move\+To@{move\+To}!Aileron@{Aileron}}
+\subsubsection{\texorpdfstring{move\+To()}{moveTo()}}
+{\footnotesize\ttfamily void Aileron\+::move\+To (\begin{DoxyParamCaption}\item[{uint8\+\_\+t}]{percent\+\_\+p }\end{DoxyParamCaption})}
+
+
+
+moves aileron with a given angle 
+
+
+\begin{DoxyParams}{Parameters}
+{\em percent\+\_\+p} & final position in percent \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_aileron_abeee29a990a1a9b3d8bc884991b7221f}\label{class_aileron_abeee29a990a1a9b3d8bc884991b7221f}} 
+\index{Aileron@{Aileron}!move\+Up@{move\+Up}}
+\index{move\+Up@{move\+Up}!Aileron@{Aileron}}
+\subsubsection{\texorpdfstring{move\+Up()}{moveUp()}}
+{\footnotesize\ttfamily void Aileron\+::move\+Up (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+moves aileron upward at max speed 
+
+\mbox{\Hypertarget{class_aileron_a5d5579971f2679d708d01657d63da414}\label{class_aileron_a5d5579971f2679d708d01657d63da414}} 
+\index{Aileron@{Aileron}!reverse@{reverse}}
+\index{reverse@{reverse}!Aileron@{Aileron}}
+\subsubsection{\texorpdfstring{reverse()}{reverse()}}
+{\footnotesize\ttfamily void Aileron\+::reverse (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+reverses the current sense of rotation of the servomotor 
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+src/main/\hyperlink{aileron_8h}{aileron.\+h}\item 
+src/main/\hyperlink{aileron_8cpp}{aileron.\+cpp}\end{DoxyCompactItemize}

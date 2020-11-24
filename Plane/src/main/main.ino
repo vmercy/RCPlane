@@ -42,6 +42,8 @@
 #define R2 1000 //ohms
 #define R3 1000 //ohms
 
+#define VOLTAGE_RECTIFIER_COEFF 0.9288
+
 /* Arrays indexes */
 #define LEFT_AILERON 0
 #define RIGHT_AILERON 1
@@ -53,11 +55,11 @@
 /* Others */
 #define ENABLE_STARTUP 0
 #define STARTUP_AILERONS_SPEED 10 //in percent
-#define MOTOR_TEST_DURATION 1000  //in milliseconds
+#define MOTOR_TEST_DURATION 10000  //in milliseconds
 
 Aileron leftAileron;
 
-Battery lipoPack(LIPO_2S);
+Battery lipoPack;
 Motor brushless;
 
 Aileron rightAileron;
@@ -84,6 +86,8 @@ void setup()
   rightAileron.reverse();
   elevAileron.init(ELEV_SERVO_PIN, ELEV_DOWN, ELEV_UP);
   brushless.init(ESC_PIN);
+
+  lipoPack.init(LIPO_2S, VOLTAGE_RECTIFIER_COEFF);
   
   const int lipoResistors[2][2] = {{0, 0}, {R2, R3}};
   lipoPack.setResistorValues(lipoResistors);
@@ -93,13 +97,25 @@ void setup()
   delay(1000);
   if (ENABLE_STARTUP)
     start();
-  brushless.arm();
+  //brushless.arm();
+  pinMode(A0, INPUT);
+  pinMode(A1, INPUT);
 }
 
 void loop()
 {
-  /* brushless.arm();
-  brushless.test(MOTOR_TEST_DURATION); */
-
+  lipoPack.refresh();
+  for(uint8_t i = 0; i<2;i++)
+  {
+    Serial.print("Tension cellule ");
+    Serial.print(i);
+    Serial.print(" : ");
+    Serial.print(lipoPack.getCellVoltage(i),2);
+    Serial.println("V");
+  }
+  Serial.print("Tension totale : ");
+  Serial.print(lipoPack.getGlobalVoltage(),2);
+  Serial.println("V");
+  Serial.println("********");
   delay(1000);
 }

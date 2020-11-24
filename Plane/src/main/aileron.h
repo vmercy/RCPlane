@@ -64,7 +64,6 @@ public:
 	void reverse();
 	/**
    * @brief moves aileron with a given angle
-   * @return true if target angle is reached
    * @param percent_p final position in percent  
    */
 	void moveTo(uint8_t percent_p);
@@ -79,15 +78,18 @@ public:
 
 	/**
    * @brief moves aileron upward at max speed
-   * @return true if maximum angle is reached
    */
 	void moveUp();
 
 	/**
    * @brief moves aileron downward at max speed
-   * @return true if maximum angle is reached
    */
 	void moveDown();
+
+  /**
+   * @brief moves aileron to idle position
+   */
+  void moveIdle();
 
 	uint8_t getPosition();
 };
