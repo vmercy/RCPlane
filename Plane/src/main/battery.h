@@ -14,8 +14,8 @@
 
 #include <stdint.h>
 
-#define LIPO_LOWEST_VOLTAGE 3.3
-#define LIPO_HIGHEST_VOLTAGE 4.2
+#define LIPO_LOWEST_VOLTAGE 3.3 //voltage of a normally discharged lipo cell
+#define LIPO_HIGHEST_VOLTAGE 4.2 //voltage of a fully charged lipo cell
 #define ANALOG_REF 5.0
 #define ANALOG_PRECISION 1023
 
@@ -108,6 +108,11 @@ public:
    * @return float total level in percents
    */
   float getGlobalLevel();
+  /**
+   * @brief prints all battery data to Serial monitor
+   * @note use for debugging purposes
+   */
+  void print();
 };
 
 #endif

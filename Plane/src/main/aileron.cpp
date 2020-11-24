@@ -40,14 +40,14 @@ void Aileron::reverse()
   m_senseOfRotation = !m_senseOfRotation;
 }
 
-void Aileron::moveTo(uint8_t percent_p)
+void Aileron::moveTo(uint8_t position_p)
 {
   int targetAngle = 0;
-  targetAngle = map(percent_p, 0, 100, m_senseOfRotation ? m_maxAngle : m_minAngle, m_senseOfRotation ? m_minAngle : m_maxAngle);
+  targetAngle = map(position_p, 0, 255, m_senseOfRotation ? m_maxAngle : m_minAngle, m_senseOfRotation ? m_minAngle : m_maxAngle);
   m_servo.write(targetAngle);
 }
 
-void Aileron::moveSpeed(uint8_t final_p, uint8_t speed_p = 100, int start_p = -1)
+void Aileron::moveSpeed(uint8_t position_p, uint8_t speed_p = 100, int start_p = -1)
 {
   uint8_t firstStep = 0;
   if (start_p != -1)
@@ -56,7 +56,7 @@ void Aileron::moveSpeed(uint8_t final_p, uint8_t speed_p = 100, int start_p = -1
     moveTo(start_p);
   }
   int stepDelay = map(speed_p, 0, 100, SLOWEST_MOVEMENT_DELAY, 0);
-  for (uint8_t i = firstStep; i <= 100; i++)
+  for (uint8_t i = firstStep; i <= position_p; i++)
   {
     moveTo(i);
     delay(stepDelay);
@@ -65,7 +65,7 @@ void Aileron::moveSpeed(uint8_t final_p, uint8_t speed_p = 100, int start_p = -1
 
 void Aileron::moveUp()
 {
-	moveTo(100);
+	moveTo(255);
 }
 
 void Aileron::moveDown()

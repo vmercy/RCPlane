@@ -12,6 +12,10 @@
 #include "aileron.h"
 #include "motor.h"
 #include "battery.h"
+#include "radio.h"
+
+//#include "frame.h"
+
 
 /* Pinout Declarations */
 #define LEFT_SERVO_PIN 5 //Data pin of servomotor controlling left wing aileron
@@ -23,7 +27,7 @@
 #define DT11_DATA_PIN 2 //Temperature and humidity sensor
 
 #define NRF24L01_CE 7
-#define NRF24L01_CSN 8
+#define NRF24L01_CS 8
 
 #define LIPO_MIDPOINT A0
 #define LIPO_VCC A1
@@ -53,27 +57,31 @@
 #define UP 1
 
 /* Others */
-#define ENABLE_STARTUP 0
-#define STARTUP_AILERONS_SPEED 10 //in percent
+#define ENABLE_STARTUP 1
+#define STARTUP_AILERONS_SPEED 90 //in percent
 #define MOTOR_TEST_DURATION 10000  //in milliseconds
+#define CONNECTION_TIMEOUT 60 //in seconds
 
 Aileron leftAileron;
+Aileron rightAileron;
+Aileron elevAileron;
 
 Battery lipoPack;
 Motor brushless;
-
-Aileron rightAileron;
-Aileron elevAileron;
+//Radio radio;
 
 /**
  * @brief startup script, checks all components are working well
  */
-
 void start()
 {
   leftAileron.moveSpeed(100, STARTUP_AILERONS_SPEED);
   rightAileron.moveSpeed(100, STARTUP_AILERONS_SPEED);
   elevAileron.moveSpeed(100, STARTUP_AILERONS_SPEED);
+
+  leftAileron.moveIdle();
+  rightAileron.moveIdle();
+  elevAileron.moveIdle();
 }
 
 void setup()
@@ -88,6 +96,8 @@ void setup()
   brushless.init(ESC_PIN);
 
   lipoPack.init(LIPO_2S, VOLTAGE_RECTIFIER_COEFF);
+
+  //radio.init(NRF24L01_CE, NRF24L01_CS);
   
   const int lipoResistors[2][2] = {{0, 0}, {R2, R3}};
   lipoPack.setResistorValues(lipoResistors);
@@ -97,38 +107,17 @@ void setup()
   delay(1000);
   if (ENABLE_STARTUP)
     start();
-  //brushless.arm();
-  pinMode(A0, INPUT);
-  pinMode(A1, INPUT);
+  
+  //radio.waitForConnection(CONNECTION_TIMEOUT);
+
+  brushless.arm();
+  brushless.test(MOTOR_TEST_DURATION);
+  brushless.setSpeed(255);
 }
 
 void loop()
 {
   lipoPack.refresh();
-  for(uint8_t i = 0; i<2;i++)
-  {
-    Serial.print("Tension cellule ");
-    Serial.print(i);
-    Serial.print(" : ");
-    Serial.print(lipoPack.getCellVoltage(i),2);
-    Serial.println("V");
-  }
-  Serial.print("Tension totale : ");
-  Serial.print(lipoPack.getGlobalVoltage(),2);
-  Serial.println("V");
-  for(uint8_t i = 0; i<2;i++)
-  {
-    Serial.print("Niveau cellule ");
-    Serial.print(i);
-    Serial.print(" : ");
-    Serial.print(lipoPack.getCellLevel(i),2);
-    Serial.println("%");
-  }
-  Serial.print("Niveau total : ");
-  Serial.print(lipoPack.getGlobalLevel(),2);
-  Serial.println("%");
-  Serial.println("********");
-  delay(1000);
-  Serial.println("********");
-  delay(1000);
+  lipoPack.print();
+  delay(500);
 }

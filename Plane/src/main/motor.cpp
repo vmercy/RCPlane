@@ -35,7 +35,7 @@ void Motor::setSpeed(uint8_t newSpeed_p)
 {
   if (m_armed)
     {
-      m_speed = map(newSpeed_p, 0, 100, 0, MAX_SPEED);
+      m_speed = map(newSpeed_p, 0, 255, 0, MAX_SPEED);
       m_ESC.write(m_speed);
     }
 }

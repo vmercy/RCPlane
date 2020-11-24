@@ -4,8 +4,8 @@
             "name": "Linux",
             "includePath": [
                 "/home/valentin/.arduino15/packages/arduino/tools/**",
-                "/home/valentin/.arduino15/packages/arduino/hardware/avr/1.6.21/**"
-
+                "/home/valentin/.arduino15/packages/arduino/hardware/avr/1.6.21/**",
+                "/home/valentin/Arduino/libraries/**"
             ],
             "forcedInclude": [
                 "/home/valentin/.arduino15/packages/arduino/hardware/avr/1.6.21/cores/arduino/Arduino.h",

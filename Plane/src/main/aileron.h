@@ -64,17 +64,17 @@ public:
 	void reverse();
 	/**
    * @brief moves aileron with a given angle
-   * @param percent_p final position in percent  
+   * @param position_p final position in range 0-255
    */
-	void moveTo(uint8_t percent_p);
+	void moveTo(uint8_t position_p);
 
 	/**
    * @brief moves aileron at specified speed
-   * @param percent_p final position in percent
+   * @param position_p final position in range 0-255
    * @param speed_p movement speed (in percent, optional)
    * @param start_p start position (in percent, optional)
    */
-	void moveSpeed(uint8_t final_p, uint8_t speed_p = 100, int start_p = -1);
+	void moveSpeed(uint8_t position_p, uint8_t speed_p = 100, int start_p = -1);
 
 	/**
    * @brief moves aileron upward at max speed

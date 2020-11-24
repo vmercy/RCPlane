@@ -47,7 +47,7 @@ public:
   void arm();
   /**
    * @brief Set new speed
-   * @param newSpeed_p new desired speed (in percent)
+   * @param newSpeed_p new desired speed (in range 0-255)
    */
   void setSpeed(uint8_t newSpeed_p);
   /**

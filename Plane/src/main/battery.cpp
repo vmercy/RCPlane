@@ -61,9 +61,9 @@ void Battery::setPinout(const uint8_t pinout_p[])
 
 float mapFloat(float base, float minBase, float maxBase, float newMin, float newMax)
 {
-  float baseRange = maxBase-minBase;
+  float baseRange = maxBase - minBase;
   float newRange = newMax - newMin;
-  return (newMin + (base - minBase)*newRange/baseRange);
+  return (newMin + (base - minBase) * newRange / baseRange);
 }
 
 void Battery::refresh()
@@ -102,4 +102,32 @@ float Battery::getGlobalVoltage()
 float Battery::getGlobalLevel()
 {
   return m_globalLevel;
+}
+
+void Battery::print()
+{
+  Serial.println("******** BATTERY REPORT : ********");
+  for (uint8_t i = 0; i < m_nbCells; i++)
+  {
+    Serial.print("Cell n°");
+    Serial.print(i);
+    Serial.print(" voltage: ");
+    Serial.print(getCellVoltage(i), 2);
+    Serial.println("V");
+  }
+  Serial.print("Total voltage : ");
+  Serial.print(getGlobalVoltage(), 2);
+  Serial.println("V");
+  for (uint8_t i = 0; i < m_nbCells; i++)
+  {
+    Serial.print("Cell n°");
+    Serial.print(i);
+    Serial.print(" level: ");
+    Serial.print(getCellLevel(i), 2);
+    Serial.println("%");
+  }
+  Serial.print("Global level : ");
+  Serial.print(getGlobalLevel(), 2);
+  Serial.println("%");
+  Serial.println("********");
 }
