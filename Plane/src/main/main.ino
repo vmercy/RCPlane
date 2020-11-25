@@ -1,7 +1,7 @@
 /**
  * @file main.ino
  * @author Valentin Mercy (https://github.com/vmercy)
- * @brief main program
+ * @brief main program of Plane Arduino Nano board
  * @version 0.1
  * @date 2020-11-22
  * 
