@@ -14,7 +14,7 @@
 
 #include <stdint.h>
 
-#define MAX_SPEED 100 //degrees
+#define MAX_SPEED 80 //degrees
 //TODO: check again
 
 #ifndef SERVO_H

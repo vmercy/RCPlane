@@ -56,7 +56,7 @@ void Motor::test(int duration_p)
     {
       int del = duration_p / MAX_SPEED;
       idle();
-      for (uint8_t i = 0; i < MAX_SPEED; i++)
+      for (uint8_t i = 0; i < 255; i++)
       {
         setSpeed(i);
         delay(del);
