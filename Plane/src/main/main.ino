@@ -126,15 +126,23 @@ void setup()
 void loop()
 {
   lipoPack.refresh();
-  lipoPack.print();
-  int speed = 0;
-  if (Serial.available() > 0)
+  for (uint8_t i = 0; i < 2; i++)
   {
-    speed = Serial.parseInt();
-    brushless.setSpeed(speed);
-    Serial.print("SPEED SET TO ");
-    Serial.println(speed);
-    Serial.flush();
+    if (lipoPack.getCellVoltage(i) <= LIPO_LOWEST_VOLTAGE)
+    {
+      shutdown = true;
+      brushless.idle();
+      Serial.print("TEST FINISHED | DURATION : ");
+      Serial.println(millis() - startTime);
+    }
   }
+
+  if (!shutdown)
+  {
+    lipoPack.print();
+    Serial.print("CHRONO : ");
+    Serial.println(millis() - startTime);
+  }
+
   delay(500);
 }
