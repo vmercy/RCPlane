@@ -56,12 +56,12 @@
 #define ENCODER_A 33
 #define ENCODER_B 32
 
-#define LEFT_JOY_X A4
-#define LEFT_JOY_Y A5
+#define LEFT_JOY_X A5
+#define LEFT_JOY_Y A4
 #define LEFT_JOY_SW 34
 
-#define RIGHT_JOY_X A2
-#define RIGHT_JOY_Y A3
+#define RIGHT_JOY_X A3
+#define RIGHT_JOY_Y A2
 #define RIGHT_JOY_SW 18
 
 #define CELL0_LED 5
@@ -71,6 +71,9 @@
 
 #define NRF24L01_CE 7
 #define NRF24L01_CS 8
+
+/* Others */
+#define ENABLE_START 0
 
 /* Objects Declarations */
 Battery rcLipo;
@@ -82,18 +85,40 @@ Button CTRL4;
 Button menu;
 Led escLed;
 RGBLed gearLed;
-Radio transmitter;
+//Radio transmitter;
 Joystick leftJoy;
 Joystick rightJoy;
-Encoder enc;
+/* Encoder enc;
 Buzzer buzz;
-Lcdscreen mainScreen;
+Lcdscreen mainScreen; */
+
+void start()
+{
+
+}
 
 void setup()
 {
+  Serial.begin(9600);
+  
+  leftJoy.init(LEFT_JOY_X, LEFT_JOY_Y, LEFT_JOY_SW);
+
+  menuBtn.init(MENU_BTN);
+
+  if(ENABLE_START)
+    start();
+  Serial.println("SETUP");
 }
 
 void loop()
 {
-
+  Serial.println(menuBtn.isPressed());
+  delay(100);
+  
+  Serial.print(leftJoy.readX());
+  Serial.print(" | ");
+  Serial.print(leftJoy.readY());
+  Serial.print(" | ");
+  Serial.println(leftJoy.isPressed());
+  
 }

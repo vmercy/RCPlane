@@ -12,9 +12,14 @@
 #ifndef JOYSTICK_H
 #define JOYSTICK_H
 
+#include <Arduino.h>
+
 #define NB_SAMPLES_JOYSTICK 10 //number of readings (must be <=255)
-#define SAMPLE_DELAY 500 //delay between two readings (in microseconds)
-#define IDLE_TOLERANCE 3 //a joystick will be considered at idle position if its reading is 128 +/- IDLE_TOLERANCE
+#define SAMPLE_DELAY 1 //delay between two readings (in milliseconds)
+
+#define X_IDLE_POSITION 125
+#define Y_IDLE_POSITION 129
+#define IDLE_TOLERANCE 2 //a joystick will be considered at idle position if its reading is IDLE_POSITION +/- IDLE_TOLERANCE
 
 #include "button.h"
 #include "mathFunctions.h"

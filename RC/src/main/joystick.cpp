@@ -29,25 +29,23 @@ void Joystick::init(uint8_t pinoutX_p, uint8_t pinoutY_p, uint8_t pinoutSW_p)
 uint8_t Joystick::readX()
 {
   uint8_t samples[NB_SAMPLES_JOYSTICK];
-  for (uint i = 0; i <= NB_SAMPLES_JOYSTICK; i++)
+  for (uint8_t i = 0; i <= NB_SAMPLES_JOYSTICK; i++)
   {
     samples[i] = map(analogRead(m_pinoutX), 0, 1023, 0, 255);
-    delayMicroseconds(SAMPLE_DELAY);
+    delay(SAMPLE_DELAY);
   }
-
-  return mean<uint8_t, uint8_t>(samples, NB_SAMPLES_JOYSTICK);
+  return (uint8_t)mean<uint8_t, uint8_t, uint16_t>(samples, NB_SAMPLES_JOYSTICK);
 }
 
 uint8_t Joystick::readY()
 {
   uint8_t samples[NB_SAMPLES_JOYSTICK];
-  for (uint i = 0; i <= NB_SAMPLES_JOYSTICK; i++)
+  for (uint8_t i = 0; i <= NB_SAMPLES_JOYSTICK; i++)
   {
     samples[i] = map(analogRead(m_pinoutY), 0, 1023, 0, 255);
-    delayMicroseconds(SAMPLE_DELAY);
+    delay(SAMPLE_DELAY);
   }
-
-  return mean<uint8_t, uint8_t>(samples, NB_SAMPLES_JOYSTICK);
+  return (uint8_t)mean<uint8_t, uint8_t, uint16_t>(samples, NB_SAMPLES_JOYSTICK);
 }
 
 bool Joystick::isPressed()
@@ -58,13 +56,13 @@ bool Joystick::isPressed()
 bool Joystick::xIdle()
 {
   uint8_t reading = readX();
-  return (reading >= (128 - IDLE_TOLERANCE) && reading <= (128 + IDLE_TOLERANCE));
+  return (reading >= (X_IDLE_POSITION - IDLE_TOLERANCE) && reading <= (X_IDLE_POSITION + IDLE_TOLERANCE));
 }
 
 bool Joystick::yIdle()
 {
   uint8_t reading = readY();
-  return (reading >= (128 - IDLE_TOLERANCE) && reading <= (128 + IDLE_TOLERANCE));
+  return (reading >= (Y_IDLE_POSITION - IDLE_TOLERANCE) && reading <= (Y_IDLE_POSITION + IDLE_TOLERANCE));
 }
 
 bool Joystick::idle()

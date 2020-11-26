@@ -1,0 +1,21 @@
+{
+    "configurations": [
+        {
+            "name": "Linux",
+            "includePath": [
+                "/home/valentin/.arduino15/packages/arduino/tools/**",
+                "/home/valentin/.arduino15/packages/arduino/hardware/avr/1.6.21/**",
+                "/home/valentin/Arduino/libraries/**"
+            ],
+            "forcedInclude": [
+                "/home/valentin/.arduino15/packages/arduino/hardware/avr/1.6.21/cores/arduino/Arduino.h",
+                "/home/valentin/Arduino/libraries/Servo/src/Servo.h"
+            ],
+            "intelliSenseMode": "gcc-x64",
+            "compilerPath": "/usr/bin/gcc",
+            "cStandard": "gnu11",
+            "cppStandard": "gnu++14"
+        }
+    ],
+    "version": 4
+}

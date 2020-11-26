@@ -12,6 +12,8 @@
 #ifndef RGBLED_H
 #define RGBLED_H
 
+#include <Arduino.h>
+
 #define RGB_COMMON_CATHODE 0
 #define RGB_COMMON_ANODE 1
 

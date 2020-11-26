@@ -21,13 +21,5 @@ public:
   ~SevsegScreen();
 };
 
-SevsegScreen::SevsegScreen()
-{
-}
-
-SevsegScreen::~SevsegScreen()
-{
-}
-
 
 #endif

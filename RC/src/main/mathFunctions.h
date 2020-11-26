@@ -12,16 +12,18 @@
 #ifndef MATHFUNCTIONS_H
 #define MATHFUNCTIONS_H
 
+#include <Arduino.h>
+
 /**
  * @brief computes a sum
- * 
- * @tparam T type of data and return
+ * @tparam T type of return
+ * @tparam K type of input data
  * @param dataArray_p array containing all values
  * @param size_p size of arrayData_p
  * @return T 
  */
-template<typename T>
-T sum(T dataArray_p[], uint8_t size_p)
+template<typename T, typename K>
+T sum(K dataArray_p[], uint8_t size_p)
 {
   T sum = 0;
   for(uint8_t i = 0; i<size_p; i++)
@@ -31,17 +33,18 @@ T sum(T dataArray_p[], uint8_t size_p)
 
 /**
  * @brief computes a mean value
- * 
  * @tparam T type of input data
  * @tparam K type of return
+ * @tparam U type of sum (optional) 
+ * @note set U to avoid overflow situations when calculating sum
  * @param dataArray_p array containing all values
  * @param size_p size of arrayData_p
  * @return T 
  */
-template<typename T, typename K>
+template<typename T, typename K, typename U = K>
 T mean(K dataArray_p[], uint8_t size_p)
 {
-  return (T)sum<K>(dataArray_p,size_p)/size_p;
+  return (T)(sum<U,K>(dataArray_p,size_p)/size_p);
 }
 
 #endif

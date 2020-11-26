@@ -12,6 +12,8 @@
 #ifndef LED_H
 #define LED_H
 
+#include <Arduino.h>
+
 #ifndef LED_STATES
 #define LED_STATES
 #define ON 1

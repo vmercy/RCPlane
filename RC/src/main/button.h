@@ -12,7 +12,9 @@
 #ifndef BUTTON_H
 #define BUTTON_H
 
-#define DEBOUNCE_DELAY 50 // the debounce time (in milliseconds) to increase if the output flickers
+#include <Arduino.h>
+
+#define DEBOUNCE_DELAY 2 // the debounce time (in milliseconds) to increase if the output flickers
 
 /**
  * @brief Button class is responsible for reading a pushbutton state with debounce feature
