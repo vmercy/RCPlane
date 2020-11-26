@@ -126,31 +126,9 @@ void setup()
 void loop()
 {
   lipoPack.refresh();
-  for (uint8_t i = 0; i < 2; i++)
-  {
-    if (lipoPack.getCellVoltage(i) <= LIPO_LOWEST_VOLTAGE)
-    {
-      shutdown = true;
-      brushless.idle();
-      Serial.print("TEST FINISHED | DURATION : ");
-      Serial.println(millis() - startTime);
-    }
-  }
-
-  if (!shutdown)
-  {
-    lipoPack.print();
-    Serial.print("CHRONO : ");
-    Serial.println(millis() - startTime);
-  }
-
-  delay(500);
-
-  /* TO FIND MAX MOTOR SPEED:
-   lipoPack.refresh();
   lipoPack.print();
   int speed = 0;
-  if(Serial.available()>0)
+  if (Serial.available() > 0)
   {
     speed = Serial.parseInt();
     brushless.setSpeed(speed);
@@ -158,5 +136,5 @@ void loop()
     Serial.println(speed);
     Serial.flush();
   }
-  delay(500); */
+  delay(500);
 }
