@@ -22,6 +22,9 @@ RGBLed::~RGBLed()
 void RGBLed::init(bool ledType_p, uint8_t redPin_p, uint8_t greenPin_p, uint8_t bluePin_p)
 {
   m_ledType = ledType_p;
+  m_pinout[RED] = redPin_p;
+  m_pinout[GREEN] = greenPin_p;
+  m_pinout[BLUE] = bluePin_p;
   for (uint8_t i = 0; i < 3; i++)
     pinMode(m_pinout[i], OUTPUT);
   turnOff();
@@ -29,7 +32,7 @@ void RGBLed::init(bool ledType_p, uint8_t redPin_p, uint8_t greenPin_p, uint8_t 
 
 void RGBLed::writeColorPin(uint8_t color_p, bool newState_p)
 {
-  digitalWrite(m_pinout[color_p], m_ledType);
+  digitalWrite(m_pinout[color_p], m_ledType != newState_p);
 }
 
 void RGBLed::turnOff()

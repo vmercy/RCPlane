@@ -15,8 +15,9 @@ Led::Led()
 {
 }
 
-void Led::init()
+void Led::init(uint8_t pinout_p)
 {
+  m_pinout = pinout_p;
   pinMode(m_pinout, OUTPUT);
   turnOff();
 }
@@ -39,6 +40,11 @@ void Led::turnOn()
 void Led::turnOff()
 {
   setState(OFF);
+}
+
+void Led::blink(int period_p)
+{
+  //TODO
 }
 
 Led::~Led()

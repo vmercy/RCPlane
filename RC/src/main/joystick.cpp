@@ -69,3 +69,10 @@ bool Joystick::idle()
 {
   return xIdle() && yIdle();
 }
+
+void Joystick::print()
+{
+  char output[21];
+  sprintf(output,"X:%i|Y:%i|SW:%i",readX(),readY(),isPressed());
+  Serial.println(output);
+}

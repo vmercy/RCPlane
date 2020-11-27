@@ -29,7 +29,11 @@ private:
 public:
   Led();
   ~Led();
-  void init();
+  /**
+   * @brief Initialize the LED pinout
+   * @param pinout_p the Arduino pin the LED is attached to
+   */
+  void init(uint8_t pinout_p);
   /**
    * @brief Set the State
    * @param newState_p
@@ -48,6 +52,11 @@ public:
    * @brief turns the LED off
    */
   void turnOff();
+  /**
+   * @brief blinks the LED
+   * @param period_p blink perdiod (in milliseconds)
+   */
+  void blink(int period_p);
 };
 
 #endif

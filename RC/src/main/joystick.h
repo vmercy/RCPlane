@@ -23,6 +23,7 @@
 
 #include "button.h"
 #include "mathFunctions.h"
+#include <stdio.h>
 
 class Joystick
 {
@@ -40,6 +41,7 @@ public:
   bool xIdle();
   bool yIdle();
   bool idle();
+  void print();
 };
 
 

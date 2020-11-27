@@ -46,12 +46,12 @@
 #define CTRL4_BTN 27
 
 #define RGB_RED 49
-#define RGB_GREEN 48
+#define RGB_GREEN 48 //TODO: check hardware issue on this pin
 #define RGB_BLUE 47
 
 #define BUZZER 45
 
-#define ESC_ARM_LED 41
+#define ESC_ARM_LED 41 //TODO: resolder this (reversed pinout)
 
 #define ENCODER_A 33
 #define ENCODER_B 32
@@ -92,6 +92,8 @@ Joystick rightJoy;
 Buzzer buzz;
 Lcdscreen mainScreen; */
 
+Led cell0;
+
 void start()
 {
 
@@ -105,6 +107,12 @@ void setup()
 
   menuBtn.init(MENU_BTN);
 
+  gearLed.init(RGB_COMMON_ANODE, RGB_RED, RGB_GREEN, RGB_BLUE);
+
+  escLed.init(ESC_ARM_LED);
+
+  cell0.init(CELL0_LED);
+
   if(ENABLE_START)
     start();
   Serial.println("SETUP");
@@ -113,12 +121,6 @@ void setup()
 void loop()
 {
   Serial.println(menuBtn.isPressed());
+
   delay(100);
-  
-  Serial.print(leftJoy.readX());
-  Serial.print(" | ");
-  Serial.print(leftJoy.readY());
-  Serial.print(" | ");
-  Serial.println(leftJoy.isPressed());
-  
 }
