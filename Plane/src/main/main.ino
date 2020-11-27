@@ -31,7 +31,6 @@
 #define LIPO_MIDPOINT A0
 #define LIPO_VCC A1
 
-#define LIPO_2S 2
 
 /* Servo Limit Angles */
 #define LEFT_UP 25

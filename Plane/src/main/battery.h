@@ -12,7 +12,14 @@
 #ifndef BATTERY_HPP
 #define BATTERY_HPP
 
-#include <stdint.h>
+#define LIPO_1S 1
+#define LIPO_2S 2
+#define LIPO_3S 3
+#define LIPO_4S 4
+#define LIPO_5S 5
+#define LIPO_6S 6
+
+#include <stdint.h> //TODO: replace by <Arduino.h> and repeat for all header files
 #include "mathFunctions.h"
 
 #define LIPO_LOWEST_VOLTAGE 3.3 //voltage of a normally discharged lipo cell

@@ -1,5 +1,5 @@
 {
-    "sketch": "Plane/src/main/main.ino",
+    "sketch": "src/main/main.ino",
     "board": "arduino:avr:nano",
     "configuration": "cpu=atmega328old",
     "port": "/dev/ttyUSB0"

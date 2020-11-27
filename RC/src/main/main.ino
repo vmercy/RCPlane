@@ -55,6 +55,7 @@
 
 #define ENCODER_A 33
 #define ENCODER_B 32
+//#define ENCODER_SWITCH -1 //TODO: review schematic to allow this feature by hardware
 
 #define LEFT_JOY_X A5
 #define LEFT_JOY_Y A4
@@ -72,8 +73,13 @@
 #define NRF24L01_CE 7
 #define NRF24L01_CS 8
 
+/* Lipo Voltage Divider Resistor Values */
+#define R2 1000 //ohms
+#define R3 1000 //ohms
+
 /* Others */
 #define ENABLE_START 0
+#define VOLTAGE_RECTIFIER_COEFF 1.0132
 
 /* Objects Declarations */
 Battery rcLipo;
@@ -88,11 +94,11 @@ RGBLed gearLed;
 //Radio transmitter;
 Joystick leftJoy;
 Joystick rightJoy;
-/* Encoder enc;
+Encoder enc;
 Buzzer buzz;
-Lcdscreen mainScreen; */
+//Lcdscreen mainScreen;
 
-Led cell0;
+//Led cell0;
 
 void start()
 {
@@ -111,7 +117,16 @@ void setup()
 
   escLed.init(ESC_ARM_LED);
 
-  cell0.init(CELL0_LED);
+  enc.init(ENCODER_A, ENCODER_B);
+
+  buzz.init(BUZZER);
+
+  rcLipo.init(LIPO_2S, VOLTAGE_RECTIFIER_COEFF);
+
+  const int lipoResistors[2][2] = {{0, 0}, {R2, R3}};
+  rcLipo.setResistorValues(lipoResistors);
+  const uint8_t lipoPinout[2] = {A0, A1};
+  rcLipo.setPinout(lipoPinout);
 
   if(ENABLE_START)
     start();
@@ -120,7 +135,8 @@ void setup()
 
 void loop()
 {
-  Serial.println(menuBtn.isPressed());
+  rcLipo.refresh();
+  rcLipo.print();
 
-  delay(100);
+  delay(500);
 }

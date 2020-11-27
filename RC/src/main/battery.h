@@ -12,12 +12,23 @@
 #ifndef BATTERY_HPP
 #define BATTERY_HPP
 
-#include <stdint.h>
+#define LIPO_1S 1
+#define LIPO_2S 2
+#define LIPO_3S 3
+#define LIPO_4S 4
+#define LIPO_5S 5
+#define LIPO_6S 6
+
+#include <Arduino.h>
+#include "mathFunctions.h"
 
 #define LIPO_LOWEST_VOLTAGE 3.3 //voltage of a normally discharged lipo cell
 #define LIPO_HIGHEST_VOLTAGE 4.2 //voltage of a fully charged lipo cell
 #define ANALOG_REF 5.0
 #define ANALOG_PRECISION 1023
+
+#define NB_SAMPLES_BATTERY 10 //number of readings
+#define DELAY_SAMPLES_BATTERY 500 //delay between two readings (in microseconds)
 
 /**
  * @class battery
@@ -28,10 +39,9 @@ class Battery
 private:
   uint8_t m_nbCells;
   /**
-   * @brief values of resistors used in the voltage divider
-   * @note set to 0 where there is no resistance
+   * @brief values of resistors ratios used in voltage dividers
    */
-  int **m_resistorValues;
+  float *m_resistorRatios;
   /**
    * @brief array containing voltage divider output pins
    */
