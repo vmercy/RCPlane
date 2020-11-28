@@ -42,9 +42,16 @@ void Led::turnOff()
   setState(OFF);
 }
 
-void Led::blink(int period_p)
+void Led::blink(int period_p, int duration_p)
 {
-  //TODO
+  int del = period_p/2;
+  for(int i = 0; i<duration_p; i++)
+  {
+  turnOn();
+  delay(del);
+  turnOff();
+  delay(del);
+  }
 }
 
 Led::~Led()

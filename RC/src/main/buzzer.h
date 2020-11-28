@@ -14,14 +14,18 @@
 
 #include <Arduino.h>
 
+/**
+ * @brief Buzzer class is responsible for sound outputs
+ */
 class Buzzer
 {
 private:
   uint8_t m_pinout;
+  bool m_enabled;
 public:
   Buzzer();
   ~Buzzer();
-  void init(uint8_t pinout_p);
+  void init(uint8_t pinout_p, bool enable_p = true);
   void error();
   void success();
   void warning();

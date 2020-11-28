@@ -9,6 +9,9 @@
  * 
  */
 
+//TODO: add const keyword everywhere in the code
+//TODO: add doxygen comment above each class declaration
+
 #include "battery.h"
 #include "button.h"
 #include "buzzer.h"
@@ -18,7 +21,7 @@
 #include "led.h"
 //#include "radio.h"
 #include "rgbled.h"
-#include "sevsegscreen.h"
+#include "plane_battery_display.h"
 #include "switch.h"
 
 /* Pinout Declarations */
@@ -34,6 +37,8 @@
 #define SEVSEG_F 14
 #define SEVSEG_G 19
 #define SEVSEG_DP 9
+
+#define SEVSEG_NB_DIGITS 4
 #define SEVSEG_DIG1 12
 #define SEVSEG_DIG2 15
 #define SEVSEG_DIG3 16
@@ -78,9 +83,16 @@
 #define R3 1000 //ohms
 
 /* Others */
+#define LEFT_JOY_X_IDLE_POSITION 125
+#define LEFT_JOY_Y_IDLE_POSITION 129
+#define RIGHT_JOY_X_IDLE_POSITION 130
+#define RIGHT_JOY_Y_IDLE_POSITION 126
+
 #define SSD1306_I2C_ADDRESS 0x3C
 #define SEVSEG_DEFAULT_BRIGHTNESS 90
-#define ENABLE_START 0
+
+#define ENABLE_START true
+#define ENABLE_BUZZER_DEFAULT false //let true except for development purposes
 #define VOLTAGE_RECTIFIER_COEFF 1.0132
 
 /* Objects Declarations */
@@ -98,40 +110,48 @@ Joystick leftJoy;
 Joystick rightJoy;
 Encoder enc;
 Buzzer buzz;
-SevsegScreen planeBatteryDisplay;
-//Lcdscreen mainScreen;
+PlaneBatteryBisplay planeBatteryDisplay;
+LCDScreen mainScreen;
 
-//Led cell0;
-
-void start()
+void start() //ligth all LEDS and screens
 {
+  mainScreen.test();
+  buzz.success();
+  while (!leftJoy.idle() || !rightJoy.idle()) //startup security
+    buzz.warning();
+  gearLed.test(1);
+  escLed.blink(100, 3);
+  planeBatteryDisplay.testDisplays();
+  //armEsc();
+}
+
+void armEsc()
+{
+  while (!((leftJoy.position() == BOTTOM_RIGHT) && (rightJoy.position() == BOTTOM_LEFT)))
+    escLed.blink(1);
+  buzz.success();
+  escLed.turnOn();
 }
 
 void setup()
 {
   Serial.begin(9600);
-
+  mainScreen.init(SSD1306_I2C_ADDRESS);
   leftJoy.init(LEFT_JOY_X, LEFT_JOY_Y, LEFT_JOY_SW);
-
+  rightJoy.init(RIGHT_JOY_X, RIGHT_JOY_Y, RIGHT_JOY_SW);
+  leftJoy.setIdlePositions(LEFT_JOY_X_IDLE_POSITION, LEFT_JOY_Y_IDLE_POSITION);
+  rightJoy.setIdlePositions(RIGHT_JOY_X_IDLE_POSITION, RIGHT_JOY_Y_IDLE_POSITION);
   menuBtn.init(MENU_BTN);
-
   gearLed.init(RGB_COMMON_ANODE, RGB_RED, RGB_GREEN, RGB_BLUE);
-
   escLed.init(ESC_ARM_LED);
-
   enc.init(ENCODER_A, ENCODER_B);
-
-  buzz.init(BUZZER);
-
+  buzz.init(BUZZER, ENABLE_BUZZER_DEFAULT);
   rcLipo.init(LIPO_2S, VOLTAGE_RECTIFIER_COEFF);
-
+  const uint8_t cellIndicatorsPinout[] = {CELL0_LED, CELL1_LED, CELL2_LED, CELLALL_LED};
   const uint8_t sevSegDigitsPinout[] = {SEVSEG_DIG1, SEVSEG_DIG2, SEVSEG_DIG3, SEVSEG_DIG4};
   const uint8_t sevSegSegmentsPinout[] = {SEVSEG_A, SEVSEG_B, SEVSEG_C, SEVSEG_D, SEVSEG_E, SEVSEG_F, SEVSEG_G, SEVSEG_DP};
-
-  planeBatteryDisplay.begin(COMMON_CATHODE, 4, sevSegDigitsPinout, sevSegSegmentsPinout, true);
-
+  planeBatteryDisplay.init(3, cellIndicatorsPinout, COMMON_CATHODE, SEVSEG_NB_DIGITS, sevSegDigitsPinout, sevSegSegmentsPinout);
   planeBatteryDisplay.setBrightness(SEVSEG_DEFAULT_BRIGHTNESS);
-
   const int lipoResistors[][2] = {{0, 0}, {R2, R3}};
   rcLipo.setResistorValues(lipoResistors);
   const uint8_t lipoPinout[] = {A0, A1};
@@ -139,12 +159,10 @@ void setup()
 
   if (ENABLE_START)
     start();
-  Serial.println("SETUP");
 
-  //TODO: beep on buzzer until both joystick are released at idle position
+  Serial.println("SETUP FINISHED");
 }
 
 void loop()
 {
-  planeBatteryDisplay.test();
 }

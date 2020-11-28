@@ -74,3 +74,13 @@ void RGBLed::displayColor(uint8_t color_p)
     }
   }
 }
+
+void RGBLed::test(int duration_p)
+{
+  int del = 1000*duration_p/7;
+  for(uint8_t i = RED; i<=WHITE; i++)
+  {
+    displayColor(i);
+    delay(del);
+  }
+}

@@ -54,9 +54,11 @@ public:
   void turnOff();
   /**
    * @brief blinks the LED
-   * @param period_p blink perdiod (in milliseconds)
+   * @note blocking method
+   * @param period_p blink period (in milliseconds)
+   * @param duration_p number of blinks
    */
-  void blink(int period_p);
+  void blink(int period_p, int duration_p = 1);
 };
 
 #endif

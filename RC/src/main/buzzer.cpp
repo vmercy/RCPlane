@@ -21,9 +21,10 @@ Buzzer::~Buzzer()
 
 }
 
-void Buzzer::init(uint8_t pinout_p)
+void Buzzer::init(uint8_t pinout_p, bool enable_p = true)
 {
   m_pinout = pinout_p;
+  m_enabled = enable_p;
   pinMode(m_pinout, OUTPUT);
 }
 

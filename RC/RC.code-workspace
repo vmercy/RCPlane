@@ -4,5 +4,11 @@
 			"path": "."
 		}
   ],
-  "settings": {}
+  "settings": {
+    "files.associations": {
+      "*.tcc": "cpp",
+      "fstream": "cpp",
+      "type_traits": "cpp"
+    }
+  }
 }

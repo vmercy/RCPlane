@@ -66,6 +66,11 @@ public:
    */
   void displayColor(uint8_t color_p);
   void turnOff();
+  /**
+   * @brief displays all possible colors
+   * @param duration_p duration of test (in seconds)
+   */
+  void test(int duration_p);
 };
 
 
