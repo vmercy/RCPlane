@@ -100,9 +100,9 @@ void setup()
 
   //radio.init(NRF24L01_CE, NRF24L01_CS);
 
-  const int lipoResistors[2][2] = {{0, 0}, {R2, R3}};
+  const int lipoResistors[][2] = {{0, 0}, {R2, R3}};
   lipoPack.setResistorValues(lipoResistors);
-  const uint8_t lipoPinout[2] = {A0, A1};
+  const uint8_t lipoPinout[] = {A0, A1};
   lipoPack.setPinout(lipoPinout);
 
   delay(1000);

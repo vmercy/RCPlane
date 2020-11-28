@@ -1,0 +1,92 @@
+\hypertarget{class_encoder}{}\section{Encoder Class Reference}
+\label{class_encoder}\index{Encoder@{Encoder}}
+
+
+\hyperlink{class_encoder}{Encoder} class is responsible for reading rotary encoder input.  
+
+
+
+
+{\ttfamily \#include $<$encoder.\+h$>$}
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{class_encoder_a430e95a76f5b958b5350992c065d0b29}{init} (uint8\+\_\+t pinout\+A\+\_\+p, uint8\+\_\+t pinout\+B\+\_\+p, uint8\+\_\+t pinout\+S\+W\+\_\+p=-\/1)
+\begin{DoxyCompactList}\small\item\em Initialize encoder pinout on Arduino board. \end{DoxyCompactList}\item 
+bool \hyperlink{class_encoder_a85178b6e0978a7c342edbdce308d4abf}{refresh} ()
+\begin{DoxyCompactList}\small\item\em updates encoder count after rotation \end{DoxyCompactList}\item 
+int8\+\_\+t \hyperlink{class_encoder_a5e3fddf160e67d970c9c2cd57be5709a}{get\+Count} ()
+\begin{DoxyCompactList}\small\item\em Get the current count. \end{DoxyCompactList}\item 
+bool \hyperlink{class_encoder_ac7046bc89fc381018597bbba0cc0026e}{is\+Pressed} ()
+\begin{DoxyCompactList}\small\item\em Get the current state of encoder button. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+\hyperlink{class_encoder}{Encoder} class is responsible for reading rotary encoder input. 
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{class_encoder_a5e3fddf160e67d970c9c2cd57be5709a}\label{class_encoder_a5e3fddf160e67d970c9c2cd57be5709a}} 
+\index{Encoder@{Encoder}!get\+Count@{get\+Count}}
+\index{get\+Count@{get\+Count}!Encoder@{Encoder}}
+\subsubsection{\texorpdfstring{get\+Count()}{getCount()}}
+{\footnotesize\ttfamily int8\+\_\+t Encoder\+::get\+Count (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Get the current count. 
+
+\begin{DoxyReturn}{Returns}
+int8\+\_\+t current count 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_encoder_a430e95a76f5b958b5350992c065d0b29}\label{class_encoder_a430e95a76f5b958b5350992c065d0b29}} 
+\index{Encoder@{Encoder}!init@{init}}
+\index{init@{init}!Encoder@{Encoder}}
+\subsubsection{\texorpdfstring{init()}{init()}}
+{\footnotesize\ttfamily void Encoder\+::init (\begin{DoxyParamCaption}\item[{uint8\+\_\+t}]{pinout\+A\+\_\+p,  }\item[{uint8\+\_\+t}]{pinout\+B\+\_\+p,  }\item[{uint8\+\_\+t}]{pinout\+S\+W\+\_\+p = {\ttfamily -\/1} }\end{DoxyParamCaption})}
+
+
+
+Initialize encoder pinout on Arduino board. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em pinout\+A\+\_\+p} & Arduino pin the A channel of the encoder is attached to \\
+\hline
+{\em pinout\+B\+\_\+p} & Arduino pin the B channel of the encoder is attached to \\
+\hline
+{\em pinout\+S\+W\+\_\+p} & Arduino pin the switch input of the encoder is attached to \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_encoder_ac7046bc89fc381018597bbba0cc0026e}\label{class_encoder_ac7046bc89fc381018597bbba0cc0026e}} 
+\index{Encoder@{Encoder}!is\+Pressed@{is\+Pressed}}
+\index{is\+Pressed@{is\+Pressed}!Encoder@{Encoder}}
+\subsubsection{\texorpdfstring{is\+Pressed()}{isPressed()}}
+{\footnotesize\ttfamily bool Encoder\+::is\+Pressed (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Get the current state of encoder button. 
+
+\begin{DoxyReturn}{Returns}
+true if the rotary encoder is clicked 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_encoder_a85178b6e0978a7c342edbdce308d4abf}\label{class_encoder_a85178b6e0978a7c342edbdce308d4abf}} 
+\index{Encoder@{Encoder}!refresh@{refresh}}
+\index{refresh@{refresh}!Encoder@{Encoder}}
+\subsubsection{\texorpdfstring{refresh()}{refresh()}}
+{\footnotesize\ttfamily bool Encoder\+::refresh (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+updates encoder count after rotation 
+
+\begin{DoxyReturn}{Returns}
+true if the encoder has been rotated 
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+src/main/\hyperlink{encoder_8h}{encoder.\+h}\item 
+src/main/\hyperlink{encoder_8cpp}{encoder.\+cpp}\end{DoxyCompactItemize}

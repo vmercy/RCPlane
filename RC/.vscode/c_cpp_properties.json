@@ -3,6 +3,8 @@
         {
             "name": "Linux",
             "includePath": [
+                "/home/valentin/Arduino/libraries/SevSeg",
+                "/home/valentin/Arduino/libraries/Adafruit_SSD1306",
                 "/home/valentin/Arduino/libraries/**",
                 "/home/valentin/Downloads/arduino-1.8.13/libraries/**",
                 "/home/valentin/.arduino15/packages/arduino/tools/**",

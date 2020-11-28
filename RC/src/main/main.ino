@@ -34,10 +34,10 @@
 #define SEVSEG_F 14
 #define SEVSEG_G 19
 #define SEVSEG_DP 9
-#define SEVSEG_DEG1 12
-#define SEVSEG_DEG2 15
-#define SEVSEG_DEG3 16
-#define SEVSEG_DEG4 6
+#define SEVSEG_DIG1 12
+#define SEVSEG_DIG2 15
+#define SEVSEG_DIG3 16
+#define SEVSEG_DIG4 6
 
 #define MENU_BTN 36
 #define CTRL1_SWITCH 30
@@ -68,7 +68,7 @@
 #define CELL0_LED 5
 #define CELL1_LED 4
 #define CELL2_LED 3
-#define CELLALL_LED 2 
+#define CELLALL_LED 2
 
 #define NRF24L01_CE 7
 #define NRF24L01_CS 8
@@ -78,6 +78,8 @@
 #define R3 1000 //ohms
 
 /* Others */
+#define SSD1306_I2C_ADDRESS 0x3C
+#define SEVSEG_DEFAULT_BRIGHTNESS 90
 #define ENABLE_START 0
 #define VOLTAGE_RECTIFIER_COEFF 1.0132
 
@@ -96,19 +98,19 @@ Joystick leftJoy;
 Joystick rightJoy;
 Encoder enc;
 Buzzer buzz;
+SevsegScreen planeBatteryDisplay;
 //Lcdscreen mainScreen;
 
 //Led cell0;
 
 void start()
 {
-
 }
 
 void setup()
 {
   Serial.begin(9600);
-  
+
   leftJoy.init(LEFT_JOY_X, LEFT_JOY_Y, LEFT_JOY_SW);
 
   menuBtn.init(MENU_BTN);
@@ -123,20 +125,26 @@ void setup()
 
   rcLipo.init(LIPO_2S, VOLTAGE_RECTIFIER_COEFF);
 
-  const int lipoResistors[2][2] = {{0, 0}, {R2, R3}};
+  const uint8_t sevSegDigitsPinout[] = {SEVSEG_DIG1, SEVSEG_DIG2, SEVSEG_DIG3, SEVSEG_DIG4};
+  const uint8_t sevSegSegmentsPinout[] = {SEVSEG_A, SEVSEG_B, SEVSEG_C, SEVSEG_D, SEVSEG_E, SEVSEG_F, SEVSEG_G, SEVSEG_DP};
+
+  planeBatteryDisplay.begin(COMMON_CATHODE, 4, sevSegDigitsPinout, sevSegSegmentsPinout, true);
+
+  planeBatteryDisplay.setBrightness(SEVSEG_DEFAULT_BRIGHTNESS);
+
+  const int lipoResistors[][2] = {{0, 0}, {R2, R3}};
   rcLipo.setResistorValues(lipoResistors);
-  const uint8_t lipoPinout[2] = {A0, A1};
+  const uint8_t lipoPinout[] = {A0, A1};
   rcLipo.setPinout(lipoPinout);
 
-  if(ENABLE_START)
+  if (ENABLE_START)
     start();
   Serial.println("SETUP");
+
+  //TODO: beep on buzzer until both joystick are released at idle position
 }
 
 void loop()
 {
-  rcLipo.refresh();
-  rcLipo.print();
-
-  delay(500);
+  planeBatteryDisplay.test();
 }

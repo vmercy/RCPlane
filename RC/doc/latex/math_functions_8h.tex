@@ -1,0 +1,112 @@
+\hypertarget{math_functions_8h}{}\section{src/main/math\+Functions.h File Reference}
+\label{math_functions_8h}\index{src/main/math\+Functions.\+h@{src/main/math\+Functions.\+h}}
+
+
+Declaration of a set of mathematical functions.  
+
+
+{\ttfamily \#include $<$Arduino.\+h$>$}\newline
+Include dependency graph for math\+Functions.\+h\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=210pt]{math_functions_8h__incl}
+\end{center}
+\end{figure}
+This graph shows which files directly or indirectly include this file\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=314pt]{math_functions_8h__dep__incl}
+\end{center}
+\end{figure}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\footnotesize template$<$typename T , typename K $>$ }\\T \hyperlink{math_functions_8h_aa0d41d8ef935cf12142a4ea04a40f1a4}{sum} (K data\+Array\+\_\+p\mbox{[}$\,$\mbox{]}, uint8\+\_\+t size\+\_\+p)
+\begin{DoxyCompactList}\small\item\em computes a sum \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename T , typename K , typename U  = K$>$ }\\T \hyperlink{math_functions_8h_abee875c2ebcd4ff18609cbf236938ce0}{mean} (K data\+Array\+\_\+p\mbox{[}$\,$\mbox{]}, uint8\+\_\+t size\+\_\+p)
+\begin{DoxyCompactList}\small\item\em computes a mean value \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Declaration of a set of mathematical functions. 
+
+\begin{DoxyAuthor}{Author}
+Valentin Mercy (\href{https://github.com/vmercy}{\tt https\+://github.\+com/vmercy}) 
+\end{DoxyAuthor}
+\begin{DoxyVersion}{Version}
+0.\+1 
+\end{DoxyVersion}
+\begin{DoxyDate}{Date}
+2020-\/11-\/26
+\end{DoxyDate}
+\begin{DoxyCopyright}{Copyright}
+Copyright (c) 2020 
+\end{DoxyCopyright}
+
+
+\subsection{Function Documentation}
+\mbox{\Hypertarget{math_functions_8h_abee875c2ebcd4ff18609cbf236938ce0}\label{math_functions_8h_abee875c2ebcd4ff18609cbf236938ce0}} 
+\index{math\+Functions.\+h@{math\+Functions.\+h}!mean@{mean}}
+\index{mean@{mean}!math\+Functions.\+h@{math\+Functions.\+h}}
+\subsubsection{\texorpdfstring{mean()}{mean()}}
+{\footnotesize\ttfamily template$<$typename T , typename K , typename U  = K$>$ \\
+T mean (\begin{DoxyParamCaption}\item[{K}]{data\+Array\+\_\+p\mbox{[}$\,$\mbox{]},  }\item[{uint8\+\_\+t}]{size\+\_\+p }\end{DoxyParamCaption})}
+
+
+
+computes a mean value 
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em T} & type of input data \\
+\hline
+{\em K} & type of return \\
+\hline
+{\em U} & type of sum (optional) \\
+\hline
+\end{DoxyTemplParams}
+\begin{DoxyNote}{Note}
+set U to avoid overflow situations when calculating sum 
+\end{DoxyNote}
+
+\begin{DoxyParams}{Parameters}
+{\em data\+Array\+\_\+p} & array containing all values \\
+\hline
+{\em size\+\_\+p} & size of array\+Data\+\_\+p \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+T 
+\end{DoxyReturn}
+\mbox{\Hypertarget{math_functions_8h_aa0d41d8ef935cf12142a4ea04a40f1a4}\label{math_functions_8h_aa0d41d8ef935cf12142a4ea04a40f1a4}} 
+\index{math\+Functions.\+h@{math\+Functions.\+h}!sum@{sum}}
+\index{sum@{sum}!math\+Functions.\+h@{math\+Functions.\+h}}
+\subsubsection{\texorpdfstring{sum()}{sum()}}
+{\footnotesize\ttfamily template$<$typename T , typename K $>$ \\
+T sum (\begin{DoxyParamCaption}\item[{K}]{data\+Array\+\_\+p\mbox{[}$\,$\mbox{]},  }\item[{uint8\+\_\+t}]{size\+\_\+p }\end{DoxyParamCaption})}
+
+
+
+computes a sum 
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em T} & type of return \\
+\hline
+{\em K} & type of input data \\
+\hline
+\end{DoxyTemplParams}
+
+\begin{DoxyParams}{Parameters}
+{\em data\+Array\+\_\+p} & array containing all values \\
+\hline
+{\em size\+\_\+p} & size of array\+Data\+\_\+p \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+T 
+\end{DoxyReturn}

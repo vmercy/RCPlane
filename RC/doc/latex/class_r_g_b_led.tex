@@ -1,0 +1,84 @@
+\hypertarget{class_r_g_b_led}{}\section{R\+G\+B\+Led Class Reference}
+\label{class_r_g_b_led}\index{R\+G\+B\+Led@{R\+G\+B\+Led}}
+
+
+\hyperlink{class_r_g_b_led}{R\+G\+B\+Led} class is responsible for displaying colors on an R\+GB \hyperlink{class_led}{Led}.  
+
+
+
+
+{\ttfamily \#include $<$rgbled.\+h$>$}
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{class_r_g_b_led_aa12ca52b63da78e35b6bbec3624df991}{init} (bool led\+Type\+\_\+p, uint8\+\_\+t red\+Pin\+\_\+p, uint8\+\_\+t green\+Pin\+\_\+p, uint8\+\_\+t blue\+Pin\+\_\+p)
+\begin{DoxyCompactList}\small\item\em initializes led type and pinout \end{DoxyCompactList}\item 
+void \hyperlink{class_r_g_b_led_a9ab9701eb0f4d945fd9ca6e2235d7ee9}{write\+Color\+Pin} (uint8\+\_\+t color\+Pin\+\_\+p, bool new\+State\+\_\+p)
+\item 
+void \hyperlink{class_r_g_b_led_a6a1e12a1f48fc29acd30aa88a1cfd1b1}{display\+Color} (uint8\+\_\+t color\+\_\+p)
+\begin{DoxyCompactList}\small\item\em displays a specific color \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_r_g_b_led_af00b4e0ef8ec0aea4452fc2133b03453}\label{class_r_g_b_led_af00b4e0ef8ec0aea4452fc2133b03453}} 
+void {\bfseries turn\+Off} ()
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+\hyperlink{class_r_g_b_led}{R\+G\+B\+Led} class is responsible for displaying colors on an R\+GB \hyperlink{class_led}{Led}. 
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{class_r_g_b_led_a6a1e12a1f48fc29acd30aa88a1cfd1b1}\label{class_r_g_b_led_a6a1e12a1f48fc29acd30aa88a1cfd1b1}} 
+\index{R\+G\+B\+Led@{R\+G\+B\+Led}!display\+Color@{display\+Color}}
+\index{display\+Color@{display\+Color}!R\+G\+B\+Led@{R\+G\+B\+Led}}
+\subsubsection{\texorpdfstring{display\+Color()}{displayColor()}}
+{\footnotesize\ttfamily void R\+G\+B\+Led\+::display\+Color (\begin{DoxyParamCaption}\item[{uint8\+\_\+t}]{color\+\_\+p }\end{DoxyParamCaption})}
+
+
+
+displays a specific color 
+
+
+\begin{DoxyParams}{Parameters}
+{\em color\+\_\+p} & \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_r_g_b_led_aa12ca52b63da78e35b6bbec3624df991}\label{class_r_g_b_led_aa12ca52b63da78e35b6bbec3624df991}} 
+\index{R\+G\+B\+Led@{R\+G\+B\+Led}!init@{init}}
+\index{init@{init}!R\+G\+B\+Led@{R\+G\+B\+Led}}
+\subsubsection{\texorpdfstring{init()}{init()}}
+{\footnotesize\ttfamily void R\+G\+B\+Led\+::init (\begin{DoxyParamCaption}\item[{bool}]{led\+Type\+\_\+p,  }\item[{uint8\+\_\+t}]{red\+Pin\+\_\+p,  }\item[{uint8\+\_\+t}]{green\+Pin\+\_\+p,  }\item[{uint8\+\_\+t}]{blue\+Pin\+\_\+p }\end{DoxyParamCaption})}
+
+
+
+initializes led type and pinout 
+
+
+\begin{DoxyParams}{Parameters}
+{\em led\+Type\+\_\+p} & can be either R\+G\+B\+\_\+\+C\+O\+M\+M\+O\+N\+\_\+\+A\+N\+O\+DE or R\+G\+B\+\_\+\+C\+O\+M\+M\+O\+N\+\_\+\+C\+A\+T\+H\+O\+DE \\
+\hline
+{\em red\+Pin\+\_\+p} & the arduino pin the led red pin is connected to \\
+\hline
+{\em green\+Pin\+\_\+p} & the arduino pin the led green pin is connected to \\
+\hline
+{\em blue\+Pin\+\_\+p} & the arduino pin the led blue pin is connected to \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_r_g_b_led_a9ab9701eb0f4d945fd9ca6e2235d7ee9}\label{class_r_g_b_led_a9ab9701eb0f4d945fd9ca6e2235d7ee9}} 
+\index{R\+G\+B\+Led@{R\+G\+B\+Led}!write\+Color\+Pin@{write\+Color\+Pin}}
+\index{write\+Color\+Pin@{write\+Color\+Pin}!R\+G\+B\+Led@{R\+G\+B\+Led}}
+\subsubsection{\texorpdfstring{write\+Color\+Pin()}{writeColorPin()}}
+{\footnotesize\ttfamily void R\+G\+B\+Led\+::write\+Color\+Pin (\begin{DoxyParamCaption}\item[{uint8\+\_\+t}]{color\+Pin\+\_\+p,  }\item[{bool}]{new\+State\+\_\+p }\end{DoxyParamCaption})}
+
+
+\begin{DoxyParams}{Parameters}
+{\em color\+Pin\+\_\+p} & color selector, can be R\+ED, G\+R\+E\+EN or B\+L\+UE \\
+\hline
+{\em new\+State\+\_\+p} & new state, can be \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+src/main/\hyperlink{rgbled_8h}{rgbled.\+h}\item 
+src/main/\hyperlink{rgbled_8cpp}{rgbled.\+cpp}\end{DoxyCompactItemize}
