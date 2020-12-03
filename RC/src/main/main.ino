@@ -115,8 +115,8 @@ LCDScreen mainScreen;
 
 void start() //ligth all LEDS and screens
 {
-  mainScreen.test();
-  buzz.success();
+  mainScreen.startup();
+  //buzz.success();
   while (!leftJoy.idle() || !rightJoy.idle()) //startup security
     buzz.warning();
   gearLed.test(1);

@@ -23,6 +23,11 @@
 #include <Adafruit_GFX.h>
 #include <Adafruit_SSD1306.h>
 
+#include "lcd_bitmaps.h"
+
+#define LOGO_HEIGHT 64
+#define LOGO_WIDTH 128
+
 /**
  * @brief LCDScreen class is responsible for displaying informations on an SSD1306 I2C screen
  */
@@ -38,6 +43,10 @@ public:
    * @param displayI2cAddress_p the I2C address of the screen (can be found with examples/find_i2c_address/find_i2c_address.ino)
    */
   void init(uint8_t displayI2cAddress_p);
+  /**
+   * @brief prints startup screen
+   */
+  void startup();
   void test();
 };
 

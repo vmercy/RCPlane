@@ -31,6 +31,16 @@ void LCDScreen::init(uint8_t displayI2cAddress_p)
   }
 }
 
+void LCDScreen::startup()
+{
+  clearDisplay();
+
+  drawBitmap(
+      0,
+      0,
+      RCIcon, LOGO_WIDTH, LOGO_HEIGHT, 1);
+}
+
 void LCDScreen::test()
 {
   clearDisplay();
