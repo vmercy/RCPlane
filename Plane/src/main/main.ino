@@ -44,9 +44,6 @@ void start()
   rudder.moveIdle();
 }
 
-unsigned long startTime;
-bool shutdown;
-
 void setup()
 {
   Serial.begin(9600);
