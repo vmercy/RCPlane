@@ -11,7 +11,7 @@
 #ifndef AILERON_HPP
 #define AILERON_HPP
 
-#include <stdint.h>
+#include <Arduino.h>
 
 /**
  * @brief the delay between two steps (1°) for a the slowest movement available
@@ -45,7 +45,7 @@ private:
 	/**
    * @brief reverses the sense of rotation if set to true
    */
-	bool m_senseOfRotation;
+	bool m_reversed;
 
 public:
 	Aileron();
@@ -65,6 +65,7 @@ public:
 	/**
    * @brief moves aileron with a given angle
    * @param position_p final position in range 0-255
+   * @note position_p = 0 moves the aileron down, position_p = 255 moves the aileron up
    */
 	void moveTo(uint8_t position_p);
 

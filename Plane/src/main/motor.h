@@ -12,10 +12,10 @@
 #ifndef MOTOR_HPP
 #define MOTOR_HPP
 
-#include <stdint.h>
+#include <Arduino.h>
 
 #define MAX_SPEED 80 //degrees
-//TODO: check again
+#define ANTI_ARM_SPEED 50 //speed set at motor initialization to prevent ESC self-arming
 
 #ifndef SERVO_H
 #define SERVO_H

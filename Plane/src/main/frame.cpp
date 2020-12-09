@@ -8,7 +8,7 @@
  * @copyright Copyright (c) 2020
  * 
  */
-
+/* 
 #include "frame.h"
 
 incomingFrame::incomingFrame()
@@ -25,4 +25,4 @@ incomingFrame::~incomingFrame(){}
 bool incomingFrame::isAuthentificationFrame()
 {
   return m_frame.pitch == AUTH_PITCH && m_frame.roll == AUTH_ROLL && m_frame.power == AUTH_POWER;
-}
+} */

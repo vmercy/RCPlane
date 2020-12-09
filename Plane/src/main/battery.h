@@ -19,7 +19,7 @@
 #define LIPO_5S 5
 #define LIPO_6S 6
 
-#include <stdint.h> //TODO: replace by <Arduino.h> and repeat for all header files
+#include <Arduino.h>
 #include "mathFunctions.h"
 
 #define LIPO_LOWEST_VOLTAGE 3.3 //voltage of a normally discharged lipo cell

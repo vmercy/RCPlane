@@ -14,7 +14,7 @@
 
 Aileron::Aileron()
 {
-  m_senseOfRotation = false;
+  m_reversed = false;
 }
 
 Aileron::~Aileron() {}
@@ -37,13 +37,12 @@ void Aileron::init(int pin_p, int min_p, int max_p)
 
 void Aileron::reverse()
 {
-  m_senseOfRotation = !m_senseOfRotation;
+  m_reversed = !m_reversed;
 }
 
 void Aileron::moveTo(uint8_t position_p)
 {
-  int targetAngle = 0;
-  targetAngle = map(position_p, 0, 255, m_senseOfRotation ? m_maxAngle : m_minAngle, m_senseOfRotation ? m_minAngle : m_maxAngle);
+  uint8_t targetAngle = map(position_p, 0, 255, m_reversed ? m_maxAngle : m_minAngle, m_reversed ? m_minAngle : m_maxAngle);
   m_servo.write(targetAngle);
 }
 

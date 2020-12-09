@@ -12,11 +12,8 @@
 #ifndef FRAME_H
 #define FRAME_H
 
-#include <stdint.h>
-
-#define AUTH_PITCH 1
-#define AUTH_ROLL 2
-#define AUTH_POWER 3
+#include "battery.h"
+#include <Arduino.h>
 
 /**
  * @brief Struct composed with all data contained in a frame sent from the Transmitter to the Plane
@@ -24,6 +21,7 @@
 typedef struct{
   uint8_t roll;
   uint8_t pitch;
+  uint8_t yaw;
   uint8_t power;
 }TtoPDataFrame;
 
@@ -32,14 +30,12 @@ typedef struct{
  */
 typedef struct
 {
-  float cell0Voltage;
-  float cell1Voltage;
+  float cellVoltages[LIPO_2S];
   float temp;
   float hum;
-
 }PtoTDataFrame;
 
-class incomingFrame
+/* class incomingFrame
 {
 private:
   TtoPDataFrame m_frame;
@@ -48,6 +44,6 @@ public:
   incomingFrame(const TtoPDataFrame newFrame_p);
   ~incomingFrame();
   bool isAuthentificationFrame();
-};
+}; */
 
 #endif
