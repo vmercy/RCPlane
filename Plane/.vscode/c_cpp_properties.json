@@ -5,7 +5,8 @@
             "includePath": [
                 "/home/valentin/.arduino15/packages/arduino/tools/**",
                 "/home/valentin/.arduino15/packages/arduino/hardware/avr/1.6.21/**",
-                "/home/valentin/Arduino/libraries/**"
+                "/home/valentin/Arduino/libraries/**",
+                "/home/valentin/Downloads/arduino-1.8.13/libraries/**"
             ],
             "forcedInclude": [
                 "/home/valentin/.arduino15/packages/arduino/hardware/avr/1.6.21/cores/arduino/Arduino.h",
@@ -14,7 +15,10 @@
             "intelliSenseMode": "gcc-x64",
             "compilerPath": "/usr/bin/gcc",
             "cStandard": "gnu11",
-            "cppStandard": "gnu++14"
+            "cppStandard": "gnu++14",
+            "defines": [
+                "USBCON"
+            ]
         }
     ],
     "version": 4

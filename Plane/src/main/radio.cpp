@@ -13,13 +13,31 @@
 #include "radio.h"
 #include "mathFunctions.h"
 
-Radio::Radio() {}
+Radio::Radio(uint8_t CEpin_p, uint8_t CSpin_p)
+{
+}
 
 Radio::~Radio() {}
 
 void Radio::init(uint8_t CEpin_p, uint8_t CSpin_p)
 {
-  m_module = RF24(CEpin_p, CSpin_p);
+  m_connected = false;
+  m_lastFrame.pitch = 0;
+  m_lastFrame.power = 0;
+  m_lastFrame.roll = 0;
+  m_lastFrame.yaw = 0;
+  RF24::RF24((uint16_t)CEpin_p, (uint16_t)CSpin_p);
+}
+
+bool Radio::authenticateRemote()
+{
+  TtoPDataFrame authenticationFrame;
+  authenticationFrame.pitch = extractDigit(AUTHENTICATION_PIN, 0);
+  authenticationFrame.power = extractDigit(AUTHENTICATION_PIN, 1);
+  authenticationFrame.roll = extractDigit(AUTHENTICATION_PIN, 2);
+  authenticationFrame.yaw = extractDigit(AUTHENTICATION_PIN, 3);
+  return true;
+  //return ((m_lastFrame.pitch == authenticationFrame.pitch) && (m_lastFrame.power == authenticationFrame.power) && (m_lastFrame.roll = authenticationFrame.roll) && (m_lastFrame.yaw == authenticationFrame.yaw));
 }
 
 bool Radio::waitForConnection(int timeOut_p = -1)
@@ -36,32 +54,22 @@ bool Radio::waitForConnection(int timeOut_p = -1)
 
 bool Radio::isConnected()
 {
-  return m_module.testRPD();
+  return testRPD();
 }
 
 bool Radio::dataAvailable()
 {
-  return m_module.available();
+  return available();
 }
 
 bool Radio::receiveData()
 {
   if (dataAvailable())
   {
-    m_module.read(&m_lastFrame, sizeof(TtoPDataFrame));
+    read(&m_lastFrame, sizeof(TtoPDataFrame));
     return true;
   }
   return false;
-}
-
-bool Radio::authenticateRemote()
-{
-  TtoPDataFrame authenticationFrame;
-  authenticationFrame.pitch = extractDigit(AUTHENTICATION_PIN, 0);
-  authenticationFrame.power = extractDigit(AUTHENTICATION_PIN, 1);
-  authenticationFrame.roll = extractDigit(AUTHENTICATION_PIN, 2);
-  authenticationFrame.yaw = extractDigit(AUTHENTICATION_PIN, 3);
-  return (m_lastFrame == authenticateFrame);
 }
 
 uint8_t Radio::getPitch()

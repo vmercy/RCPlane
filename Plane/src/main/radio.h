@@ -13,6 +13,10 @@
 #define RADIO_HPP
 
 #include <RF24.h>
+#include <SPI.h>
+/* #include <nRF24L01.h>
+#include <printf.h>
+#include <RF24_config.h> */
 #include "frame.h"
 
 #define AUTHENTICATION_PIN 1234 //4 digit pin code used for remote authentication
@@ -20,14 +24,13 @@
 /**
  * @brief Radio class responsible for communicating with the Radio Transmitter on the ground
  */
-class Radio
+class Radio : private RF24
 {
 private:
   bool m_connected;
   TtoPDataFrame m_lastFrame;
-  RF24 m_module;
 public:
-  Radio();
+  Radio(uint8_t CEpin_p, uint8_t CSpin_p);
   ~Radio();
   void init(uint8_t CEpin_p, uint8_t CSpin_p);
   /**
@@ -42,7 +45,7 @@ public:
    * @brief validates an authentication frame
    * @return true if last frame is a valid authentication frame
    */
-  bool authenticate();
+  bool authenticateRemote();
   bool dataAvailable();
   bool receiveData();
   bool sendAuthenticationAck();

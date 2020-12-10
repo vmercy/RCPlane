@@ -26,7 +26,7 @@ Aileron elevAileron;
 Battery lipoPack;
 Motor brushless;
 Rudder rudder;
-Radio radio;
+Radio radio(NRF24L01_CE, NRF24L01_CS);
 
 /**
  * @brief startup script, checks all components are working well

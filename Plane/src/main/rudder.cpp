@@ -22,7 +22,7 @@ Rudder::~Rudder()
 void Rudder::init(uint8_t pinout_p,  uint8_t minAngle_p, uint8_t maxAngle_p)
 {
   attach(pinout_p);
-  m_minAngle = minAngle_p:
+  m_minAngle = minAngle_p;
   m_maxAngle = maxAngle_p;
 }
 
