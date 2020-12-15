@@ -22,10 +22,23 @@ class Buzzer
 private:
   uint8_t m_pinout;
   bool m_enabled;
+
 public:
   Buzzer();
-  ~Buzzer();
+  ~Buzzer(); 
+  /**
+   * @brief Initializes buzzer on the right Arduino pin
+   * @param pinout_p the Arduino pin the buzzer is attached to
+   * @param enable_p enable or disable the buzzer (optional)
+   */
   void init(uint8_t pinout_p, bool enable_p = true);
+  /**
+   * @brief play sound
+   * @param frequency_p sound frequency
+   * @param duration_p sound duration
+   * @param pause_p pause after sound play (optional)
+   */
+  void sound(unsigned int frequency_p, unsigned int duration_p, unsigned int pause_p = 0);
   void error();
   void success();
   void warning();

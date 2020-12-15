@@ -28,9 +28,9 @@ class Radio : private RF24
 {
 private:
   bool m_connected;
-  TtoPDataFrame m_lastIncomingFrame;
+  //PtoTDataFrame m_lastIncomingFrame;
+  TtoPDataFrame m_lastOutgoingFrame;
   const uint8_t m_pipes[2];
-  //PtoTDataFrame m_lastOutgoingFrame;
 public:
   Radio(uint8_t CEpin_p, uint8_t CSpin_p);
   ~Radio();
@@ -52,9 +52,9 @@ public:
   bool receiveData();
   bool sendAuthenticationAck();
   bool sendData();
-  uint8_t getRoll();
-  uint8_t getPitch();
-  uint8_t getYaw();
-  uint8_t getPower();
+  uint8_t setRoll(uint8_t newRoll_p);
+  uint8_t setPitch(uint8_t newPitch_p);
+  uint8_t setYaw(uint8_t newYaw_p);
+  uint8_t setPower(uint8_t newPower_p);
 };
 #endif

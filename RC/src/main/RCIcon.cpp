@@ -3,5 +3,5 @@
 // http://en.radzio.dxp.pl/bitmap_converter/
 //------------------------------------------------------------------------------
 
-#include "lcd_bitmaps.h"
+//#include "lcd_bitmaps.h"
 

@@ -13,12 +13,17 @@
 
 Buzzer::Buzzer()
 {
-
 }
 
 Buzzer::~Buzzer()
 {
+}
 
+void Buzzer::sound(unsigned int frequency_p, unsigned int duration_p, unsigned int pause_p = 0)
+{
+  tone(m_pinout, frequency_p, duration_p);
+  if (pause_p)
+    delay(pause_p);
 }
 
 void Buzzer::init(uint8_t pinout_p, bool enable_p = true)
@@ -30,23 +35,19 @@ void Buzzer::init(uint8_t pinout_p, bool enable_p = true)
 
 void Buzzer::error()
 {
-  tone(m_pinout, 5000, 100);
-  delay(200);
-  tone(m_pinout, 3000, 300);
+  sound(5000, 100, 200);
+  sound(3000, 300);
 }
 
 void Buzzer::success()
 {
-  tone(m_pinout, 4000, 100);
-  delay(200);
-  tone(m_pinout, 5000, 100);
-  delay(200);
-  tone(m_pinout, 7000, 300);
+  sound(4000, 100, 200);
+  sound(5000, 100, 200);
+  sound(7000, 300);
 }
 
 void Buzzer::warning()
 {
-  tone(m_pinout, 4000, 100);
-  delay(200);
-  tone(m_pinout, 4000, 300);
+  sound(4000, 100, 200);
+  sound(4000, 300);
 }

@@ -17,9 +17,9 @@
 #include "buzzer.h"
 #include "encoder.h"
 #include "joystick.h"
-#include "lcdscreen.h"
+//#include "lcdscreen.h"
 #include "led.h"
-//#include "radio.h"
+#include "radio.h"
 #include "rgbled.h"
 #include "plane_battery_display.h"
 #include "switch.h"
@@ -91,7 +91,7 @@
 #define SSD1306_I2C_ADDRESS 0x3C
 #define SEVSEG_DEFAULT_BRIGHTNESS 90
 
-#define ENABLE_START true
+#define ENABLE_START false //TODO: set to true
 #define ENABLE_BUZZER_DEFAULT false //let true except for development purposes
 #define VOLTAGE_RECTIFIER_COEFF 1.0132
 
@@ -105,24 +105,29 @@ Button CTRL4;
 Button menu;
 Led escLed;
 RGBLed gearLed;
-//Radio transmitter;
+//Radio transmitter(NRF24L01_CE, NRF24L01_CS);
 Joystick leftJoy;
 Joystick rightJoy;
 Encoder enc;
 Buzzer buzz;
 PlaneBatteryBisplay planeBatteryDisplay;
-LCDScreen mainScreen;
+//LCDScreen mainScreen;
+
+RF24 radio(7,8);
+const byte channel = 120;
+const uint8_t pipe[] = {0x01, 0x02};
+
 
 void start() //ligth all LEDS and screens
 {
-  mainScreen.startup();
+  //mainScreen.startup();
   //buzz.success();
   while (!leftJoy.idle() || !rightJoy.idle()) //startup security
     buzz.warning();
   gearLed.test(1);
   escLed.blink(100, 3);
   planeBatteryDisplay.testDisplays();
-  //armEsc();
+  armEsc();
 }
 
 void armEsc()
@@ -136,7 +141,7 @@ void armEsc()
 void setup()
 {
   Serial.begin(9600);
-  mainScreen.init(SSD1306_I2C_ADDRESS);
+  //mainScreen.init(SSD1306_I2C_ADDRESS);
   leftJoy.init(LEFT_JOY_X, LEFT_JOY_Y, LEFT_JOY_SW);
   rightJoy.init(RIGHT_JOY_X, RIGHT_JOY_Y, RIGHT_JOY_SW);
   leftJoy.setIdlePositions(LEFT_JOY_X_IDLE_POSITION, LEFT_JOY_Y_IDLE_POSITION);
@@ -156,6 +161,12 @@ void setup()
   rcLipo.setResistorValues(lipoResistors);
   const uint8_t lipoPinout[] = {A0, A1};
   rcLipo.setPinout(lipoPinout);
+  //transmitter.init(NRF24L01_CE, NRF24L01_CS);
+
+  radio.begin();
+  radio.setChannel(channel);
+  radio.openWritingPipe(pipe[1]);
+  radio.setPALevel(RF24_PA_MIN);
 
   if (ENABLE_START)
     start();
@@ -165,4 +176,24 @@ void setup()
 
 void loop()
 {
+  /* transmitter.setRoll(rightJoy.readX());
+  transmitter.setPower(leftJoy.readY());
+  transmitter.setPitch(rightJoy.readY());
+  transmitter.setYaw(leftJoy.readX());
+
+  transmitter.sendData(); */
+
+  TtoPDataFrame frame;
+  frame.power = leftJoy.readY();
+  frame.roll = rightJoy.readX();
+  frame.pitch = rightJoy.readY();
+  frame.yaw = leftJoy.readX();
+
+  leftJoy.print();
+  rightJoy.print();
+
+  radio.stopListening();
+  radio.write(&frame, sizeof(TtoPDataFrame));
+
+  delay(1000) ;
 }

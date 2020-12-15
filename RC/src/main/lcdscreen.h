@@ -23,7 +23,7 @@
 #include <Adafruit_GFX.h>
 #include <Adafruit_SSD1306.h>
 
-#include "lcd_bitmaps.h"
+//#include "lcd_bitmaps.h"
 
 #define LOGO_HEIGHT 64
 #define LOGO_WIDTH 128

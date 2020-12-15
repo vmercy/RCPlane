@@ -26,7 +26,12 @@ Aileron elevAileron;
 Battery lipoPack;
 Motor brushless;
 Rudder rudder;
-Radio radio(NRF24L01_CE, NRF24L01_CS);
+//Radio radio(NRF24L01_CE, NRF24L01_CS);
+
+RF24 radio(7,8);
+
+const byte channel = 120;
+const uint8_t pipe[] = {0x01, 0x02};
 
 /**
  * @brief startup script, checks all components are working well
@@ -60,7 +65,12 @@ void setup()
 
   lipoPack.init(LIPO_2S, VOLTAGE_RECTIFIER_COEFF);
 
-  radio.init(NRF24L01_CE, NRF24L01_CS);
+  //radio.init(NRF24L01_CE, NRF24L01_CS);
+
+  radio.begin();
+  radio.setChannel(channel);
+  radio.openReadingPipe(1, pipe[1]);
+  radio.setPALevel(RF24_PA_MIN);
 
   const int lipoResistors[][2] = {{0, 0}, {R2, R3}};
   lipoPack.setResistorValues(lipoResistors);
@@ -71,22 +81,38 @@ void setup()
   if (ENABLE_STARTUP)
     start();
 
-  if (radio.waitForConnection(CONNECTION_TIMEOUT))
+/*   if (radio.waitForConnection(CONNECTION_TIMEOUT))
     brushless.arm();
-  else
+  else */
     brushless.idle();
 }
 
 void loop()
 {
-  /* Receive incoming frame */
+  /*
   radio.receiveData();
 
-  /* Update flight parameters */
   brushless.setSpeed(radio.getPower());
   roll.setRoll(radio.getRoll());
   elevAileron.moveTo(radio.getPitch());
   rudder.moveTo(radio.getYaw());
 
-  /* Send outgoing frame */
+  */
+
+  TtoPDataFrame frame;
+  radio.startListening();
+
+  if(radio.available())
+  {
+    radio.read(&frame,sizeof(TtoPDataFrame));
+    roll.setRoll(frame.roll);
+    Serial.println(frame.roll);
+  }
+  else
+  {
+    Serial.println("Pas de message");
+  }
+  
+
+  delay(100);
 }

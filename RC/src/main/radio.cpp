@@ -14,9 +14,8 @@
 #include "mathFunctions.h"
 
 Radio::Radio(uint8_t CEpin_p, uint8_t CSpin_p) : //TODO: delete args
-m_pipes({0x01, 0x02})
+                                                 m_pipes({0x01, 0x02})
 {
-  
 }
 
 Radio::~Radio() {}
@@ -24,20 +23,20 @@ Radio::~Radio() {}
 void Radio::init(uint8_t CEpin_p, uint8_t CSpin_p)
 {
   m_connected = false;
-  m_lastIncomingFrame.pitch = 0;
-  m_lastIncomingFrame.power = 0;
-  m_lastIncomingFrame.roll = 0;
-  m_lastIncomingFrame.yaw = 0;
+  m_lastOutgoingFrame.pitch = 0;
+  m_lastOutgoingFrame.power = 0;
+  m_lastOutgoingFrame.roll = 0;
+  m_lastOutgoingFrame.yaw = 0;
   RF24::RF24((uint16_t)CEpin_p, (uint16_t)CSpin_p);
   begin();
-  setChannel(120); //TODO: define channel on macro
-  openReadingPipe(1, m_pipes[1]);
   setPALevel(RF24_PA_MIN);
+  setChannel(120); //TODO: define channel on macro
 /*   setDataRate(RF24_1MBPS);
   setRetries(15, 15);
   printDetails(); */
-  //openWritingPipe(m_pipes[1]);
-  //Serial.println(m_pipes[1],HEX);
+  openWritingPipe(m_pipes[1]);
+  //openReadingPipe(1, m_pipes[1]);
+  stopListening();
 }
 
 bool Radio::authenticateRemote()
@@ -54,7 +53,7 @@ bool Radio::authenticateRemote()
 bool Radio::waitForConnection(int timeOut_p = -1)
 {
   unsigned long timeOut = timeOut_p != (-1) ? (millis() + 1000 * timeOut_p) : 0;
-  while ((timeOut_p == 0) || (millis() < timeOut))
+  while (timeOut_p == 0 || millis() < timeOut)
   {
     receiveData();
     if (authenticateRemote())
@@ -75,43 +74,40 @@ bool Radio::dataAvailable()
 
 bool Radio::receiveData()
 {
-  startListening();
-  if (available())
+  /* if (dataAvailable())
   {
-    TtoPDataFrame frame;
-    read(&frame, sizeof(TtoPDataFrame));
-    m_lastIncomingFrame.pitch = frame.pitch;
-    m_lastIncomingFrame.yaw = frame.yaw;
-    m_lastIncomingFrame.roll = frame.roll;
-    m_lastIncomingFrame.power = frame.power;
-
-    Serial.println(m_lastIncomingFrame.roll);
+    read(&m_lastIncomingFrame, sizeof(TtoPDataFrame));
     return true;
   }
-  return false;
+  return false; */
+}
+
+uint8_t Radio::setPitch(uint8_t newPitch_p)
+{
+  m_lastOutgoingFrame.pitch = newPitch_p;
+}
+
+uint8_t Radio::setRoll(uint8_t newRoll_p)
+{
+  m_lastOutgoingFrame.roll = newRoll_p;
+}
+
+uint8_t Radio::setYaw(uint8_t newYaw_p)
+{
+  m_lastOutgoingFrame.yaw = newYaw_p;
+}
+
+uint8_t Radio::setPower(uint8_t newPower_p)
+{
+  m_lastOutgoingFrame.power = newPower_p;
 }
 
 bool Radio::sendData()
 {
-  stopListening();
-}
-
-uint8_t Radio::getPitch()
-{
-  return m_lastIncomingFrame.pitch;
-}
-
-uint8_t Radio::getRoll()
-{
-  return m_lastIncomingFrame.roll;
-}
-
-uint8_t Radio::getYaw()
-{
-  return m_lastIncomingFrame.yaw;
-}
-
-uint8_t Radio::getPower()
-{
-  return m_lastIncomingFrame.power;
+  TtoPDataFrame frameToSend;
+  frameToSend.pitch = m_lastOutgoingFrame.pitch;
+  frameToSend.yaw = m_lastOutgoingFrame.yaw;
+  frameToSend.power = m_lastOutgoingFrame.power;
+  frameToSend.roll = m_lastOutgoingFrame.roll;
+  return write(&frameToSend, sizeof(TtoPDataFrame));
 }
