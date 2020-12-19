@@ -42,7 +42,7 @@ void start()
   leftAileron.moveSpeed(100, STARTUP_AILERONS_SPEED);
   rightAileron.moveSpeed(100, STARTUP_AILERONS_SPEED);
   elevAileron.moveSpeed(100, STARTUP_AILERONS_SPEED);
-  rudder.test();
+  //rudder.test();
   leftAileron.moveIdle();
   rightAileron.moveIdle();
   elevAileron.moveIdle();
@@ -56,12 +56,13 @@ void setup()
 
   leftAileron.init(LEFT_SERVO_PIN, LEFT_DOWN, LEFT_UP);
   rightAileron.init(RIGHT_SERVO_PIN, RIGHT_DOWN, RIGHT_UP);
-  rightAileron.reverse();
+  leftAileron.reverse();
   roll.init(leftAileron, rightAileron);
   elevAileron.init(ELEV_SERVO_PIN, ELEV_DOWN, ELEV_UP);
+  elevAileron.reverse();
   brushless.init(ESC_PIN);
 
-  rudder.init(RUDDER_SERVO_PIN, RUDDER_LEFT, RUDDER_RIGHT);
+  //rudder.init(RUDDER_SERVO_PIN, RUDDER_LEFT, RUDDER_RIGHT);
 
   lipoPack.init(LIPO_2S, VOLTAGE_RECTIFIER_COEFF);
 
@@ -71,6 +72,9 @@ void setup()
   radio.setChannel(channel);
   radio.openReadingPipe(1, pipe[1]);
   radio.setPALevel(RF24_PA_MIN);
+
+  radio.enableDynamicAck();
+  radio.enableDynamicPayloads();
 
   const int lipoResistors[][2] = {{0, 0}, {R2, R3}};
   lipoPack.setResistorValues(lipoResistors);
@@ -108,19 +112,27 @@ void loop()
     radio.read(&frame,sizeof(TtoPDataFrame));
     roll.setRoll(frame.roll);
     elevAileron.moveTo(frame.pitch);
-    rudder.moveTo(frame.yaw);
+    //rudder.moveTo(frame.yaw);
     brushless.setSpeed(frame.power);
-
+    //delay(100);
+    Serial.print("Frame received : Power ");
+    Serial.print(frame.power);
+    Serial.print(", Pitch ");
+    Serial.print(frame.pitch);
+    Serial.print(", Roll");
+    Serial.print(frame.roll);
+    Serial.print(", Yaw");
+    Serial.println(frame.yaw);
+    //radio.flush_rx();
+    //radio.flush_tx();
+    
   }
   else
   {
-    Serial.println("Pas de message");
+    Serial.println("No radio communication...");
     brushless.idle();
     roll.idle();
     elevAileron.moveIdle();
     rudder.moveIdle();
   }
-  
-
-  delay(100);
 }
