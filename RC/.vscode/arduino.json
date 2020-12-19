@@ -2,5 +2,5 @@
     "sketch": "src/main/main.ino",
     "board": "arduino:avr:mega",
     "configuration": "cpu=atmega2560",
-    "port": "/dev/ttyUSB1"
+    "port": "/dev/ttyUSB0"
 }

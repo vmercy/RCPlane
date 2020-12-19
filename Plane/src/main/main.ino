@@ -84,6 +84,7 @@ void setup()
 /*   if (radio.waitForConnection(CONNECTION_TIMEOUT))
     brushless.arm();
   else */
+  brushless.arm();
     brushless.idle();
 }
 
@@ -106,11 +107,18 @@ void loop()
   {
     radio.read(&frame,sizeof(TtoPDataFrame));
     roll.setRoll(frame.roll);
-    Serial.println(frame.roll);
+    elevAileron.moveTo(frame.pitch);
+    rudder.moveTo(frame.yaw);
+    brushless.setSpeed(frame.power);
+
   }
   else
   {
     Serial.println("Pas de message");
+    brushless.idle();
+    roll.idle();
+    elevAileron.moveIdle();
+    rudder.moveIdle();
   }
   
 

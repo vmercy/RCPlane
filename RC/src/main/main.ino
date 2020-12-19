@@ -184,10 +184,14 @@ void loop()
   transmitter.sendData(); */
 
   TtoPDataFrame frame;
-  frame.power = leftJoy.readY();
+  if(leftJoy.readY()>LEFT_JOY_Y_IDLE_POSITION)
+    frame.power = map(leftJoy.readY(),LEFT_JOY_Y_IDLE_POSITION,255,0,255);
+  else
+    frame.power = 0;
+
   frame.roll = rightJoy.readX();
   frame.pitch = rightJoy.readY();
-  frame.yaw = leftJoy.readX();
+  frame.yaw = 255-leftJoy.readX();
 
   leftJoy.print();
   rightJoy.print();
@@ -195,5 +199,5 @@ void loop()
   radio.stopListening();
   radio.write(&frame, sizeof(TtoPDataFrame));
 
-  delay(1000) ;
+  delay(10) ;
 }
