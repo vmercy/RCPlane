@@ -19,7 +19,7 @@
 #define LEFT_DOWN 175
 #define RIGHT_UP 0
 #define RIGHT_DOWN 150
-#define ELEV_UP 40
+#define ELEV_UP 50
 #define ELEV_DOWN 180
 #define RUDDER_LEFT 40
 #define RUDDER_RIGHT 140
