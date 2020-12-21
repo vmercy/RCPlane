@@ -137,14 +137,7 @@ void loop()
   frame.roll = rightJoy.readX();
   frame.pitch = rightJoy.readY();
   frame.yaw = 255-leftJoy.readX();
-<<<<<<< HEAD
-
-  //TODO: control yaw with right joy when on the ground (switch with pushbutton)
-
-=======
-/* 
->>>>>>> 6e648544c50c2077f671019b11024d16e9d5d6ac
-  leftJoy.print();
+  /* leftJoy.print();
   rightJoy.print(); */
 
   radio.stopListening();
