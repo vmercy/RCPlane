@@ -28,7 +28,7 @@ Motor brushless;
 Rudder rudder;
 //Radio radio(NRF24L01_CE, NRF24L01_CS);
 
-RF24 radio(7,8);
+RF24 radio(7, 8);
 
 const byte channel = 120;
 const uint8_t pipe[] = {0x01, 0x02};
@@ -42,7 +42,7 @@ void start()
   leftAileron.moveSpeed(100, STARTUP_AILERONS_SPEED);
   rightAileron.moveSpeed(100, STARTUP_AILERONS_SPEED);
   elevAileron.moveSpeed(100, STARTUP_AILERONS_SPEED);
-  //rudder.test();
+  rudder.test();
   leftAileron.moveIdle();
   rightAileron.moveIdle();
   elevAileron.moveIdle();
@@ -61,8 +61,7 @@ void setup()
   elevAileron.init(ELEV_SERVO_PIN, ELEV_DOWN, ELEV_UP);
   elevAileron.reverse();
   brushless.init(ESC_PIN);
-
-  //rudder.init(RUDDER_SERVO_PIN, RUDDER_LEFT, RUDDER_RIGHT);
+  rudder.init(RUDDER_SERVO_PIN, RUDDER_LEFT, RUDDER_RIGHT);
 
   lipoPack.init(LIPO_2S, VOLTAGE_RECTIFIER_COEFF);
 
@@ -73,8 +72,8 @@ void setup()
   radio.openReadingPipe(1, pipe[1]);
   radio.setPALevel(RF24_PA_MIN);
 
-  radio.enableDynamicAck();
-  radio.enableDynamicPayloads();
+  /*   radio.enableDynamicAck();
+  radio.enableDynamicPayloads(); */
 
   const int lipoResistors[][2] = {{0, 0}, {R2, R3}};
   lipoPack.setResistorValues(lipoResistors);
@@ -85,11 +84,12 @@ void setup()
   if (ENABLE_STARTUP)
     start();
 
-/*   if (radio.waitForConnection(CONNECTION_TIMEOUT))
+  /*   if (radio.waitForConnection(CONNECTION_TIMEOUT))
     brushless.arm();
   else */
   brushless.arm();
-    brushless.idle();
+  brushless.idle();
+  radio.startListening();
 }
 
 void loop()
@@ -105,14 +105,13 @@ void loop()
   */
 
   TtoPDataFrame frame;
-  radio.startListening();
 
-  if(radio.available())
+  if (radio.available())
   {
-    radio.read(&frame,sizeof(TtoPDataFrame));
+    radio.read(&frame, sizeof(TtoPDataFrame));
     roll.setRoll(frame.roll);
     elevAileron.moveTo(frame.pitch);
-    //rudder.moveTo(frame.yaw);
+    rudder.moveTo(frame.yaw);
     brushless.setSpeed(frame.power);
     //delay(100);
     Serial.print("Frame received : Power ");
@@ -125,7 +124,6 @@ void loop()
     Serial.println(frame.yaw);
     //radio.flush_rx();
     //radio.flush_tx();
-    
   }
   else
   {
@@ -135,4 +133,5 @@ void loop()
     elevAileron.moveIdle();
     rudder.moveIdle();
   }
+  delay(10);
 }

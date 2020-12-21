@@ -68,6 +68,13 @@ void RGBLed::displayColor(uint8_t color_p)
       writeColorPin(GREEN, ON);
       break;
     }
+    case WHITE:
+    {
+      writeColorPin(RED, ON);
+      writeColorPin(GREEN, ON);
+      writeColorPin(BLUE, ON);
+      break;
+    }
     default:
       turnOff();
       break;

@@ -15,7 +15,14 @@
 #include "button.h"
 
 class Switch : public Button
-{};
+{
+    public:
+        /**
+         * @brief read switch current state
+         * @return true if the switch is on
+         */
+        bool state();
+};
 
 
 #endif

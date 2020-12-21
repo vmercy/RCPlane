@@ -1,4 +1,4 @@
-# Arduino Powered RC Plane # <!-- omit in toc -->
+# Arduino Powered RC Plane <!-- omit in toc -->
 * Author: Valentin Mercy
 * Date: 21/11/2020
 * Type: Arduino Project
