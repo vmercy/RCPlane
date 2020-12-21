@@ -168,6 +168,10 @@ void setup()
   radio.openWritingPipe(pipe[1]);
   radio.setPALevel(RF24_PA_MIN);
 
+  /*   
+  radio.enableDynamicAck();
+  radio.enableDynamicPayloads(); */
+
   if (ENABLE_START)
     start();
 
@@ -193,11 +197,13 @@ void loop()
   frame.pitch = rightJoy.readY();
   frame.yaw = 255-leftJoy.readX();
 
+  //TODO: control yaw with right joy when on the ground (switch with pushbutton)
+
   leftJoy.print();
   rightJoy.print();
 
   radio.stopListening();
   radio.write(&frame, sizeof(TtoPDataFrame));
 
-  delay(10) ;
+  delay(50);
 }
