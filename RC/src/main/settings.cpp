@@ -13,12 +13,15 @@
 
 Settings::Settings()
 {
-  
+  setSetting(REVERT_POWER, DEFAULT_REVERT_POWER);
+  setSetting(REVERT_ROLL, DEFAULT_REVERT_ROLL);
+  setSetting(REVERT_YAW, DEFAULT_REVERT_YAW);
+  setSetting(REVERT_PITCH, DEFAULT_REVERT_PITCH);
+  setSetting(ENABLE_BUZZER, DEFAULT_ENABLE_BUZZER);
+  setSetting(REDUCE_GROUND_SPEED, DEFAULT_REDUCE_GROUND_SPEED);
+  setSetting(MAX_GROUND_POWER, DEFAULT_MAX_GROUND_POWER);
 }
 
 Settings::~Settings()
 {
-
 }
-
-//Settings::

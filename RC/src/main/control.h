@@ -13,6 +13,11 @@
 #define CONTROL_H
 
 #include "joystick.h"
+#include "encoder.h"
+#include "buzzer.h"
+#include "rgbled.h"
+#include "switch.h"
+#include "settings.h"
 
 #define GROUND_MODE 0
 #define FLIGHT_MODE 1
@@ -20,7 +25,7 @@
 #define CONTROL_IDLE 128
 
 /**
- * @brief Control class is responsible for translating Joystick inputs into power, pitch, yaw and roll values
+ * @brief Control class is responsible for translating Joystick, encoder and button inputs into power, pitch, yaw and roll values
  */
 class Control
 {
@@ -31,15 +36,24 @@ private:
     bool m_mode;
     Joystick m_leftJoy;
     Joystick m_rightJoy;
+    Encoder m_encoder;
+    Buzzer m_buzzer;
+    RGBLed m_rgbLed;
+    const Settings* m_p_settings;
 public:
     Control();
     /**
-     * @brief Construct a new Control object with given joysticks
+     * @brief Initializes control with given joysticks
      * @param leftJoy_p left joystick object
-     * @param rioghtJoy_p right joystick object
-     * @note both joysticks must be initialized
+     * @param rightJoy_p right joystick object
+     * @param encoder_p encoder objet
+     * @param gearSwitch_p switch object controlling the gear
+     * @param buzzer_p buzzer object
+     * @param rgbLed_p RGBLed object
+     * @param p_settings_p pointer to the settings
+     * @note all objects must be initialized before
      */
-    Control(Joystick leftJoy_p, Joystick rioghtJoy_p);
+    void init(Joystick leftJoy_p, Joystick rioghtJoy_p, Encoder encoder_p, Switch gearSwitch_p, Buzzer buzzer_p, RGBLed rgbLed_p, const Settings* p_settings_p);
     ~Control();
     /**
      * @brief Set the Mode

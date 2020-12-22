@@ -13,13 +13,17 @@
 
 Control::Control()
 {
-
+  m_p_settings = NULL;
 }
 
-Control::Control(Joystick leftJoy_p, Joystick rioghtJoy_p)
+void Control::init(Joystick leftJoy_p, Joystick rioghtJoy_p, Encoder encoder_p, Switch gearSwitch_p, Buzzer buzzer_p, RGBLed rgbLed_p, const Settings* p_settings_p)
 {
     m_leftJoy = leftJoy_p;
     m_rightJoy = rioghtJoy_p;
+    m_encoder = encoder_p;
+    m_rgbLed = rgbLed_p;
+    m_buzzer = buzzer_p;
+    m_p_settings = p_settings_p;
 }
 
 Control::~Control()

@@ -24,6 +24,9 @@
 #include "plane_battery_display.h"
 #include "switch.h"
 
+#include "settings.h"
+#include "control.h"
+
 #include "header.h"
 
 /* Objects Declarations */
@@ -43,6 +46,9 @@ Encoder enc;
 Buzzer buzz;
 PlaneBatteryBisplay planeBatteryDisplay;
 //LCDScreen mainScreen;
+
+Settings config;
+Control control;
 
 RF24 radio(7,8);
 const byte channel = 120;
@@ -83,6 +89,16 @@ void setup()
   enc.init(ENCODER_A, ENCODER_B, ENCODER_SW);
   buzz.init(BUZZER, ENABLE_BUZZER_DEFAULT);
   rcLipo.init(LIPO_2S, VOLTAGE_RECTIFIER_COEFF);
+  
+  CTRL1.init(CTRL1_SWITCH);
+  CTRL2.init(CTRL2_SWITCH);
+  CTRL3.init(CTRL3_BTN);
+  CTRL4.init(CTRL4_BTN);
+
+  //TODO: config.readFromMem();
+
+  control.init(leftJoy, rightJoy, enc, CTRL1, buzz, gearLed, &config);
+
   const uint8_t cellIndicatorsPinout[] = {CELL0_LED, CELL1_LED, CELL2_LED, CELLALL_LED};
   const uint8_t sevSegDigitsPinout[] = {SEVSEG_DIG1, SEVSEG_DIG2, SEVSEG_DIG3, SEVSEG_DIG4};
   const uint8_t sevSegSegmentsPinout[] = {SEVSEG_A, SEVSEG_B, SEVSEG_C, SEVSEG_D, SEVSEG_E, SEVSEG_F, SEVSEG_G, SEVSEG_DP};
@@ -93,6 +109,8 @@ void setup()
   const uint8_t lipoPinout[] = {A0, A1};
   rcLipo.setPinout(lipoPinout);
   //transmitter.init(NRF24L01_CE, NRF24L01_CS);
+
+  
 
   radio.begin();
   radio.setChannel(channel);
