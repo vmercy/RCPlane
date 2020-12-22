@@ -34,7 +34,7 @@ void Control::setMode(bool newMode_p)
 
 uint8_t Control::getPower()
 {
-
+    
 }
 
 uint8_t Control::getPitch()

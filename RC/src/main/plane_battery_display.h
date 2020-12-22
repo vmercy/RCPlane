@@ -39,7 +39,7 @@ public:
    * @param sevSegDigitsPinout_p 
    * @param sevSegSegmentsPinout_p 
    */
-  void init(uint8_t nbCells_p, uint8_t cellIndicatorsPinout_p[NB_CELLS_TOTAL+1], bool displayType_p, uint8_t nbDigits_p, uint8_t* sevSegDigitsPinout_p, uint8_t* sevSegSegmentsPinout_p);
+  void init(const uint8_t nbCells_p, const uint8_t cellIndicatorsPinout_p[NB_CELLS_TOTAL+1], bool displayType_p, uint8_t nbDigits_p, const uint8_t* sevSegDigitsPinout_p, const uint8_t* sevSegSegmentsPinout_p);
   void printCell(uint8_t cellSelect_p);
   void printNextCell();
   void testDisplays();

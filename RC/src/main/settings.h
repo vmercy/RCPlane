@@ -20,17 +20,21 @@
 /* Settings */
 /* Boolean */
 #define REVERT_POWER
-#define REVERT_ROLL
+#define REVERT_ROLL 
 #define REVERT_YAW
 #define REVERT_PITCH
-
-#define REDUCE_GROUND_SPEED
 
 /* Bytes */
 
 /* Integers */
 
 /* Default settings values */
+#define DEFAULT_REVERT_POWER false
+#define DEFAULT_REVERT_ROLL false
+#define DEFAULT_REVERT_YAW true
+#define DEFAULT_REVERT_PITCH false
+
+#define DEFAULT_REDUCE_GROUND_SPEED true
 
 /**
  * @brief Settings class is responsible for 

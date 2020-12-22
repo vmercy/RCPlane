@@ -32,7 +32,7 @@ void PlaneBatteryBisplay::printNextCell()
   printCell(m_activeCell);
 }
 
-void PlaneBatteryBisplay::init(uint8_t nbCells_p, uint8_t cellIndicatorsPinout_p[NB_CELLS_TOTAL + 1], bool displayType_p, uint8_t nbDigits_p, uint8_t *sevSegDigitsPinout_p, uint8_t *sevSegSegmentsPinout_p)
+void PlaneBatteryBisplay::init(const uint8_t nbCells_p, const uint8_t cellIndicatorsPinout_p[NB_CELLS_TOTAL + 1], bool displayType_p, uint8_t nbDigits_p, const uint8_t *sevSegDigitsPinout_p, const uint8_t *sevSegSegmentsPinout_p)
 {
 
   for (uint8_t i = 0; i < (NB_CELLS_TOTAL + 1); i++)
