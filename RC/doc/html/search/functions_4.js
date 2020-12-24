@@ -1,3 +1,4 @@
-var searchData = [
-    ['extractdigit', ['extractDigit', ['../math_functions_8h.html#a83b808608ddde3af2c86c0ee5b9768c6', 1, 'math_functions.h']]]
+var searchData=
+[
+  ['extractdigit',['extractDigit',['../namespacemath_functions.html#a32a0226ce7d0593d33c203874e28397e',1,'mathFunctions']]]
 ];

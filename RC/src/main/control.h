@@ -30,17 +30,17 @@
  * @note Description of controls :
  *  - CTRL1 : mode selector : Ground (off) / Flight (on))
  *  - CTRL2 : auto-thrust activation : Disable (off) / Enable (on)
- *  - CTRL3 : reset auto-thrust cursor to 0
+ *  - CTRL3 : set auto-thrust to neutral (halfway)
  *  - CTRL4 : yaw activation : Disable (off) / Enable (on)
  *  - Encoder :
  *    - CW : auto-thrust cursor += getSetting(AUTOTHRUST_CURSOR_STEP)
  *    - CCW : auto-thrust cursor -= getSetting(AUTOTHRUST_CURSOR_STEP)
- *    - Switch (button) : auto-thrust to neutral (halfway
+ *    - Switch (button) : reset auto-thrust to 0 (this is equivalent to temporarily disable auto-thrust)
  * @note Description of control modes :
  *  - Ground mode : 
  *    - Left joystick :
  *      - X axis : nothing
- *      - Y axis : power
+ *      - Y axis : power (eventually reduced to map(power,0,255,0,getSetting(MAX_GROUND_POWER)) if getSetting(REDUCE_GROUND_SPEED) == true)
  *    - Right joystick :
  *      - X axis : roll + yaw
  *      - Y axis : pitch
@@ -52,8 +52,12 @@
  *      - X axis : roll
  *      - Y axis : pitch
  * @note Description of auto-thrust :
- * - General case : power = cursor + map()
- * @example 
+ * - General case : power = cursor + map(joystick, min, max, halfway, max) //TODO: check
+ * @example
+ * - Particular cases :
+ *  - When m_autoThrustCursor = 0 : power = map(joystick, min, max, halfway, max)
+ *  - When m_autoThrustCursor = 128 (halfway) : power = joystick
+ *  - When m_autoThrustCursor = 255 (max) : power = max
  */
 class Control
 {
@@ -63,9 +67,9 @@ private:
      */
     bool m_mode;
     /**
-     * @brief defines the encoder position 
+     * @brief the auto-thrust cursor value
      */
-    uint8_t m_encoderPosition;
+    uint8_t m_autoThrustCursor;
 
     Joystick m_leftJoy;
     Joystick m_rightJoy;

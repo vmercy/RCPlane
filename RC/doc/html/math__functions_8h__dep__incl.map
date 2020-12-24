@@ -1,0 +1,11 @@
+<map id="src/main/math_functions.h" name="src/main/math_functions.h">
+<area shape="rect" id="node2" href="$battery_8h.html" title="declaration of battery class " alt="" coords="163,80,290,107"/>
+<area shape="rect" id="node6" href="$radio_8cpp.html" title="Definition of radio class. " alt="" coords="214,304,343,331"/>
+<area shape="rect" id="node7" href="$joystick_8h.html" title="Declaration of Joystick class. " alt="" coords="369,80,501,107"/>
+<area shape="rect" id="node3" href="$battery_8cpp.html" title="definition of battery class " alt="" coords="5,155,147,181"/>
+<area shape="rect" id="node4" href="$frame_8h.html" title="Declaration of frame types and incomingFrame class. " alt="" coords="171,155,291,181"/>
+<area shape="rect" id="node5" href="$radio_8h.html" title="Declaration of radio class. " alt="" coords="175,229,289,256"/>
+<area shape="rect" id="node8" href="$control_8h.html" title="Declaration of control class. " alt="" coords="371,155,498,181"/>
+<area shape="rect" id="node10" href="$joystick_8cpp.html" title="Definition of Joystick class. " alt="" coords="523,155,669,181"/>
+<area shape="rect" id="node9" href="$control_8cpp.html" title="Definition of control class. " alt="" coords="366,229,506,256"/>
+</map>

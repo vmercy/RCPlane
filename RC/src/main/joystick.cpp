@@ -37,7 +37,7 @@ uint8_t Joystick::readX(bool rectify_p = true) //TODO: rectify reading if rectif
     samples[i] = map(analogRead(m_pinoutX), 0, 1023, 0, 255);
     delay(SAMPLE_DELAY);
   }
-  return (uint8_t)mean<uint8_t, uint8_t, uint16_t>(samples, NB_SAMPLES_JOYSTICK); */
+  return (uint8_t)mathFunctions::mean<uint8_t, uint8_t, uint16_t>(samples, NB_SAMPLES_JOYSTICK); */
   return map(analogRead(m_pinoutX), 0, 1023, 0, 255);
 }
 
@@ -50,7 +50,7 @@ uint8_t Joystick::readY(bool rectify_p = true)
     samples[i] = map(analogRead(m_pinoutY), 0, 1023, 0, 255);
     delay(SAMPLE_DELAY);
   }
-  return (uint8_t)mean<uint8_t, uint8_t, uint16_t>(samples, NB_SAMPLES_JOYSTICK);
+  return (uint8_t)mathFunctions::mean<uint8_t, uint8_t, uint16_t>(samples, NB_SAMPLES_JOYSTICK);
   */ 
   return map(analogRead(m_pinoutY), 0, 1023, 0, 255);
   

@@ -13,7 +13,7 @@
 Control::Control()
 {
   m_p_settings = NULL;
-  m_encoderPosition = 0;
+  m_autoThrustCursor = 0;
 }
 
 void Control::init(Joystick leftJoy_p, Joystick rioghtJoy_p, Encoder encoder_p, Switch gearSwitch_p, Buzzer buzzer_p, RGBLed rgbLed_p, const Settings* p_settings_p)

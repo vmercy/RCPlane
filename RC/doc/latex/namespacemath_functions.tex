@@ -1,0 +1,154 @@
+\hypertarget{namespacemath_functions}{}\section{math\+Functions Namespace Reference}
+\label{namespacemath_functions}\index{math\+Functions@{math\+Functions}}
+
+
+collection of useful templated math functions  
+
+
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\footnotesize template$<$typename T , typename K $>$ }\\T \hyperlink{namespacemath_functions_addb45716cc0631d67e6cb6a913336491}{sum} (K data\+Array\+\_\+p\mbox{[}$\,$\mbox{]}, uint8\+\_\+t size\+\_\+p)
+\begin{DoxyCompactList}\small\item\em computes a sum \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename T , typename K , typename U  = K$>$ }\\T \hyperlink{namespacemath_functions_a5b9bc0e0bf8f4e65a9177b8274c594ef}{mean} (K data\+Array\+\_\+p\mbox{[}$\,$\mbox{]}, uint8\+\_\+t size\+\_\+p)
+\begin{DoxyCompactList}\small\item\em computes a mean value \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename T , typename K  = T$>$ }\\K \hyperlink{namespacemath_functions_a32a0226ce7d0593d33c203874e28397e}{extract\+Digit} (T number\+\_\+p, uint8\+\_\+t digit\+Select\+\_\+p=0, uint8\+\_\+t base\+\_\+p=10)
+\begin{DoxyCompactList}\small\item\em extracts digit from a number \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename T , typename U  = T, typename K  = U$>$ }\\K \hyperlink{namespacemath_functions_a65a3e03a8f5216b86440247de2023aae}{map} (T base, T min\+Base, T max\+Base, U new\+Min, U new\+Max)
+\begin{DoxyCompactList}\small\item\em Re-\/maps a number from one range to another. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+collection of useful templated math functions 
+
+\subsection{Function Documentation}
+\mbox{\Hypertarget{namespacemath_functions_a32a0226ce7d0593d33c203874e28397e}\label{namespacemath_functions_a32a0226ce7d0593d33c203874e28397e}} 
+\index{math\+Functions@{math\+Functions}!extract\+Digit@{extract\+Digit}}
+\index{extract\+Digit@{extract\+Digit}!math\+Functions@{math\+Functions}}
+\subsubsection{\texorpdfstring{extract\+Digit()}{extractDigit()}}
+{\footnotesize\ttfamily template$<$typename T , typename K  = T$>$ \\
+K math\+Functions\+::extract\+Digit (\begin{DoxyParamCaption}\item[{T}]{number\+\_\+p,  }\item[{uint8\+\_\+t}]{digit\+Select\+\_\+p = {\ttfamily 0},  }\item[{uint8\+\_\+t}]{base\+\_\+p = {\ttfamily 10} }\end{DoxyParamCaption})}
+
+
+
+extracts digit from a number 
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em T} & type of number \\
+\hline
+{\em K} & type of returned digit (optional) \\
+\hline
+\end{DoxyTemplParams}
+
+\begin{DoxyParams}{Parameters}
+{\em number\+\_\+p} & input number \\
+\hline
+{\em digit\+Select\+\_\+p} & digit selector (starting from rightmost digit at default index 0) \\
+\hline
+{\em base\+\_\+p} & base of input number \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+K extracted digit (0 in case of an overflow) 
+\end{DoxyReturn}
+\mbox{\Hypertarget{namespacemath_functions_a65a3e03a8f5216b86440247de2023aae}\label{namespacemath_functions_a65a3e03a8f5216b86440247de2023aae}} 
+\index{math\+Functions@{math\+Functions}!map@{map}}
+\index{map@{map}!math\+Functions@{math\+Functions}}
+\subsubsection{\texorpdfstring{map()}{map()}}
+{\footnotesize\ttfamily template$<$typename T , typename U  = T, typename K  = U$>$ \\
+K math\+Functions\+::map (\begin{DoxyParamCaption}\item[{T}]{base,  }\item[{T}]{min\+Base,  }\item[{T}]{max\+Base,  }\item[{U}]{new\+Min,  }\item[{U}]{new\+Max }\end{DoxyParamCaption})}
+
+
+
+Re-\/maps a number from one range to another. 
+
+\begin{DoxyNote}{Note}
+equivalent of the \href{https://www.arduino.cc/reference/en/language/functions/math/map/}{\tt Arduino map function} extended to all type of values 
+\end{DoxyNote}
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em T} & type of input range \\
+\hline
+{\em U} & type of output range (default set to T) \\
+\hline
+{\em K} & type of return value \\
+\hline
+\end{DoxyTemplParams}
+
+\begin{DoxyParams}{Parameters}
+{\em base} & base number \\
+\hline
+{\em min\+Base} & lower bound of input range \\
+\hline
+{\em max\+Base} & upper bound of input range \\
+\hline
+{\em new\+Min} & lower bound of output range \\
+\hline
+{\em new\+Max} & upper bound of output range \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+re-\/mapped number 
+\end{DoxyReturn}
+\mbox{\Hypertarget{namespacemath_functions_a5b9bc0e0bf8f4e65a9177b8274c594ef}\label{namespacemath_functions_a5b9bc0e0bf8f4e65a9177b8274c594ef}} 
+\index{math\+Functions@{math\+Functions}!mean@{mean}}
+\index{mean@{mean}!math\+Functions@{math\+Functions}}
+\subsubsection{\texorpdfstring{mean()}{mean()}}
+{\footnotesize\ttfamily template$<$typename T , typename K , typename U  = K$>$ \\
+T math\+Functions\+::mean (\begin{DoxyParamCaption}\item[{K}]{data\+Array\+\_\+p\mbox{[}$\,$\mbox{]},  }\item[{uint8\+\_\+t}]{size\+\_\+p }\end{DoxyParamCaption})}
+
+
+
+computes a mean value 
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em T} & type of input data \\
+\hline
+{\em K} & type of return \\
+\hline
+{\em U} & type of sum (optional) \\
+\hline
+\end{DoxyTemplParams}
+\begin{DoxyNote}{Note}
+set U to avoid overflow situations when calculating sum 
+\end{DoxyNote}
+
+\begin{DoxyParams}{Parameters}
+{\em data\+Array\+\_\+p} & array containing all values \\
+\hline
+{\em size\+\_\+p} & size of array\+Data\+\_\+p \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+T mean value 
+\end{DoxyReturn}
+\mbox{\Hypertarget{namespacemath_functions_addb45716cc0631d67e6cb6a913336491}\label{namespacemath_functions_addb45716cc0631d67e6cb6a913336491}} 
+\index{math\+Functions@{math\+Functions}!sum@{sum}}
+\index{sum@{sum}!math\+Functions@{math\+Functions}}
+\subsubsection{\texorpdfstring{sum()}{sum()}}
+{\footnotesize\ttfamily template$<$typename T , typename K $>$ \\
+T math\+Functions\+::sum (\begin{DoxyParamCaption}\item[{K}]{data\+Array\+\_\+p\mbox{[}$\,$\mbox{]},  }\item[{uint8\+\_\+t}]{size\+\_\+p }\end{DoxyParamCaption})}
+
+
+
+computes a sum 
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em T} & type of return \\
+\hline
+{\em K} & type of input data \\
+\hline
+\end{DoxyTemplParams}
+
+\begin{DoxyParams}{Parameters}
+{\em data\+Array\+\_\+p} & array containing all values \\
+\hline
+{\em size\+\_\+p} & size of array\+Data\+\_\+p \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+T sum value 
+\end{DoxyReturn}

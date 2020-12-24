@@ -1,0 +1,55 @@
+\hypertarget{math__functions_8h}{}\section{src/main/math\+\_\+functions.h File Reference}
+\label{math__functions_8h}\index{src/main/math\+\_\+functions.\+h@{src/main/math\+\_\+functions.\+h}}
+
+
+Declaration of a set of mathematical functions.  
+
+
+{\ttfamily \#include $<$Arduino.\+h$>$}\newline
+Include dependency graph for math\+\_\+functions.\+h\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=212pt]{math__functions_8h__incl}
+\end{center}
+\end{figure}
+This graph shows which files directly or indirectly include this file\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{math__functions_8h__dep__incl}
+\end{center}
+\end{figure}
+\subsection*{Namespaces}
+\begin{DoxyCompactItemize}
+\item 
+ \hyperlink{namespacemath_functions}{math\+Functions}
+\begin{DoxyCompactList}\small\item\em collection of useful templated math functions \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\footnotesize template$<$typename T , typename K $>$ }\\T \hyperlink{namespacemath_functions_addb45716cc0631d67e6cb6a913336491}{math\+Functions\+::sum} (K data\+Array\+\_\+p\mbox{[}$\,$\mbox{]}, uint8\+\_\+t size\+\_\+p)
+\begin{DoxyCompactList}\small\item\em computes a sum \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename T , typename K , typename U  = K$>$ }\\T \hyperlink{namespacemath_functions_a5b9bc0e0bf8f4e65a9177b8274c594ef}{math\+Functions\+::mean} (K data\+Array\+\_\+p\mbox{[}$\,$\mbox{]}, uint8\+\_\+t size\+\_\+p)
+\begin{DoxyCompactList}\small\item\em computes a mean value \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename T , typename K  = T$>$ }\\K \hyperlink{namespacemath_functions_a32a0226ce7d0593d33c203874e28397e}{math\+Functions\+::extract\+Digit} (T number\+\_\+p, uint8\+\_\+t digit\+Select\+\_\+p=0, uint8\+\_\+t base\+\_\+p=10)
+\begin{DoxyCompactList}\small\item\em extracts digit from a number \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename T , typename U  = T, typename K  = U$>$ }\\K \hyperlink{namespacemath_functions_a65a3e03a8f5216b86440247de2023aae}{math\+Functions\+::map} (T base, T min\+Base, T max\+Base, U new\+Min, U new\+Max)
+\begin{DoxyCompactList}\small\item\em Re-\/maps a number from one range to another. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Declaration of a set of mathematical functions. 
+
+\begin{DoxyAuthor}{Author}
+Valentin Mercy (\href{https://github.com/vmercy}{\tt https\+://github.\+com/vmercy}) 
+\end{DoxyAuthor}
+\begin{DoxyVersion}{Version}
+0.\+1 
+\end{DoxyVersion}
+\begin{DoxyDate}{Date}
+2020-\/11-\/26
+\end{DoxyDate}
+\begin{DoxyCopyright}{Copyright}
+Copyright (c) 2020 
+\end{DoxyCopyright}
