@@ -60,27 +60,6 @@ void Battery::setPinout(const uint8_t pinout_p[])
     m_pinout[i] = pinout_p[i];
 }
 
-/**
- * @brief Re-maps a number from one range to another
- * @note equivalent of the [Arduino map function](https://www.arduino.cc/reference/en/language/functions/math/map/) extended to all type of values
- * @tparam T type of input range
- * @tparam U type of output range (default set to T)
- * @tparam K type of return value
- * @param base base number
- * @param minBase lower bound of input range
- * @param maxBase upper bound of input range
- * @param newMin lower bound of output range
- * @param newMax upper bound of output range
- * @return re-mapped number
- */
-template <typename T, typename U = T, typename K = U>
-K homeMap(T base, T minBase, T maxBase, U newMin, U newMax)
-{
-  T baseRange = maxBase - minBase;
-  U newRange = newMax - newMin;
-  return (K)(newMin + (base - minBase) * newRange / baseRange);
-}
-
 void Battery::refresh()
 {
   uint8_t i;
