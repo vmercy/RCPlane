@@ -43,10 +43,10 @@ void Radio::init(uint8_t CEpin_p, uint8_t CSpin_p)
 bool Radio::authenticateRemote()
 {
   TtoPDataFrame authenticationFrame;
-  authenticationFrame.pitch = extractDigit(AUTHENTICATION_PIN, 0);
-  authenticationFrame.power = extractDigit(AUTHENTICATION_PIN, 1);
-  authenticationFrame.roll = extractDigit(AUTHENTICATION_PIN, 2);
-  authenticationFrame.yaw = extractDigit(AUTHENTICATION_PIN, 3);
+  authenticationFrame.pitch = mathFunctions::extractDigit(AUTHENTICATION_PIN, 0);
+  authenticationFrame.power = mathFunctions::extractDigit(AUTHENTICATION_PIN, 1);
+  authenticationFrame.roll = mathFunctions::extractDigit(AUTHENTICATION_PIN, 2);
+  authenticationFrame.yaw = mathFunctions::extractDigit(AUTHENTICATION_PIN, 3);
   return true; //TODO
   //return ((m_lastFrame.pitch == authenticationFrame.pitch) && (m_lastFrame.power == authenticationFrame.power) && (m_lastFrame.roll = authenticationFrame.roll) && (m_lastFrame.yaw == authenticationFrame.yaw));
 }

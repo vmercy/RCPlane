@@ -71,14 +71,14 @@ void Battery::refresh()
       samples[j] = analogRead(m_pinout[i]);
       delayMicroseconds(DELAY_SAMPLES_BATTERY);
     }
-    m_cellVoltages[i] = m_rectifierCoefficient * (float)ANALOG_REF * (float)mean<float, uint16_t>(samples,NB_SAMPLES_BATTERY) * (1 + m_resistorRatios[i]) / ANALOG_PRECISION; //cumulated voltages
+    m_cellVoltages[i] = m_rectifierCoefficient * (float)ANALOG_REF * (float)mathFunctions::mean<float, uint16_t>(samples,NB_SAMPLES_BATTERY) * (1 + m_resistorRatios[i]) / ANALOG_PRECISION; //cumulated voltages
   }
   m_globalVoltage = m_cellVoltages[m_nbCells - 1];
-  m_globalLevel = homeMap<float>(m_globalVoltage, m_nbCells * LIPO_LOWEST_VOLTAGE, m_nbCells * LIPO_HIGHEST_VOLTAGE, 0.0, 100.0);
+  m_globalLevel = mathFunctions::map<float>(m_globalVoltage, m_nbCells * LIPO_LOWEST_VOLTAGE, m_nbCells * LIPO_HIGHEST_VOLTAGE, 0.0, 100.0);
   for (i = (m_nbCells - 1); i > 0; i--)
     m_cellVoltages[i] -= m_cellVoltages[i - 1]; //individual cell voltages
   for (i = 0; i < m_nbCells; i++)
-    m_cellLevels[i] = homeMap<float>(m_cellVoltages[i], LIPO_LOWEST_VOLTAGE, LIPO_HIGHEST_VOLTAGE, 0.0, 100.0);
+    m_cellLevels[i] = mathFunctions::map<float>(m_cellVoltages[i], LIPO_LOWEST_VOLTAGE, LIPO_HIGHEST_VOLTAGE, 0.0, 100.0);
 }
 
 float Battery::getCellVoltage(uint8_t cellSelect_p)
