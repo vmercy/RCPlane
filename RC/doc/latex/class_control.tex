@@ -1,0 +1,101 @@
+\hypertarget{class_control}{}\section{Control Class Reference}
+\label{class_control}\index{Control@{Control}}
+
+
+\hyperlink{class_control}{Control} class is responsible for translating \hyperlink{class_joystick}{Joystick}, encoder and button inputs into power, pitch, yaw and roll values.  
+
+
+
+
+{\ttfamily \#include $<$control.\+h$>$}
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{class_control_a435c342eba3a2598f3eb40e68fa1a263}{init} (\hyperlink{class_joystick}{Joystick} left\+Joy\+\_\+p, \hyperlink{class_joystick}{Joystick} rioght\+Joy\+\_\+p, \hyperlink{class_encoder}{Encoder} encoder\+\_\+p, \hyperlink{class_switch}{Switch} gear\+Switch\+\_\+p, \hyperlink{class_buzzer}{Buzzer} buzzer\+\_\+p, \hyperlink{class_r_g_b_led}{R\+G\+B\+Led} rgb\+Led\+\_\+p, const \hyperlink{class_settings}{Settings} $\ast$p\+\_\+settings\+\_\+p)
+\begin{DoxyCompactList}\small\item\em Initializes control with given joysticks. \end{DoxyCompactList}\item 
+void \hyperlink{class_control_af7a1f77ddc2789d291e3193cfc046d50}{set\+Mode} (bool new\+Mode\+\_\+p)
+\begin{DoxyCompactList}\small\item\em Set the Mode. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_control_ad131914c5deeb07146127a63010480b9}\label{class_control_ad131914c5deeb07146127a63010480b9}} 
+uint8\+\_\+t {\bfseries get\+Power} ()
+\item 
+\mbox{\Hypertarget{class_control_a3ebc07bf6326015a022e36eed5f431be}\label{class_control_a3ebc07bf6326015a022e36eed5f431be}} 
+uint8\+\_\+t {\bfseries get\+Pitch} ()
+\item 
+\mbox{\Hypertarget{class_control_a32c3d788dfca94d73df07ef3429f222d}\label{class_control_a32c3d788dfca94d73df07ef3429f222d}} 
+uint8\+\_\+t {\bfseries get\+Yaw} ()
+\item 
+\mbox{\Hypertarget{class_control_abf3709324d98b6dc8d52649af5d8df38}\label{class_control_abf3709324d98b6dc8d52649af5d8df38}} 
+uint8\+\_\+t {\bfseries get\+Roll} ()
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+\hyperlink{class_control}{Control} class is responsible for translating \hyperlink{class_joystick}{Joystick}, encoder and button inputs into power, pitch, yaw and roll values. 
+
+
+\begin{DoxyItemize}
+\item Description of controls \+:
+\begin{DoxyItemize}
+\item C\+T\+R\+L1 \+: mode selector (Ground (off) / Flight (on))
+\item C\+T\+R\+L2 \+:
+\end{DoxyItemize}
+\item Description of control modes \+:
+\begin{DoxyItemize}
+\item Ground mode \+:
+\item Flight mode \+: 
+\end{DoxyItemize}
+\end{DoxyItemize}
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{class_control_a435c342eba3a2598f3eb40e68fa1a263}\label{class_control_a435c342eba3a2598f3eb40e68fa1a263}} 
+\index{Control@{Control}!init@{init}}
+\index{init@{init}!Control@{Control}}
+\subsubsection{\texorpdfstring{init()}{init()}}
+{\footnotesize\ttfamily void Control\+::init (\begin{DoxyParamCaption}\item[{\hyperlink{class_joystick}{Joystick}}]{left\+Joy\+\_\+p,  }\item[{\hyperlink{class_joystick}{Joystick}}]{rioght\+Joy\+\_\+p,  }\item[{\hyperlink{class_encoder}{Encoder}}]{encoder\+\_\+p,  }\item[{\hyperlink{class_switch}{Switch}}]{gear\+Switch\+\_\+p,  }\item[{\hyperlink{class_buzzer}{Buzzer}}]{buzzer\+\_\+p,  }\item[{\hyperlink{class_r_g_b_led}{R\+G\+B\+Led}}]{rgb\+Led\+\_\+p,  }\item[{const \hyperlink{class_settings}{Settings} $\ast$}]{p\+\_\+settings\+\_\+p }\end{DoxyParamCaption})}
+
+
+
+Initializes control with given joysticks. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em left\+Joy\+\_\+p} & left joystick object \\
+\hline
+{\em right\+Joy\+\_\+p} & right joystick object \\
+\hline
+{\em encoder\+\_\+p} & encoder objet \\
+\hline
+{\em gear\+Switch\+\_\+p} & switch object controlling the gear \\
+\hline
+{\em buzzer\+\_\+p} & buzzer object \\
+\hline
+{\em rgb\+Led\+\_\+p} & \hyperlink{class_r_g_b_led}{R\+G\+B\+Led} object \\
+\hline
+{\em p\+\_\+settings\+\_\+p} & pointer to the settings \\
+\hline
+\end{DoxyParams}
+\begin{DoxyNote}{Note}
+all objects must be initialized before 
+\end{DoxyNote}
+\mbox{\Hypertarget{class_control_af7a1f77ddc2789d291e3193cfc046d50}\label{class_control_af7a1f77ddc2789d291e3193cfc046d50}} 
+\index{Control@{Control}!set\+Mode@{set\+Mode}}
+\index{set\+Mode@{set\+Mode}!Control@{Control}}
+\subsubsection{\texorpdfstring{set\+Mode()}{setMode()}}
+{\footnotesize\ttfamily void Control\+::set\+Mode (\begin{DoxyParamCaption}\item[{bool}]{new\+Mode\+\_\+p }\end{DoxyParamCaption})}
+
+
+
+Set the Mode. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em new\+Mode\+\_\+p} & new desired mode (G\+R\+O\+U\+N\+D\+\_\+\+M\+O\+DE or F\+L\+I\+G\+H\+T\+\_\+\+M\+O\+DE) \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+src/main/\hyperlink{control_8h}{control.\+h}\item 
+src/main/\hyperlink{control_8cpp}{control.\+cpp}\end{DoxyCompactItemize}

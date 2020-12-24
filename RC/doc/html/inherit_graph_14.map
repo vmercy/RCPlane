@@ -1,0 +1,4 @@
+<map id="Graphical Class Hierarchy" name="Graphical Class Hierarchy">
+<area shape="rect" id="node1" href="$class_plane_battery_bisplay.html" title="Responsible for displaying battery informations. " alt="" coords="5,5,145,32"/>
+<area shape="rect" id="node2" href="$class_sevseg_screen.html" title="SevsegScreen class is responsible for displaying content on a 7&#45;segment display. " alt="" coords="193,5,300,32"/>
+</map>

@@ -58,3 +58,8 @@ bool Encoder::isPressed()
 {
   return m_switch.isPressed();
 }
+
+void Encoder::reset()
+{
+  m_count = 0;
+}

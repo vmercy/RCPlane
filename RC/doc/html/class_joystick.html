@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.13"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>RCPlane - Remote Controller Code: Joystick Class Reference</title>
+<title>Radio Controller Code: Joystick Class Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -21,8 +21,7 @@
  <tbody>
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
-   <div id="projectname">RCPlane - Remote Controller Code
-   &#160;<span id="projectnumber">v0.1</span>
+   <div id="projectname">Radio Controller Code
    </div>
   </td>
  </tr>
@@ -72,12 +71,18 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:add56a0e9f92176c9f12e3f12e3983588"><td class="memItemLeft" align="right" valign="top"><a id="add56a0e9f92176c9f12e3f12e3983588"></a>
 void&#160;</td><td class="memItemRight" valign="bottom"><b>init</b> (uint8_t pinoutX_p, uint8_t pinoutY_p, uint8_t pinoutSW_p)</td></tr>
 <tr class="separator:add56a0e9f92176c9f12e3f12e3983588"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8397707b6987a6621e94fe9d071f8da0"><td class="memItemLeft" align="right" valign="top"><a id="a8397707b6987a6621e94fe9d071f8da0"></a>
-uint8_t&#160;</td><td class="memItemRight" valign="bottom"><b>readX</b> ()</td></tr>
-<tr class="separator:a8397707b6987a6621e94fe9d071f8da0"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9d884490b52300eb2081701a53e32c97"><td class="memItemLeft" align="right" valign="top"><a id="a9d884490b52300eb2081701a53e32c97"></a>
-uint8_t&#160;</td><td class="memItemRight" valign="bottom"><b>readY</b> ()</td></tr>
-<tr class="separator:a9d884490b52300eb2081701a53e32c97"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a70f101e3395a939fb757522b14d830c9"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_joystick.html#a70f101e3395a939fb757522b14d830c9">setIdlePositions</a> (uint8_t xIdlePosition_p, uint8_t m_yIdlePosition_p)</td></tr>
+<tr class="memdesc:a70f101e3395a939fb757522b14d830c9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set joystick new idle positions.  <a href="#a70f101e3395a939fb757522b14d830c9">More...</a><br /></td></tr>
+<tr class="separator:a70f101e3395a939fb757522b14d830c9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae2a8edfcf0aa98fba3e4bfb31ebc8200"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_joystick.html#ae2a8edfcf0aa98fba3e4bfb31ebc8200">calibrate</a> ()</td></tr>
+<tr class="memdesc:ae2a8edfcf0aa98fba3e4bfb31ebc8200"><td class="mdescLeft">&#160;</td><td class="mdescRight">Automatically set idle positions.  <a href="#ae2a8edfcf0aa98fba3e4bfb31ebc8200">More...</a><br /></td></tr>
+<tr class="separator:ae2a8edfcf0aa98fba3e4bfb31ebc8200"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9f5a1ee24e763f47f60759ce35054d92"><td class="memItemLeft" align="right" valign="top"><a id="a9f5a1ee24e763f47f60759ce35054d92"></a>
+uint8_t&#160;</td><td class="memItemRight" valign="bottom"><b>readX</b> (bool rectify_p=true)</td></tr>
+<tr class="separator:a9f5a1ee24e763f47f60759ce35054d92"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a53dd4c36d46f475c330ef570e62640a7"><td class="memItemLeft" align="right" valign="top"><a id="a53dd4c36d46f475c330ef570e62640a7"></a>
+uint8_t&#160;</td><td class="memItemRight" valign="bottom"><b>readY</b> (bool rectify_p=true)</td></tr>
+<tr class="separator:a53dd4c36d46f475c330ef570e62640a7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a67821faa398aede9f7303ee69e2e1348"><td class="memItemLeft" align="right" valign="top"><a id="a67821faa398aede9f7303ee69e2e1348"></a>
 bool&#160;</td><td class="memItemRight" valign="bottom"><b>isPressed</b> ()</td></tr>
 <tr class="separator:a67821faa398aede9f7303ee69e2e1348"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -87,6 +92,9 @@ bool&#160;</td><td class="memItemRight" valign="bottom"><b>xIdle</b> ()</td></tr
 <tr class="memitem:a02261229db91dab161af9744cc6ff81d"><td class="memItemLeft" align="right" valign="top"><a id="a02261229db91dab161af9744cc6ff81d"></a>
 bool&#160;</td><td class="memItemRight" valign="bottom"><b>yIdle</b> ()</td></tr>
 <tr class="separator:a02261229db91dab161af9744cc6ff81d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af385438f23a6ed41ad3942ea1f9bf605"><td class="memItemLeft" align="right" valign="top"><a id="af385438f23a6ed41ad3942ea1f9bf605"></a>
+uint8_t&#160;</td><td class="memItemRight" valign="bottom"><b>position</b> ()</td></tr>
+<tr class="separator:af385438f23a6ed41ad3942ea1f9bf605"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a5a2f4443f0b0e44f328bea0137e023dd"><td class="memItemLeft" align="right" valign="top"><a id="a5a2f4443f0b0e44f328bea0137e023dd"></a>
 bool&#160;</td><td class="memItemRight" valign="bottom"><b>idle</b> ()</td></tr>
 <tr class="separator:a5a2f4443f0b0e44f328bea0137e023dd"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -94,6 +102,64 @@ bool&#160;</td><td class="memItemRight" valign="bottom"><b>idle</b> ()</td></tr>
 void&#160;</td><td class="memItemRight" valign="bottom"><b>print</b> ()</td></tr>
 <tr class="separator:afd789cfd5832facccafa3784c8016b16"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
+<h2 class="groupheader">Member Function Documentation</h2>
+<a id="ae2a8edfcf0aa98fba3e4bfb31ebc8200"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae2a8edfcf0aa98fba3e4bfb31ebc8200">&#9670;&nbsp;</a></span>calibrate()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Joystick::calibrate </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Automatically set idle positions. </p>
+<dl class="section note"><dt>Note</dt><dd>joystick must be released during the calibration process </dd></dl>
+
+</div>
+</div>
+<a id="a70f101e3395a939fb757522b14d830c9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a70f101e3395a939fb757522b14d830c9">&#9670;&nbsp;</a></span>setIdlePositions()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Joystick::setIdlePositions </td>
+          <td>(</td>
+          <td class="paramtype">uint8_t&#160;</td>
+          <td class="paramname"><em>xIdlePosition_p</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint8_t&#160;</td>
+          <td class="paramname"><em>m_yIdlePosition_p</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Set joystick new idle positions. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">xIdlePosition_p</td><td>x axis idle position </td></tr>
+    <tr><td class="paramname">yIdlePosition_p</td><td>y axis idle position </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
 <hr/>The documentation for this class was generated from the following files:<ul>
 <li>src/main/<a class="el" href="joystick_8h_source.html">joystick.h</a></li>
 <li>src/main/<a class="el" href="joystick_8cpp.html">joystick.cpp</a></li>

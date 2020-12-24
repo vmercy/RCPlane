@@ -1,5 +1,5 @@
 /**
- * @file mathFunctions.h
+ * @file math_functions.h
  * @author Valentin Mercy (https://github.com/vmercy)
  * @brief Declaration of a set of mathematical functions
  * @version 0.1
@@ -20,14 +20,14 @@
  * @tparam K type of input data
  * @param dataArray_p array containing all values
  * @param size_p size of arrayData_p
- * @return T sum value
+ * @return T 
  */
-template <typename T, typename K>
+template<typename T, typename K>
 T sum(K dataArray_p[], uint8_t size_p)
 {
   T sum = 0;
-  for (uint8_t i = 0; i < size_p; i++)
-    sum += dataArray_p[i];
+  for(uint8_t i = 0; i<size_p; i++)
+    sum+=dataArray_p[i];
   return sum;
 }
 
@@ -39,12 +39,12 @@ T sum(K dataArray_p[], uint8_t size_p)
  * @note set U to avoid overflow situations when calculating sum
  * @param dataArray_p array containing all values
  * @param size_p size of arrayData_p
- * @return T mean value
+ * @return T 
  */
-template <typename T, typename K, typename U = K>
+template<typename T, typename K, typename U = K>
 T mean(K dataArray_p[], uint8_t size_p)
 {
-  return (T)(sum<U, K>(dataArray_p, size_p) / size_p);
+  return (T)(sum<U,K>(dataArray_p,size_p)/size_p);
 }
 
 /**

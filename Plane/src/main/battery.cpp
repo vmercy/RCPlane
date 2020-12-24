@@ -60,11 +60,25 @@ void Battery::setPinout(const uint8_t pinout_p[])
     m_pinout[i] = pinout_p[i];
 }
 
-float mapFloat(float base, float minBase, float maxBase, float newMin, float newMax)
+/**
+ * @brief Re-maps a number from one range to another
+ * @note equivalent of the [Arduino map function](https://www.arduino.cc/reference/en/language/functions/math/map/) extended to all type of values
+ * @tparam T type of input range
+ * @tparam U type of output range (default set to T)
+ * @tparam K type of return value
+ * @param base base number
+ * @param minBase lower bound of input range
+ * @param maxBase upper bound of input range
+ * @param newMin lower bound of output range
+ * @param newMax upper bound of output range
+ * @return re-mapped number
+ */
+template <typename T, typename U = T, typename K = U>
+K homeMap(T base, T minBase, T maxBase, U newMin, U newMax)
 {
-  float baseRange = maxBase - minBase;
-  float newRange = newMax - newMin;
-  return (newMin + (base - minBase) * newRange / baseRange);
+  T baseRange = maxBase - minBase;
+  U newRange = newMax - newMin;
+  return (K)(newMin + (base - minBase) * newRange / baseRange);
 }
 
 void Battery::refresh()
@@ -81,11 +95,11 @@ void Battery::refresh()
     m_cellVoltages[i] = m_rectifierCoefficient * (float)ANALOG_REF * (float)mean<float, uint16_t>(samples,NB_SAMPLES_BATTERY) * (1 + m_resistorRatios[i]) / ANALOG_PRECISION; //cumulated voltages
   }
   m_globalVoltage = m_cellVoltages[m_nbCells - 1];
-  m_globalLevel = mapFloat(m_globalVoltage, m_nbCells * LIPO_LOWEST_VOLTAGE, m_nbCells * LIPO_HIGHEST_VOLTAGE, 0.0, 100.0);
+  m_globalLevel = homeMap<float>(m_globalVoltage, m_nbCells * LIPO_LOWEST_VOLTAGE, m_nbCells * LIPO_HIGHEST_VOLTAGE, 0.0, 100.0);
   for (i = (m_nbCells - 1); i > 0; i--)
     m_cellVoltages[i] -= m_cellVoltages[i - 1]; //individual cell voltages
   for (i = 0; i < m_nbCells; i++)
-    m_cellLevels[i] = mapFloat(m_cellVoltages[i], LIPO_LOWEST_VOLTAGE, LIPO_HIGHEST_VOLTAGE, 0.0, 100.0);
+    m_cellLevels[i] = homeMap<float>(m_cellVoltages[i], LIPO_LOWEST_VOLTAGE, LIPO_HIGHEST_VOLTAGE, 0.0, 100.0);
 }
 
 float Battery::getCellVoltage(uint8_t cellSelect_p)

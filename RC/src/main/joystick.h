@@ -29,7 +29,7 @@
 #define TOP_RIGHT 4
 
 #include "button.h"
-#include "mathFunctions.h"
+#include "math_functions.h"
 #include <stdio.h>
 
 class Joystick

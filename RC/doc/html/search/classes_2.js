@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['joystick',['Joystick',['../class_joystick.html',1,'']]]
+  ['encoder',['Encoder',['../class_encoder.html',1,'']]]
 ];

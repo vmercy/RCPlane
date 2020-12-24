@@ -2,6 +2,95 @@
 \label{class_sevseg_screen}\index{Sevseg\+Screen@{Sevseg\+Screen}}
 
 
+\hyperlink{class_sevseg_screen}{Sevseg\+Screen} class is responsible for displaying content on a 7-\/segment display.  
+
+
+
+
+{\ttfamily \#include $<$sevsegscreen.\+h$>$}
+
+
+
+Inheritance diagram for Sevseg\+Screen\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=185pt]{class_sevseg_screen__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for Sevseg\+Screen\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=160pt]{class_sevseg_screen__coll__graph}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{class_sevseg_screen_a29e517dc7ddda7547fe8f7c706654444}{init} (bool display\+Type\+\_\+p, uint8\+\_\+t nb\+Digits\+\_\+p, uint8\+\_\+t $\ast$sev\+Seg\+Digits\+Pinout\+\_\+p, uint8\+\_\+t $\ast$sev\+Seg\+Segments\+Pinout\+\_\+p)
+\begin{DoxyCompactList}\small\item\em Initializes display pinout. \end{DoxyCompactList}\item 
+void \hyperlink{class_sevseg_screen_a3afbaf812d953f552b6d0e80de61804e}{chrono} ()
+\begin{DoxyCompactList}\small\item\em test the display with a simple chronometer \end{DoxyCompactList}\item 
+void \hyperlink{class_sevseg_screen_ad82130595693d5f18c81c1ca5206da15}{test\+Display} ()
+\begin{DoxyCompactList}\small\item\em test display by printing rotating pattern on all digits \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+\hyperlink{class_sevseg_screen}{Sevseg\+Screen} class is responsible for displaying content on a 7-\/segment display. 
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{class_sevseg_screen_a3afbaf812d953f552b6d0e80de61804e}\label{class_sevseg_screen_a3afbaf812d953f552b6d0e80de61804e}} 
+\index{Sevseg\+Screen@{Sevseg\+Screen}!chrono@{chrono}}
+\index{chrono@{chrono}!Sevseg\+Screen@{Sevseg\+Screen}}
+\subsubsection{\texorpdfstring{chrono()}{chrono()}}
+{\footnotesize\ttfamily void Sevseg\+Screen\+::chrono (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+test the display with a simple chronometer 
+
+\begin{DoxyNote}{Note}
+this function must be called in a while(true) loop 
+\end{DoxyNote}
+\mbox{\Hypertarget{class_sevseg_screen_a29e517dc7ddda7547fe8f7c706654444}\label{class_sevseg_screen_a29e517dc7ddda7547fe8f7c706654444}} 
+\index{Sevseg\+Screen@{Sevseg\+Screen}!init@{init}}
+\index{init@{init}!Sevseg\+Screen@{Sevseg\+Screen}}
+\subsubsection{\texorpdfstring{init()}{init()}}
+{\footnotesize\ttfamily void Sevseg\+Screen\+::init (\begin{DoxyParamCaption}\item[{bool}]{display\+Type\+\_\+p,  }\item[{uint8\+\_\+t}]{nb\+Digits\+\_\+p,  }\item[{uint8\+\_\+t $\ast$}]{sev\+Seg\+Digits\+Pinout\+\_\+p,  }\item[{uint8\+\_\+t $\ast$}]{sev\+Seg\+Segments\+Pinout\+\_\+p }\end{DoxyParamCaption})}
+
+
+
+Initializes display pinout. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em display\+Type\+\_\+p} & type of display, can be either C\+O\+M\+M\+O\+N\+\_\+\+A\+N\+D\+OE or C\+O\+M\+M\+O\+N\+\_\+\+C\+A\+T\+H\+O\+DE \\
+\hline
+{\em nb\+Digits\+\_\+p} & numbre of digits of the display \\
+\hline
+{\em sev\+Seg\+Digits\+Pinout\+\_\+p} & pinout of display segments in the order \{A,B,C,D,E,F,G,DP\} \\
+\hline
+{\em sev\+Seg\+Segments\+Pinout\+\_\+p} & pinout of the display digits \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_sevseg_screen_ad82130595693d5f18c81c1ca5206da15}\label{class_sevseg_screen_ad82130595693d5f18c81c1ca5206da15}} 
+\index{Sevseg\+Screen@{Sevseg\+Screen}!test\+Display@{test\+Display}}
+\index{test\+Display@{test\+Display}!Sevseg\+Screen@{Sevseg\+Screen}}
+\subsubsection{\texorpdfstring{test\+Display()}{testDisplay()}}
+{\footnotesize\ttfamily void Sevseg\+Screen\+::test\+Display (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+test display by printing rotating pattern on all digits 
+
+\begin{DoxyNote}{Note}
+blocking method 
+\end{DoxyNote}
+
+
 The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
 \item 
 src/main/\hyperlink{sevsegscreen_8h}{sevsegscreen.\+h}\item 

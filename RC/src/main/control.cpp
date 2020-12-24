@@ -4,7 +4,6 @@
  * @brief Definition of control class
  * @version 0.1
  * @date 2020-12-21
- * 
  * @copyright Copyright (c) 2020
  * 
  */
@@ -14,6 +13,7 @@
 Control::Control()
 {
   m_p_settings = NULL;
+  m_encoderPosition = 0;
 }
 
 void Control::init(Joystick leftJoy_p, Joystick rioghtJoy_p, Encoder encoder_p, Switch gearSwitch_p, Buzzer buzzer_p, RGBLed rgbLed_p, const Settings* p_settings_p)
@@ -38,12 +38,21 @@ void Control::setMode(bool newMode_p)
 
 uint8_t Control::getPower()
 {
+    if((m_mode==GROUND_MODE)&&(m_p_settings->getSetting<bool>(REDUCE_GROUND_SPEED)))
+    {
+        return m_leftJoy.readY();
+    }
+    else
+    {
+      
+    }
     
 }
 
 uint8_t Control::getPitch()
 {
-
+  if(m_mode==GROUND_MODE)
+    return CONTROL_IDLE;
 }
 
 uint8_t Control::getYaw()

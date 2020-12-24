@@ -1,3 +1,5 @@
 <map id="src/main/encoder.h" name="src/main/encoder.h">
-<area shape="rect" id="node2" href="$encoder_8cpp.html" title="Definition of Encoder class. " alt="" coords="5,80,152,107"/>
+<area shape="rect" id="node2" href="$control_8h.html" title="Declaration of control class. " alt="" coords="12,80,139,107"/>
+<area shape="rect" id="node4" href="$encoder_8cpp.html" title="Definition of Encoder class. " alt="" coords="163,80,310,107"/>
+<area shape="rect" id="node3" href="$control_8cpp.html" title="Definition of control class. " alt="" coords="5,155,145,181"/>
 </map>

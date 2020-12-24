@@ -1,0 +1,135 @@
+\hypertarget{class_settings}{}\section{Settings Class Reference}
+\label{class_settings}\index{Settings@{Settings}}
+
+
+\hyperlink{class_settings}{Settings} class is responsible for.  
+
+
+
+
+{\ttfamily \#include $<$settings.\+h$>$}
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+bool \hyperlink{class_settings_a513f67eb1af1a2ca93bebddfce8e1e0a}{write\+To\+Mem} (uint16\+\_\+t index\+\_\+p=-\/1)
+\begin{DoxyCompactList}\small\item\em write setting(s) into E\+E\+P\+R\+OM persistent memory \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename T $>$ }\\T \hyperlink{class_settings_a49f0ce2f4dbff5b59f4b8658a06b49bb}{read\+From\+Mem} (uint16\+\_\+t index\+\_\+p=-\/1, bool update\+Settings\+\_\+p=true)
+\begin{DoxyCompactList}\small\item\em reads data from E\+E\+P\+R\+OM persistent memory \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename T $>$ }\\void \hyperlink{class_settings_ab5a7de6e9d4f0b59d9cf93957e33cf49}{set\+Setting} (uint8\+\_\+t index\+\_\+p, T new\+Value\+\_\+p, bool write\+To\+Mem\+\_\+p=false)
+\begin{DoxyCompactList}\small\item\em Set a bool Setting value. \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename T $>$ }\\const T \hyperlink{class_settings_a61df1edd21940600c4c6647adb177a91}{get\+Setting} (uint8\+\_\+t index\+\_\+p) const
+\begin{DoxyCompactList}\small\item\em Get the Setting value. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+\hyperlink{class_settings}{Settings} class is responsible for. 
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{class_settings_a61df1edd21940600c4c6647adb177a91}\label{class_settings_a61df1edd21940600c4c6647adb177a91}} 
+\index{Settings@{Settings}!get\+Setting@{get\+Setting}}
+\index{get\+Setting@{get\+Setting}!Settings@{Settings}}
+\subsubsection{\texorpdfstring{get\+Setting()}{getSetting()}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+const T Settings\+::get\+Setting (\begin{DoxyParamCaption}\item[{uint8\+\_\+t}]{index\+\_\+p }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Get the Setting value. 
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em T} & type of setting \\
+\hline
+\end{DoxyTemplParams}
+
+\begin{DoxyParams}{Parameters}
+{\em index\+\_\+p} & index of setting \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_settings_a49f0ce2f4dbff5b59f4b8658a06b49bb}\label{class_settings_a49f0ce2f4dbff5b59f4b8658a06b49bb}} 
+\index{Settings@{Settings}!read\+From\+Mem@{read\+From\+Mem}}
+\index{read\+From\+Mem@{read\+From\+Mem}!Settings@{Settings}}
+\subsubsection{\texorpdfstring{read\+From\+Mem()}{readFromMem()}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+T Settings\+::read\+From\+Mem (\begin{DoxyParamCaption}\item[{uint16\+\_\+t}]{index\+\_\+p = {\ttfamily -\/1},  }\item[{bool}]{update\+Settings\+\_\+p = {\ttfamily true} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+reads data from E\+E\+P\+R\+OM persistent memory 
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em T} & type of data to read \\
+\hline
+\end{DoxyTemplParams}
+
+\begin{DoxyParams}{Parameters}
+{\em index\+\_\+p} & (optional) \\
+\hline
+{\em update\+Settings\+\_\+p} & set to true to update class member \\
+\hline
+\end{DoxyParams}
+\begin{DoxyNote}{Note}
+if no index\+\_\+p is passed, the method will read all settings and return the first one 
+\end{DoxyNote}
+\begin{DoxyReturn}{Returns}
+T 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_settings_ab5a7de6e9d4f0b59d9cf93957e33cf49}\label{class_settings_ab5a7de6e9d4f0b59d9cf93957e33cf49}} 
+\index{Settings@{Settings}!set\+Setting@{set\+Setting}}
+\index{set\+Setting@{set\+Setting}!Settings@{Settings}}
+\subsubsection{\texorpdfstring{set\+Setting()}{setSetting()}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+void Settings\+::set\+Setting (\begin{DoxyParamCaption}\item[{uint8\+\_\+t}]{index\+\_\+p,  }\item[{T}]{new\+Value\+\_\+p,  }\item[{bool}]{write\+To\+Mem\+\_\+p = {\ttfamily false} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Set a bool Setting value. 
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em T} & type of setting value \\
+\hline
+\end{DoxyTemplParams}
+
+\begin{DoxyParams}{Parameters}
+{\em index\+\_\+p} & index of setting \\
+\hline
+{\em new\+Value\+\_\+p} & new setting value \\
+\hline
+{\em write\+To\+Mem\+\_\+p} & true to immediately update value in E\+E\+P\+R\+OM persistent memory (if necessary) \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_settings_a513f67eb1af1a2ca93bebddfce8e1e0a}\label{class_settings_a513f67eb1af1a2ca93bebddfce8e1e0a}} 
+\index{Settings@{Settings}!write\+To\+Mem@{write\+To\+Mem}}
+\index{write\+To\+Mem@{write\+To\+Mem}!Settings@{Settings}}
+\subsubsection{\texorpdfstring{write\+To\+Mem()}{writeToMem()}}
+{\footnotesize\ttfamily bool Settings\+::write\+To\+Mem (\begin{DoxyParamCaption}\item[{uint16\+\_\+t}]{index\+\_\+p = {\ttfamily -\/1} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+write setting(s) into E\+E\+P\+R\+OM persistent memory 
+
+
+\begin{DoxyParams}{Parameters}
+{\em index\+\_\+p} & index of setting to write \\
+\hline
+\end{DoxyParams}
+\begin{DoxyNote}{Note}
+if index\+\_\+p is undefined, all settings will be written in E\+E\+P\+R\+OM 
+
+since each byte of arduino E\+E\+P\+R\+OM is limited to approx. 100000 writings, limit usage of this method to the strict minimum 
+\end{DoxyNote}
+\begin{DoxyReturn}{Returns}
+true if write operation was necessary 
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+src/main/\hyperlink{settings_8h}{settings.\+h}\item 
+src/main/\hyperlink{settings_8cpp}{settings.\+cpp}\end{DoxyCompactItemize}

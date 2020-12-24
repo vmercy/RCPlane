@@ -6,11 +6,15 @@
 \mbox{\Hypertarget{class_joystick_add56a0e9f92176c9f12e3f12e3983588}\label{class_joystick_add56a0e9f92176c9f12e3f12e3983588}} 
 void {\bfseries init} (uint8\+\_\+t pinout\+X\+\_\+p, uint8\+\_\+t pinout\+Y\+\_\+p, uint8\+\_\+t pinout\+S\+W\+\_\+p)
 \item 
-\mbox{\Hypertarget{class_joystick_a8397707b6987a6621e94fe9d071f8da0}\label{class_joystick_a8397707b6987a6621e94fe9d071f8da0}} 
-uint8\+\_\+t {\bfseries readX} ()
+void \hyperlink{class_joystick_a70f101e3395a939fb757522b14d830c9}{set\+Idle\+Positions} (uint8\+\_\+t x\+Idle\+Position\+\_\+p, uint8\+\_\+t m\+\_\+y\+Idle\+Position\+\_\+p)
+\begin{DoxyCompactList}\small\item\em Set joystick new idle positions. \end{DoxyCompactList}\item 
+void \hyperlink{class_joystick_ae2a8edfcf0aa98fba3e4bfb31ebc8200}{calibrate} ()
+\begin{DoxyCompactList}\small\item\em Automatically set idle positions. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_joystick_a9f5a1ee24e763f47f60759ce35054d92}\label{class_joystick_a9f5a1ee24e763f47f60759ce35054d92}} 
+uint8\+\_\+t {\bfseries readX} (bool rectify\+\_\+p=true)
 \item 
-\mbox{\Hypertarget{class_joystick_a9d884490b52300eb2081701a53e32c97}\label{class_joystick_a9d884490b52300eb2081701a53e32c97}} 
-uint8\+\_\+t {\bfseries readY} ()
+\mbox{\Hypertarget{class_joystick_a53dd4c36d46f475c330ef570e62640a7}\label{class_joystick_a53dd4c36d46f475c330ef570e62640a7}} 
+uint8\+\_\+t {\bfseries readY} (bool rectify\+\_\+p=true)
 \item 
 \mbox{\Hypertarget{class_joystick_a67821faa398aede9f7303ee69e2e1348}\label{class_joystick_a67821faa398aede9f7303ee69e2e1348}} 
 bool {\bfseries is\+Pressed} ()
@@ -21,12 +25,48 @@ bool {\bfseries x\+Idle} ()
 \mbox{\Hypertarget{class_joystick_a02261229db91dab161af9744cc6ff81d}\label{class_joystick_a02261229db91dab161af9744cc6ff81d}} 
 bool {\bfseries y\+Idle} ()
 \item 
+\mbox{\Hypertarget{class_joystick_af385438f23a6ed41ad3942ea1f9bf605}\label{class_joystick_af385438f23a6ed41ad3942ea1f9bf605}} 
+uint8\+\_\+t {\bfseries position} ()
+\item 
 \mbox{\Hypertarget{class_joystick_a5a2f4443f0b0e44f328bea0137e023dd}\label{class_joystick_a5a2f4443f0b0e44f328bea0137e023dd}} 
 bool {\bfseries idle} ()
 \item 
 \mbox{\Hypertarget{class_joystick_afd789cfd5832facccafa3784c8016b16}\label{class_joystick_afd789cfd5832facccafa3784c8016b16}} 
 void {\bfseries print} ()
 \end{DoxyCompactItemize}
+
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{class_joystick_ae2a8edfcf0aa98fba3e4bfb31ebc8200}\label{class_joystick_ae2a8edfcf0aa98fba3e4bfb31ebc8200}} 
+\index{Joystick@{Joystick}!calibrate@{calibrate}}
+\index{calibrate@{calibrate}!Joystick@{Joystick}}
+\subsubsection{\texorpdfstring{calibrate()}{calibrate()}}
+{\footnotesize\ttfamily void Joystick\+::calibrate (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Automatically set idle positions. 
+
+\begin{DoxyNote}{Note}
+joystick must be released during the calibration process 
+\end{DoxyNote}
+\mbox{\Hypertarget{class_joystick_a70f101e3395a939fb757522b14d830c9}\label{class_joystick_a70f101e3395a939fb757522b14d830c9}} 
+\index{Joystick@{Joystick}!set\+Idle\+Positions@{set\+Idle\+Positions}}
+\index{set\+Idle\+Positions@{set\+Idle\+Positions}!Joystick@{Joystick}}
+\subsubsection{\texorpdfstring{set\+Idle\+Positions()}{setIdlePositions()}}
+{\footnotesize\ttfamily void Joystick\+::set\+Idle\+Positions (\begin{DoxyParamCaption}\item[{uint8\+\_\+t}]{x\+Idle\+Position\+\_\+p,  }\item[{uint8\+\_\+t}]{m\+\_\+y\+Idle\+Position\+\_\+p }\end{DoxyParamCaption})}
+
+
+
+Set joystick new idle positions. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em x\+Idle\+Position\+\_\+p} & x axis idle position \\
+\hline
+{\em y\+Idle\+Position\+\_\+p} & y axis idle position \\
+\hline
+\end{DoxyParams}
 
 
 The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}

@@ -1,4 +1,3 @@
-var searchData=
-[
-  ['mean',['mean',['../math_functions_8h.html#abee875c2ebcd4ff18609cbf236938ce0',1,'mathFunctions.h']]]
+var searchData = [
+    ['extractdigit', ['extractDigit', ['../math_functions_8h.html#a83b808608ddde3af2c86c0ee5b9768c6', 1, 'math_functions.h']]]
 ];

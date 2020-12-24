@@ -1,14 +1,73 @@
 \hypertarget{class_plane_battery_bisplay}{}\section{Plane\+Battery\+Bisplay Class Reference}
 \label{class_plane_battery_bisplay}\index{Plane\+Battery\+Bisplay@{Plane\+Battery\+Bisplay}}
+
+
+Responsible for displaying battery informations.  
+
+
+
+
+{\ttfamily \#include $<$plane\+\_\+battery\+\_\+display.\+h$>$}
+
+
+
+Inheritance diagram for Plane\+Battery\+Bisplay\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=185pt]{class_plane_battery_bisplay__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for Plane\+Battery\+Bisplay\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=185pt]{class_plane_battery_bisplay__coll__graph}
+\end{center}
+\end{figure}
 \subsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
+\item 
+void \hyperlink{class_plane_battery_bisplay_aaa5bb0ec5fd6c31febf211dc1c10273b}{init} (const uint8\+\_\+t nb\+Cells\+\_\+p, const uint8\+\_\+t cell\+Indicators\+Pinout\+\_\+p\mbox{[}N\+B\+\_\+\+C\+E\+L\+L\+S\+\_\+\+T\+O\+T\+AL+1\mbox{]}, bool display\+Type\+\_\+p, uint8\+\_\+t nb\+Digits\+\_\+p, const uint8\+\_\+t $\ast$sev\+Seg\+Digits\+Pinout\+\_\+p, const uint8\+\_\+t $\ast$sev\+Seg\+Segments\+Pinout\+\_\+p)
 \item 
 \mbox{\Hypertarget{class_plane_battery_bisplay_a2e5a1c0a536c707a2d02562210fa8d67}\label{class_plane_battery_bisplay_a2e5a1c0a536c707a2d02562210fa8d67}} 
 void {\bfseries print\+Cell} (uint8\+\_\+t cell\+Select\+\_\+p)
 \item 
 \mbox{\Hypertarget{class_plane_battery_bisplay_ae3c48c207bc32d8b76b7d5790574de60}\label{class_plane_battery_bisplay_ae3c48c207bc32d8b76b7d5790574de60}} 
 void {\bfseries print\+Next\+Cell} ()
+\item 
+\mbox{\Hypertarget{class_plane_battery_bisplay_a1d55cf98e2230b5e19345c6243c5b9be}\label{class_plane_battery_bisplay_a1d55cf98e2230b5e19345c6243c5b9be}} 
+void {\bfseries test\+Displays} ()
 \end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Responsible for displaying battery informations. 
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{class_plane_battery_bisplay_aaa5bb0ec5fd6c31febf211dc1c10273b}\label{class_plane_battery_bisplay_aaa5bb0ec5fd6c31febf211dc1c10273b}} 
+\index{Plane\+Battery\+Bisplay@{Plane\+Battery\+Bisplay}!init@{init}}
+\index{init@{init}!Plane\+Battery\+Bisplay@{Plane\+Battery\+Bisplay}}
+\subsubsection{\texorpdfstring{init()}{init()}}
+{\footnotesize\ttfamily void Plane\+Battery\+Bisplay\+::init (\begin{DoxyParamCaption}\item[{const uint8\+\_\+t}]{nb\+Cells\+\_\+p,  }\item[{const uint8\+\_\+t}]{cell\+Indicators\+Pinout\+\_\+p\mbox{[}\+N\+B\+\_\+\+C\+E\+L\+L\+S\+\_\+\+T\+O\+T\+A\+L+1\mbox{]},  }\item[{bool}]{display\+Type\+\_\+p,  }\item[{uint8\+\_\+t}]{nb\+Digits\+\_\+p,  }\item[{const uint8\+\_\+t $\ast$}]{sev\+Seg\+Digits\+Pinout\+\_\+p,  }\item[{const uint8\+\_\+t $\ast$}]{sev\+Seg\+Segments\+Pinout\+\_\+p }\end{DoxyParamCaption})}
+
+
+\begin{DoxyParams}{Parameters}
+{\em nb\+Cells\+\_\+p} & number of used cells \\
+\hline
+{\em cell\+Indicators\+Pinout\+\_\+p} & \\
+\hline
+{\em display\+Type\+\_\+p} & \\
+\hline
+{\em nb\+Digits\+\_\+p} & \\
+\hline
+{\em sev\+Seg\+Digits\+Pinout\+\_\+p} & \\
+\hline
+{\em sev\+Seg\+Segments\+Pinout\+\_\+p} & \\
+\hline
+\end{DoxyParams}
 
 
 The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}

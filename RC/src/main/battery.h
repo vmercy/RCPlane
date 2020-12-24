@@ -20,10 +20,14 @@
 #define LIPO_6S 6
 
 #include <Arduino.h>
-#include "mathFunctions.h"
+#include "math_functions.h"
 
 #define LIPO_LOWEST_VOLTAGE 3.3 //voltage of a normally discharged lipo cell
 #define LIPO_HIGHEST_VOLTAGE 4.2 //voltage of a fully charged lipo cell
+
+#define BATTERY_CELL_ALERT_VOLTAGE 3.5
+#define BATTERY_CELL_CRITICAL_VOLTAGE 3.4
+
 #define ANALOG_REF 5.0
 #define ANALOG_PRECISION 1023
 

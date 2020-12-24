@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.13"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>RCPlane - Remote Controller Code: Class Hierarchy</title>
+<title>Radio Controller Code: Class Hierarchy</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -21,8 +21,7 @@
  <tbody>
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
-   <div id="projectname">RCPlane - Remote Controller Code
-   &#160;<span id="projectnumber">v0.1</span>
+   <div id="projectname">Radio Controller Code
    </div>
   </td>
  </tr>
@@ -84,37 +83,68 @@ $(function() {
 </td></tr>
 <tr><td><img src="inherit_graph_3.png" border="0" alt="" usemap="#_buzzer"/>
 <map name="_buzzer" id="_buzzer">
-<area shape="rect" id="node1" href="class_buzzer.html" title="Buzzer" alt="" coords="5,5,68,32"/>
+<area shape="rect" id="node1" href="class_buzzer.html" title="Buzzer class is responsible for sound outputs. " alt="" coords="5,5,68,32"/>
 </map>
 </td></tr>
-<tr><td><img src="inherit_graph_4.png" border="0" alt="" usemap="#_encoder"/>
+<tr><td><img src="inherit_graph_4.png" border="0" alt="" usemap="#_control"/>
+<map name="_control" id="_control">
+<area shape="rect" id="node1" href="class_control.html" title="Control class is responsible for translating Joystick, encoder and button inputs into power..." alt="" coords="5,5,69,32"/>
+</map>
+</td></tr>
+<tr><td><img src="inherit_graph_5.png" border="0" alt="" usemap="#_encoder"/>
 <map name="_encoder" id="_encoder">
 <area shape="rect" id="node1" href="class_encoder.html" title="Encoder class is responsible for reading rotary encoder input. " alt="" coords="5,5,76,32"/>
 </map>
 </td></tr>
-<tr><td><img src="inherit_graph_5.png" border="0" alt="" usemap="#_joystick"/>
+<tr><td><img src="inherit_graph_6.png" border="0" alt="" usemap="#_joystick"/>
 <map name="_joystick" id="_joystick">
 <area shape="rect" id="node1" href="class_joystick.html" title="Joystick" alt="" coords="5,5,76,32"/>
 </map>
 </td></tr>
-<tr><td><img src="inherit_graph_6.png" border="0" alt="" usemap="#_led"/>
+<tr><td><img src="inherit_graph_7.png" border="0" alt="" usemap="#_l_c_d_screen"/>
+<map name="_l_c_d_screen" id="_l_c_d_screen">
+<area shape="rect" id="node2" href="class_l_c_d_screen.html" title="LCDScreen class is responsible for displaying informations on an SSD1306 I2C screen. " alt="" coords="184,5,275,32"/>
+</map>
+</td></tr>
+<tr><td><img src="inherit_graph_8.png" border="0" alt="" usemap="#_led"/>
 <map name="_led" id="_led">
 <area shape="rect" id="node1" href="class_led.html" title="Led" alt="" coords="5,5,48,32"/>
 </map>
 </td></tr>
-<tr><td><img src="inherit_graph_7.png" border="0" alt="" usemap="#_plane_battery_bisplay"/>
-<map name="_plane_battery_bisplay" id="_plane_battery_bisplay">
-<area shape="rect" id="node1" href="class_plane_battery_bisplay.html" title="PlaneBatteryBisplay" alt="" coords="5,5,145,32"/>
+<tr><td><img src="inherit_graph_9.png" border="0" alt="" usemap="#_pto_t_data_frame"/>
+<map name="_pto_t_data_frame" id="_pto_t_data_frame">
+<area shape="rect" id="node1" href="struct_pto_t_data_frame.html" title="Struct composed with all data contained in a frame sent from the Plane to the Transmitter. " alt="" coords="5,5,120,32"/>
 </map>
 </td></tr>
-<tr><td><img src="inherit_graph_8.png" border="0" alt="" usemap="#_r_g_b_led"/>
+<tr><td><img src="inherit_graph_10.png" border="0" alt="" usemap="#_radio"/>
+<map name="_radio" id="_radio">
+<area shape="rect" id="node2" href="class_radio.html" title="Radio class responsible for communicating with the Radio Transmitter on the ground. " alt="" coords="108,5,164,32"/>
+</map>
+</td></tr>
+<tr><td><img src="inherit_graph_11.png" border="0" alt="" usemap="#_remote_battery"/>
+<map name="_remote_battery" id="_remote_battery">
+<area shape="rect" id="node1" href="class_remote_battery.html" title="RemoteBattery" alt="" coords="5,5,116,32"/>
+</map>
+</td></tr>
+<tr><td><img src="inherit_graph_12.png" border="0" alt="" usemap="#_r_g_b_led"/>
 <map name="_r_g_b_led" id="_r_g_b_led">
 <area shape="rect" id="node1" href="class_r_g_b_led.html" title="RGBLed class is responsible for displaying colors on an RGB Led. " alt="" coords="5,5,77,32"/>
 </map>
 </td></tr>
-<tr><td><img src="inherit_graph_9.png" border="0" alt="" usemap="#_sevseg_screen"/>
+<tr><td><img src="inherit_graph_13.png" border="0" alt="" usemap="#_settings"/>
+<map name="_settings" id="_settings">
+<area shape="rect" id="node1" href="class_settings.html" title="Settings class is responsible for. " alt="" coords="5,5,76,32"/>
+</map>
+</td></tr>
+<tr><td><img src="inherit_graph_14.png" border="0" alt="" usemap="#_sevseg_screen"/>
 <map name="_sevseg_screen" id="_sevseg_screen">
-<area shape="rect" id="node1" href="class_sevseg_screen.html" title="SevsegScreen" alt="" coords="5,5,112,32"/>
+<area shape="rect" id="node1" href="class_plane_battery_bisplay.html" title="Responsible for displaying battery informations. " alt="" coords="5,5,145,32"/>
+<area shape="rect" id="node2" href="class_sevseg_screen.html" title="SevsegScreen class is responsible for displaying content on a 7&#45;segment display. " alt="" coords="193,5,300,32"/>
+</map>
+</td></tr>
+<tr><td><img src="inherit_graph_15.png" border="0" alt="" usemap="#_tto_p_data_frame"/>
+<map name="_tto_p_data_frame" id="_tto_p_data_frame">
+<area shape="rect" id="node1" href="struct_tto_p_data_frame.html" title="Struct composed with all data contained in a frame sent from the Transmitter to the Plane..." alt="" coords="5,5,120,32"/>
 </map>
 </td></tr>
 </table>

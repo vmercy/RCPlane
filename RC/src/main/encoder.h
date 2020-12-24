@@ -50,6 +50,10 @@ public:
    * @return true if the rotary encoder is clicked
    */
   bool isPressed();
+  /**
+   * @brief set m_count to 0
+   */
+  void reset();
   ~Encoder();
 };
 

@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.13"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>RCPlane - Remote Controller Code: Led Class Reference</title>
+<title>Radio Controller Code: Led Class Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -21,8 +21,7 @@
  <tbody>
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
-   <div id="projectname">RCPlane - Remote Controller Code
-   &#160;<span id="projectnumber">v0.1</span>
+   <div id="projectname">Radio Controller Code
    </div>
   </td>
  </tr>
@@ -86,13 +85,13 @@ void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="clas
 void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_led.html#a3c581311221a0fedafdfb250a1f318ab">turnOff</a> ()</td></tr>
 <tr class="memdesc:a3c581311221a0fedafdfb250a1f318ab"><td class="mdescLeft">&#160;</td><td class="mdescRight">turns the LED off <br /></td></tr>
 <tr class="separator:a3c581311221a0fedafdfb250a1f318ab"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af71542a417a5209b4fccbf8b07ec1f24"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_led.html#af71542a417a5209b4fccbf8b07ec1f24">blink</a> (int period_p)</td></tr>
-<tr class="memdesc:af71542a417a5209b4fccbf8b07ec1f24"><td class="mdescLeft">&#160;</td><td class="mdescRight">blinks the LED  <a href="#af71542a417a5209b4fccbf8b07ec1f24">More...</a><br /></td></tr>
-<tr class="separator:af71542a417a5209b4fccbf8b07ec1f24"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5ffc6040a68800545f1d063641cad66d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_led.html#a5ffc6040a68800545f1d063641cad66d">blink</a> (int period_p, int duration_p=1)</td></tr>
+<tr class="memdesc:a5ffc6040a68800545f1d063641cad66d"><td class="mdescLeft">&#160;</td><td class="mdescRight">blinks the LED  <a href="#a5ffc6040a68800545f1d063641cad66d">More...</a><br /></td></tr>
+<tr class="separator:a5ffc6040a68800545f1d063641cad66d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Member Function Documentation</h2>
-<a id="af71542a417a5209b4fccbf8b07ec1f24"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#af71542a417a5209b4fccbf8b07ec1f24">&#9670;&nbsp;</a></span>blink()</h2>
+<a id="a5ffc6040a68800545f1d063641cad66d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5ffc6040a68800545f1d063641cad66d">&#9670;&nbsp;</a></span>blink()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -101,16 +100,28 @@ void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="clas
           <td class="memname">void Led::blink </td>
           <td>(</td>
           <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>period_p</em></td><td>)</td>
+          <td class="paramname"><em>period_p</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
           <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>duration_p</em> = <code>1</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
         </tr>
       </table>
 </div><div class="memdoc">
 
 <p>blinks the LED </p>
+<dl class="section note"><dt>Note</dt><dd>blocking method </dd></dl>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">period_p</td><td>blink perdiod (in milliseconds) </td></tr>
+    <tr><td class="paramname">period_p</td><td>blink period (in milliseconds) </td></tr>
+    <tr><td class="paramname">duration_p</td><td>number of blinks </td></tr>
   </table>
   </dd>
 </dl>

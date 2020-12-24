@@ -15,24 +15,29 @@ void \hyperlink{class_led_a02561ef42927779f247c0ae714a89e9a}{turn\+On} ()
 \mbox{\Hypertarget{class_led_a3c581311221a0fedafdfb250a1f318ab}\label{class_led_a3c581311221a0fedafdfb250a1f318ab}} 
 void \hyperlink{class_led_a3c581311221a0fedafdfb250a1f318ab}{turn\+Off} ()
 \begin{DoxyCompactList}\small\item\em turns the L\+ED off \end{DoxyCompactList}\item 
-void \hyperlink{class_led_af71542a417a5209b4fccbf8b07ec1f24}{blink} (int period\+\_\+p)
+void \hyperlink{class_led_a5ffc6040a68800545f1d063641cad66d}{blink} (int period\+\_\+p, int duration\+\_\+p=1)
 \begin{DoxyCompactList}\small\item\em blinks the L\+ED \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \subsection{Member Function Documentation}
-\mbox{\Hypertarget{class_led_af71542a417a5209b4fccbf8b07ec1f24}\label{class_led_af71542a417a5209b4fccbf8b07ec1f24}} 
+\mbox{\Hypertarget{class_led_a5ffc6040a68800545f1d063641cad66d}\label{class_led_a5ffc6040a68800545f1d063641cad66d}} 
 \index{Led@{Led}!blink@{blink}}
 \index{blink@{blink}!Led@{Led}}
 \subsubsection{\texorpdfstring{blink()}{blink()}}
-{\footnotesize\ttfamily void Led\+::blink (\begin{DoxyParamCaption}\item[{int}]{period\+\_\+p }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily void Led\+::blink (\begin{DoxyParamCaption}\item[{int}]{period\+\_\+p,  }\item[{int}]{duration\+\_\+p = {\ttfamily 1} }\end{DoxyParamCaption})}
 
 
 
 blinks the L\+ED 
 
+\begin{DoxyNote}{Note}
+blocking method 
+\end{DoxyNote}
 
 \begin{DoxyParams}{Parameters}
-{\em period\+\_\+p} & blink perdiod (in milliseconds) \\
+{\em period\+\_\+p} & blink period (in milliseconds) \\
+\hline
+{\em duration\+\_\+p} & number of blinks \\
 \hline
 \end{DoxyParams}
 \mbox{\Hypertarget{class_led_a3c98242eb57df713fcb8d441d43ccd02}\label{class_led_a3c98242eb57df713fcb8d441d43ccd02}} 

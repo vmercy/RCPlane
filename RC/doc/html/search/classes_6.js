@@ -1,5 +1,6 @@
 var searchData=
 [
-  ['sevsegscreen',['SevsegScreen',['../class_sevseg_screen.html',1,'']]],
-  ['switch',['Switch',['../class_switch.html',1,'']]]
+  ['radio',['Radio',['../class_radio.html',1,'']]],
+  ['remotebattery',['RemoteBattery',['../class_remote_battery.html',1,'']]],
+  ['rgbled',['RGBLed',['../class_r_g_b_led.html',1,'']]]
 ];

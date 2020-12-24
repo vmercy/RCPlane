@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['mathfunctions_2eh',['mathFunctions.h',['../math_functions_8h.html',1,'']]]
+  ['joystick_2ecpp',['joystick.cpp',['../joystick_8cpp.html',1,'']]],
+  ['joystick_2eh',['joystick.h',['../joystick_8h.html',1,'']]]
 ];

@@ -17,6 +17,7 @@
 #include "buzzer.h"
 #include "rgbled.h"
 #include "switch.h"
+#include "lcdscreen.h"
 #include "settings.h"
 
 #define GROUND_MODE 0
@@ -26,6 +27,33 @@
 
 /**
  * @brief Control class is responsible for translating Joystick, encoder and button inputs into power, pitch, yaw and roll values
+ * @note Description of controls :
+ *  - CTRL1 : mode selector : Ground (off) / Flight (on))
+ *  - CTRL2 : auto-thrust activation : Disable (off) / Enable (on)
+ *  - CTRL3 : reset auto-thrust cursor to 0
+ *  - CTRL4 : yaw activation : Disable (off) / Enable (on)
+ *  - Encoder :
+ *    - CW : auto-thrust cursor += getSetting(AUTOTHRUST_CURSOR_STEP)
+ *    - CCW : auto-thrust cursor -= getSetting(AUTOTHRUST_CURSOR_STEP)
+ *    - Switch (button) : auto-thrust to neutral (halfway
+ * @note Description of control modes :
+ *  - Ground mode : 
+ *    - Left joystick :
+ *      - X axis : nothing
+ *      - Y axis : power
+ *    - Right joystick :
+ *      - X axis : roll + yaw
+ *      - Y axis : pitch
+ *  - Flight mode :
+ *    - Left joystick :
+ *      - X axis : yaw
+ *      - Y axis : power
+ *    - Right joystick :
+ *      - X axis : roll
+ *      - Y axis : pitch
+ * @note Description of auto-thrust :
+ * - General case : power = cursor + map()
+ * @example 
  */
 class Control
 {
@@ -34,11 +62,27 @@ private:
      * @brief control mode (FLIGHT_MODE or GROUND_MODE)
      */
     bool m_mode;
+    /**
+     * @brief defines the encoder position 
+     */
+    uint8_t m_encoderPosition;
+
     Joystick m_leftJoy;
     Joystick m_rightJoy;
     Encoder m_encoder;
     Buzzer m_buzzer;
     RGBLed m_rgbLed;
+    /**
+     * @brief mode selector
+     */
+    Switch m_CTRL1;
+    /**
+     * @brief auto-thrust 
+     */
+    Switch m_CTRL2;
+    Button m_CTRL3;
+    Button m_CTRL4;
+    //TODO: LCDScreen m_screen;
     const Settings* m_p_settings;
 public:
     Control();
@@ -65,14 +109,5 @@ public:
     uint8_t getYaw();
     uint8_t getRoll();
 };
-
-Control::Control()
-{
-}
-
-Control::~Control()
-{
-}
-
 
 #endif

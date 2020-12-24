@@ -47,8 +47,8 @@ Buzzer buzz;
 PlaneBatteryBisplay planeBatteryDisplay;
 //LCDScreen mainScreen;
 
-Settings config;
-Control control;
+/* Settings config;
+Control control; */
 
 RF24 radio(7,8);
 const byte channel = 120;
@@ -97,7 +97,7 @@ void setup()
 
   //TODO: config.readFromMem();
 
-  control.init(leftJoy, rightJoy, enc, CTRL1, buzz, gearLed, &config);
+  //control.init(leftJoy, rightJoy, enc, CTRL1, buzz, gearLed, &config);
 
   const uint8_t cellIndicatorsPinout[] = {CELL0_LED, CELL1_LED, CELL2_LED, CELLALL_LED};
   const uint8_t sevSegDigitsPinout[] = {SEVSEG_DIG1, SEVSEG_DIG2, SEVSEG_DIG3, SEVSEG_DIG4};
@@ -129,10 +129,10 @@ void setup()
 
 void loop()
 {
-  if(CTRL1.state())
+/*   if(CTRL1.state())
   {
     
-  }
+  } */
   /* transmitter.setRoll(rightJoy.readX());
   transmitter.setPower(leftJoy.readY());
   transmitter.setPitch(rightJoy.readY());
@@ -140,11 +140,11 @@ void loop()
 
   transmitter.sendData(); */
 
-  if(enc.isPressed())
+/*   if(enc.isPressed())
   {
     gearLed.displayColor(WHITE);
     Serial.println("Pressed");
-  }
+  } */
 
   TtoPDataFrame frame;
   if(leftJoy.readY()>LEFT_JOY_Y_IDLE_POSITION)

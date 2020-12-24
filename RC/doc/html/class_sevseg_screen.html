@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.13"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>RCPlane - Remote Controller Code: SevsegScreen Class Reference</title>
+<title>Radio Controller Code: SevsegScreen Class Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -21,8 +21,7 @@
  <tbody>
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
-   <div id="projectname">RCPlane - Remote Controller Code
-   &#160;<span id="projectnumber">v0.1</span>
+   <div id="projectname">Radio Controller Code
    </div>
   </td>
  </tr>
@@ -60,11 +59,137 @@ $(function() {
 </div><!-- top -->
 <div class="header">
   <div class="summary">
+<a href="#pub-methods">Public Member Functions</a> &#124;
 <a href="class_sevseg_screen-members.html">List of all members</a>  </div>
   <div class="headertitle">
 <div class="title">SevsegScreen Class Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
+
+<p><a class="el" href="class_sevseg_screen.html" title="SevsegScreen class is responsible for displaying content on a 7-segment display. ">SevsegScreen</a> class is responsible for displaying content on a 7-segment display.  
+ <a href="class_sevseg_screen.html#details">More...</a></p>
+
+<p><code>#include &lt;<a class="el" href="sevsegscreen_8h_source.html">sevsegscreen.h</a>&gt;</code></p>
+<div class="dynheader">
+Inheritance diagram for SevsegScreen:</div>
+<div class="dyncontent">
+<div class="center"><img src="class_sevseg_screen__inherit__graph.png" border="0" usemap="#_sevseg_screen_inherit__map" alt="Inheritance graph"/></div>
+<map name="_sevseg_screen_inherit__map" id="_sevseg_screen_inherit__map">
+<area shape="rect" id="node3" href="class_plane_battery_bisplay.html" title="Responsible for displaying battery informations. " alt="" coords="5,155,145,181"/>
+</map>
+<center><span class="legend">[<a href="graph_legend.html">legend</a>]</span></center></div>
+<div class="dynheader">
+Collaboration diagram for SevsegScreen:</div>
+<div class="dyncontent">
+<div class="center"><img src="class_sevseg_screen__coll__graph.png" border="0" usemap="#_sevseg_screen_coll__map" alt="Collaboration graph"/></div>
+<center><span class="legend">[<a href="graph_legend.html">legend</a>]</span></center></div>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
+Public Member Functions</h2></td></tr>
+<tr class="memitem:a29e517dc7ddda7547fe8f7c706654444"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_sevseg_screen.html#a29e517dc7ddda7547fe8f7c706654444">init</a> (bool displayType_p, uint8_t nbDigits_p, uint8_t *sevSegDigitsPinout_p, uint8_t *sevSegSegmentsPinout_p)</td></tr>
+<tr class="memdesc:a29e517dc7ddda7547fe8f7c706654444"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initializes display pinout.  <a href="#a29e517dc7ddda7547fe8f7c706654444">More...</a><br /></td></tr>
+<tr class="separator:a29e517dc7ddda7547fe8f7c706654444"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3afbaf812d953f552b6d0e80de61804e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_sevseg_screen.html#a3afbaf812d953f552b6d0e80de61804e">chrono</a> ()</td></tr>
+<tr class="memdesc:a3afbaf812d953f552b6d0e80de61804e"><td class="mdescLeft">&#160;</td><td class="mdescRight">test the display with a simple chronometer  <a href="#a3afbaf812d953f552b6d0e80de61804e">More...</a><br /></td></tr>
+<tr class="separator:a3afbaf812d953f552b6d0e80de61804e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad82130595693d5f18c81c1ca5206da15"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_sevseg_screen.html#ad82130595693d5f18c81c1ca5206da15">testDisplay</a> ()</td></tr>
+<tr class="memdesc:ad82130595693d5f18c81c1ca5206da15"><td class="mdescLeft">&#160;</td><td class="mdescRight">test display by printing rotating pattern on all digits  <a href="#ad82130595693d5f18c81c1ca5206da15">More...</a><br /></td></tr>
+<tr class="separator:ad82130595693d5f18c81c1ca5206da15"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p><a class="el" href="class_sevseg_screen.html" title="SevsegScreen class is responsible for displaying content on a 7-segment display. ">SevsegScreen</a> class is responsible for displaying content on a 7-segment display. </p>
+</div><h2 class="groupheader">Member Function Documentation</h2>
+<a id="a3afbaf812d953f552b6d0e80de61804e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3afbaf812d953f552b6d0e80de61804e">&#9670;&nbsp;</a></span>chrono()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void SevsegScreen::chrono </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>test the display with a simple chronometer </p>
+<dl class="section note"><dt>Note</dt><dd>this function must be called in a while(true) loop </dd></dl>
+
+</div>
+</div>
+<a id="a29e517dc7ddda7547fe8f7c706654444"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a29e517dc7ddda7547fe8f7c706654444">&#9670;&nbsp;</a></span>init()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void SevsegScreen::init </td>
+          <td>(</td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>displayType_p</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint8_t&#160;</td>
+          <td class="paramname"><em>nbDigits_p</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint8_t *&#160;</td>
+          <td class="paramname"><em>sevSegDigitsPinout_p</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint8_t *&#160;</td>
+          <td class="paramname"><em>sevSegSegmentsPinout_p</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Initializes display pinout. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">displayType_p</td><td>type of display, can be either COMMON_ANDOE or COMMON_CATHODE </td></tr>
+    <tr><td class="paramname">nbDigits_p</td><td>numbre of digits of the display </td></tr>
+    <tr><td class="paramname">sevSegDigitsPinout_p</td><td>pinout of display segments in the order {A,B,C,D,E,F,G,DP} </td></tr>
+    <tr><td class="paramname">sevSegSegmentsPinout_p</td><td>pinout of the display digits </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="ad82130595693d5f18c81c1ca5206da15"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad82130595693d5f18c81c1ca5206da15">&#9670;&nbsp;</a></span>testDisplay()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void SevsegScreen::testDisplay </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>test display by printing rotating pattern on all digits </p>
+<dl class="section note"><dt>Note</dt><dd>blocking method </dd></dl>
+
+</div>
+</div>
 <hr/>The documentation for this class was generated from the following files:<ul>
 <li>src/main/<a class="el" href="sevsegscreen_8h_source.html">sevsegscreen.h</a></li>
 <li>src/main/<a class="el" href="sevsegscreen_8cpp.html">sevsegscreen.cpp</a></li>

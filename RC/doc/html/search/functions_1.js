@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['displaycolor',['displayColor',['../class_r_g_b_led.html#a6a1e12a1f48fc29acd30aa88a1cfd1b1',1,'RGBLed']]]
+  ['blink',['blink',['../class_led.html#a5ffc6040a68800545f1d063641cad66d',1,'Led']]]
 ];

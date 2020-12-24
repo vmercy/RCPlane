@@ -1,0 +1,12 @@
+<map id="src/main/control.h" name="src/main/control.h">
+<area shape="rect" id="node2" href="$joystick_8h.html" title="Declaration of Joystick class. " alt="" coords="99,80,178,107"/>
+<area shape="rect" id="node7" href="$encoder_8h.html" title="Declaration of Encoder class. " alt="" coords="296,80,375,107"/>
+<area shape="rect" id="node8" href="$buzzer_8h.html" title="Declaration of Buzzer class. " alt="" coords="400,80,472,107"/>
+<area shape="rect" id="node9" href="$rgbled_8h.html" title="Declaration of RGBLed class. " alt="" coords="496,80,564,107"/>
+<area shape="rect" id="node10" href="$switch_8h.html" title="Declaration of switch class. " alt="" coords="202,80,272,107"/>
+<area shape="rect" id="node11" href="$lcdscreen_8h.html" title="Declaration of LCDScreen class. " alt="" coords="588,80,678,107"/>
+<area shape="rect" id="node16" href="$settings_8h.html" title="Default settings and declaration of settings class. " alt="" coords="855,80,934,107"/>
+<area shape="rect" id="node4" href="$button_8h.html" title="Declaration of Button class. " alt="" coords="254,155,324,181"/>
+<area shape="rect" id="node5" href="$math_functions_8h.html" title="Declaration of a set of mathematical functions. " alt="" coords="26,155,144,181"/>
+<area shape="rect" id="node17" href="$remote__battery_8h_source.html" title="remote_battery.h" alt="" coords="965,155,1085,181"/>
+</map>

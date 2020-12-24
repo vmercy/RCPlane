@@ -1,11 +1,21 @@
 \hypertarget{class_buzzer}{}\section{Buzzer Class Reference}
 \label{class_buzzer}\index{Buzzer@{Buzzer}}
+
+
+\hyperlink{class_buzzer}{Buzzer} class is responsible for sound outputs.  
+
+
+
+
+{\ttfamily \#include $<$buzzer.\+h$>$}
+
 \subsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\Hypertarget{class_buzzer_ae5530b62a199e66e1c4c95dfd14bab3b}\label{class_buzzer_ae5530b62a199e66e1c4c95dfd14bab3b}} 
-void {\bfseries init} (uint8\+\_\+t pinout\+\_\+p)
-\item 
+void \hyperlink{class_buzzer_a55547bbb6c553f9a6f7a1d97eea4bf21}{init} (uint8\+\_\+t pinout\+\_\+p, bool enable\+\_\+p=true)
+\begin{DoxyCompactList}\small\item\em Initializes buzzer on the right Arduino pin. \end{DoxyCompactList}\item 
+void \hyperlink{class_buzzer_a29cb886294e260705b437dea524d43e8}{sound} (unsigned int frequency\+\_\+p, unsigned int duration\+\_\+p, unsigned int pause\+\_\+p=0)
+\begin{DoxyCompactList}\small\item\em play sound \end{DoxyCompactList}\item 
 \mbox{\Hypertarget{class_buzzer_a84c33234bf71806d631e1a939d649438}\label{class_buzzer_a84c33234bf71806d631e1a939d649438}} 
 void {\bfseries error} ()
 \item 
@@ -15,6 +25,48 @@ void {\bfseries success} ()
 \mbox{\Hypertarget{class_buzzer_a90e969d3ca0c6300d7639bf650cf0f79}\label{class_buzzer_a90e969d3ca0c6300d7639bf650cf0f79}} 
 void {\bfseries warning} ()
 \end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+\hyperlink{class_buzzer}{Buzzer} class is responsible for sound outputs. 
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{class_buzzer_a55547bbb6c553f9a6f7a1d97eea4bf21}\label{class_buzzer_a55547bbb6c553f9a6f7a1d97eea4bf21}} 
+\index{Buzzer@{Buzzer}!init@{init}}
+\index{init@{init}!Buzzer@{Buzzer}}
+\subsubsection{\texorpdfstring{init()}{init()}}
+{\footnotesize\ttfamily void Buzzer\+::init (\begin{DoxyParamCaption}\item[{uint8\+\_\+t}]{pinout\+\_\+p,  }\item[{bool}]{enable\+\_\+p = {\ttfamily true} }\end{DoxyParamCaption})}
+
+
+
+Initializes buzzer on the right Arduino pin. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em pinout\+\_\+p} & the Arduino pin the buzzer is attached to \\
+\hline
+{\em enable\+\_\+p} & enable or disable the buzzer (optional) \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_buzzer_a29cb886294e260705b437dea524d43e8}\label{class_buzzer_a29cb886294e260705b437dea524d43e8}} 
+\index{Buzzer@{Buzzer}!sound@{sound}}
+\index{sound@{sound}!Buzzer@{Buzzer}}
+\subsubsection{\texorpdfstring{sound()}{sound()}}
+{\footnotesize\ttfamily void Buzzer\+::sound (\begin{DoxyParamCaption}\item[{unsigned int}]{frequency\+\_\+p,  }\item[{unsigned int}]{duration\+\_\+p,  }\item[{unsigned int}]{pause\+\_\+p = {\ttfamily 0} }\end{DoxyParamCaption})}
+
+
+
+play sound 
+
+
+\begin{DoxyParams}{Parameters}
+{\em frequency\+\_\+p} & sound frequency \\
+\hline
+{\em duration\+\_\+p} & sound duration \\
+\hline
+{\em pause\+\_\+p} & pause after sound play (optional) \\
+\hline
+\end{DoxyParams}
 
 
 The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}

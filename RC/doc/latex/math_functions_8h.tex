@@ -6,20 +6,18 @@ Declaration of a set of mathematical functions.
 
 
 {\ttfamily \#include $<$Arduino.\+h$>$}\newline
-Include dependency graph for math\+Functions.\+h\+:
-\nopagebreak
+Include dependency graph for math\+Functions.\+h\+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
 \includegraphics[width=210pt]{math_functions_8h__incl}
 \end{center}
 \end{figure}
-This graph shows which files directly or indirectly include this file\+:
-\nopagebreak
+This graph shows which files directly or indirectly include this file\+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
-\includegraphics[width=314pt]{math_functions_8h__dep__incl}
+\includegraphics[width=350pt]{math_functions_8h__dep__incl}
 \end{center}
 \end{figure}
 \subsection*{Functions}
@@ -28,7 +26,9 @@ This graph shows which files directly or indirectly include this file\+:
 {\footnotesize template$<$typename T , typename K $>$ }\\T \hyperlink{math_functions_8h_aa0d41d8ef935cf12142a4ea04a40f1a4}{sum} (K data\+Array\+\_\+p\mbox{[}$\,$\mbox{]}, uint8\+\_\+t size\+\_\+p)
 \begin{DoxyCompactList}\small\item\em computes a sum \end{DoxyCompactList}\item 
 {\footnotesize template$<$typename T , typename K , typename U  = K$>$ }\\T \hyperlink{math_functions_8h_abee875c2ebcd4ff18609cbf236938ce0}{mean} (K data\+Array\+\_\+p\mbox{[}$\,$\mbox{]}, uint8\+\_\+t size\+\_\+p)
-\begin{DoxyCompactList}\small\item\em computes a mean value \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em computes a mean value \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename T , typename K  = T$>$ }\\K \hyperlink{math_functions_8h_a83b808608ddde3af2c86c0ee5b9768c6}{extract\+Digit} (T number\+\_\+p, uint8\+\_\+t digit\+Select\+\_\+p=0, uint8\+\_\+t base\+\_\+p=10)
+\begin{DoxyCompactList}\small\item\em extracts digit from a number \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \subsection{Detailed Description}
@@ -49,6 +49,36 @@ Copyright (c) 2020
 
 
 \subsection{Function Documentation}
+\mbox{\Hypertarget{math_functions_8h_a83b808608ddde3af2c86c0ee5b9768c6}\label{math_functions_8h_a83b808608ddde3af2c86c0ee5b9768c6}} 
+\index{math\+Functions.\+h@{math\+Functions.\+h}!extract\+Digit@{extract\+Digit}}
+\index{extract\+Digit@{extract\+Digit}!math\+Functions.\+h@{math\+Functions.\+h}}
+\subsubsection{\texorpdfstring{extract\+Digit()}{extractDigit()}}
+{\footnotesize\ttfamily template$<$typename T , typename K  = T$>$ \\
+K extract\+Digit (\begin{DoxyParamCaption}\item[{T}]{number\+\_\+p,  }\item[{uint8\+\_\+t}]{digit\+Select\+\_\+p = {\ttfamily 0},  }\item[{uint8\+\_\+t}]{base\+\_\+p = {\ttfamily 10} }\end{DoxyParamCaption})}
+
+
+
+extracts digit from a number 
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em T} & type of number \\
+\hline
+{\em K} & type of returned digit (optional) \\
+\hline
+\end{DoxyTemplParams}
+
+\begin{DoxyParams}{Parameters}
+{\em number\+\_\+p} & input number \\
+\hline
+{\em digit\+Select\+\_\+p} & digit selector (starting from rightmost digit at default index 0) \\
+\hline
+{\em base\+\_\+p} & base of input number \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+K extracted digit (0 in case of an overflow) 
+\end{DoxyReturn}
 \mbox{\Hypertarget{math_functions_8h_abee875c2ebcd4ff18609cbf236938ce0}\label{math_functions_8h_abee875c2ebcd4ff18609cbf236938ce0}} 
 \index{math\+Functions.\+h@{math\+Functions.\+h}!mean@{mean}}
 \index{mean@{mean}!math\+Functions.\+h@{math\+Functions.\+h}}

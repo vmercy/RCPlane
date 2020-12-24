@@ -11,7 +11,7 @@
 
 #include <Arduino.h>
 #include "radio.h"
-#include "mathFunctions.h"
+#include "math_functions.h"
 
 Radio::Radio(uint8_t CEpin_p, uint8_t CSpin_p) : //TODO: delete args
 m_pipes({0x01, 0x02})

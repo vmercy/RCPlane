@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['encoder',['Encoder',['../class_encoder.html',1,'']]]
+  ['control',['Control',['../class_control.html',1,'']]]
 ];
