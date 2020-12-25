@@ -16,6 +16,7 @@
 #include <Servo.h>
 
 /**
+ * @class Rudder
  * @brief Rudder class is responsible for moving rudder and tail wheel
  */
 class Rudder : private Servo

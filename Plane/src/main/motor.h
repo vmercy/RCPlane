@@ -23,7 +23,7 @@
 #endif
 
 /**
- * @class motor
+ * @class Motor
  * @brief Representation of the brushless motor
  */
 class Motor

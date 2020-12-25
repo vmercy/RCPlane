@@ -31,7 +31,7 @@
 #define DELAY_SAMPLES_BATTERY 500 //delay between two readings (in microseconds)
 
 /**
- * @class battery
+ * @class Battery
  * @brief Represents the Lipo battery pack and implements methods to get its charge level
  */
 class Battery

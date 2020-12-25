@@ -22,6 +22,7 @@
 #define AUTHENTICATION_PIN 1234 //4 digit pin code used for remote authentication
 
 /**
+ * @class Radio
  * @brief Radio class responsible for communicating with the Radio Transmitter on the ground
  */
 class Radio : private RF24

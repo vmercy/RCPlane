@@ -16,6 +16,7 @@
 #include "aileron.h"
 
 /**
+ * @class Roll
  * @brief Roll class is responsible for 
  */
 class Roll

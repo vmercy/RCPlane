@@ -26,7 +26,7 @@
 #endif
 
 /**
- * @class aileron
+ * @class Aileron
  * @brief Representation of the ailerons
  */
 class Aileron
