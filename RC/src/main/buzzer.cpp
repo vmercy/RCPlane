@@ -21,9 +21,12 @@ Buzzer::~Buzzer()
 
 void Buzzer::sound(unsigned int frequency_p, unsigned int duration_p, unsigned int pause_p = 0)
 {
-  tone(m_pinout, frequency_p, duration_p);
-  if (pause_p)
-    delay(pause_p);
+  if (m_enabled)
+  {
+    tone(m_pinout, frequency_p, duration_p);
+    if (pause_p)
+      delay(pause_p);
+  }
 }
 
 void Buzzer::init(uint8_t pinout_p, bool enable_p = true)

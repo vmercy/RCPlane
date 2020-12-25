@@ -64,7 +64,3 @@
 
 #define SSD1306_I2C_ADDRESS 0x3C
 #define SEVSEG_DEFAULT_BRIGHTNESS 90
-
-#define ENABLE_START false //TODO: set to true
-#define ENABLE_BUZZER_DEFAULT false //let true except for development purposes
-#define VOLTAGE_RECTIFIER_COEFF 1.0132

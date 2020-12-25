@@ -29,7 +29,13 @@ class PlaneBatteryDisplay : private SevsegScreen
 private:
   uint8_t m_nbCells;
   uint8_t m_activeCell;
+  unsigned long m_lastChange;
   const Settings* m_settings;
+  uint16_t m_displayTime;
+  /**
+   * @brief 
+   */
+  bool m_displayedContent;
   Led m_displayedCellIndicators[NB_CELLS_TOTAL+1]; //cell0 ... cellN + all
 public:
   PlaneBatteryDisplay();

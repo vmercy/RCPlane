@@ -29,6 +29,10 @@
 
 #include "header.h"
 
+#define ENABLE_START true //TODO: set to true
+#define ENABLE_BUZZER_DEFAULT false //let true except for development purposes
+#define VOLTAGE_RECTIFIER_COEFF 1.0132
+
 /* Objects Declarations */
 Battery rcLipo;
 Button menuBtn;
@@ -110,8 +114,6 @@ void setup()
   rcLipo.setPinout(lipoPinout);
   //transmitter.init(NRF24L01_CE, NRF24L01_CS);
 
-  
-
   radio.begin();
   radio.setChannel(channel);
   radio.openWritingPipe(pipe[1]);
@@ -162,4 +164,8 @@ void loop()
   radio.write(&frame, sizeof(TtoPDataFrame));
 
   //delay(50);
+
+  planeBatteryDisplay.refreshDisplay();
+
+
 }
