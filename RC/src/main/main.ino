@@ -154,12 +154,12 @@ void loop()
 
   frame.roll = rightJoy.readX();
   frame.pitch = rightJoy.readY();
-  frame.yaw = 255-leftJoy.readX();
+  frame.yaw = 255-rightJoy.readX();
   /* leftJoy.print();
   rightJoy.print(); */
 
   radio.stopListening();
   radio.write(&frame, sizeof(TtoPDataFrame));
 
-  delay(50);
+  //delay(50);
 }

@@ -13,6 +13,7 @@
 #define SETTINGS_H
 
 #include "remote_battery.h"
+#include <Arduino.h>
 
 /* Number of settings */
 #define NB_BOOL_SETTINGS 6
@@ -72,10 +73,7 @@ public:
      * @note since each byte of arduino EEPROM is limited to approx. 100000 writings, limit usage of this method to the strict minimum
      * @return true if write operation was necessary
      */
-  bool writeToMem(uint16_t index_p = -1)
-  {
-    if (readFromMem<bool>(0, false)!=getSetting<bool>(0))
-  }
+  bool writeToMem(uint16_t index_p = -1);
   /**
    * @brief reads data from EEPROM persistent memory
    * @tparam T type of data to read
@@ -105,8 +103,6 @@ public:
       m_byteSettings[index_p] = newValue_p;
     else if (index_p < NB_SETTINGS)
       m_intSettings[index_p] = newValue_p;
-
-    if()
   }
   /**
      * @brief Get the Setting value
