@@ -19,20 +19,18 @@ RGBLed::~RGBLed()
 {
 }
 
-void RGBLed::init(bool ledType_p, uint8_t redPin_p, uint8_t greenPin_p, uint8_t bluePin_p)
+void RGBLed::init(bool ledType_p, Led redLed_p, Led greenLed_p, Led blueLed_p)
 {
   m_ledType = ledType_p;
-  m_pinout[RED] = redPin_p;
-  m_pinout[GREEN] = greenPin_p;
-  m_pinout[BLUE] = bluePin_p;
-  for (uint8_t i = 0; i < 3; i++)
-    pinMode(m_pinout[i], OUTPUT);
+  m_primaryColorsLeds[RED] = redLed_p;
+  m_primaryColorsLeds[GREEN] = greenLed_p;
+  m_primaryColorsLeds[BLUE] = blueLed_p;
   turnOff();
 }
 
 void RGBLed::writeColorPin(uint8_t color_p, bool newState_p)
 {
-  digitalWrite(m_pinout[color_p], m_ledType != newState_p);
+  m_primaryColorsLeds[color_p].setState(m_ledType != newState_p)
 }
 
 void RGBLed::turnOff()

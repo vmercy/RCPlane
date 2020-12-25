@@ -19,6 +19,7 @@
 #define TEST_DELAY 100
 
 /**
+ * @class PlaneBatteryDisplay
  * @brief Responsible for displaying battery informations
  */
 class PlaneBatteryBisplay : public SevsegScreen

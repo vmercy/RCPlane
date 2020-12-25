@@ -24,6 +24,7 @@ void Led::init(uint8_t pinout_p)
 
 void Led::setState(bool newState_p)
 {
+  m_ledState = newState_p
   digitalWrite(m_pinout, newState_p);
 }
 

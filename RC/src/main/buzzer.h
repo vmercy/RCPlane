@@ -15,6 +15,7 @@
 #include <Arduino.h>
 
 /**
+ * @class Buzzer
  * @brief Buzzer class is responsible for sound outputs
  */
 class Buzzer

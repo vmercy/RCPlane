@@ -32,6 +32,10 @@
 #include "math_functions.h"
 #include <stdio.h>
 
+/**
+ * @class Joystick
+ * @brief Joystick class is responsible for reading joystick inputs on both axis and embedded switch
+ */
 class Joystick
 {
 private:

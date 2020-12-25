@@ -17,6 +17,7 @@
 #define DEBOUNCE_DELAY 2 // the debounce time (in milliseconds) to increase if the output flickers
 
 /**
+ * @¢lass Button
  * @brief Button class is responsible for reading a pushbutton state with debounce feature
  */
 

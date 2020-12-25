@@ -17,6 +17,7 @@
 #include <SevSeg.h>
 
 /**
+ * @class SevsegScreen
  * @brief SevsegScreen class is responsible for displaying content on a 7-segment display
  */
 class SevsegScreen : public SevSeg

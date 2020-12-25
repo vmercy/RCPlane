@@ -29,6 +29,7 @@
 #define LOGO_WIDTH 128
 
 /**
+ * @class LCDScreen
  * @brief LCDScreen class is responsible for displaying informations on an SSD1306 I2C screen
  */
 class LCDScreen : private Adafruit_SSD1306

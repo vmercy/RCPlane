@@ -20,6 +20,10 @@
 #define OFF 0
 #endif
 
+/**
+ * @class Led
+ * @brief Led class is responsible for managing an electro-lumiscent diode output
+ */
 class Led
 {
 private:

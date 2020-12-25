@@ -32,7 +32,10 @@
 #define OFF 0
 #endif
 
+#include "led.h"
+
 /**
+ * @class RGBLed
  * @brief RGBLed class is responsible for displaying colors on an RGB Led
  */
 class RGBLed
@@ -42,18 +45,18 @@ private:
    * @brief led type, can be either RGB_COMMON_ANODE or RGB_COMMON_CATHODE
    */
   bool m_ledType;
-  uint8_t m_pinout[3];
+  Led m_primaryColorsLeds[3];
 public:
   RGBLed();
   ~RGBLed();
   /**
    * @brief initializes led type and pinout
    * @param ledType_p can be either RGB_COMMON_ANODE or RGB_COMMON_CATHODE
-   * @param redPin_p the arduino pin the led red pin is connected to
-   * @param greenPin_p the arduino pin the led green pin is connected to
-   * @param bluePin_p the arduino pin the led blue pin is connected to
+   * @param redLed_p the red led
+   * @param greenLed_p the green led
+   * @param blueLed_p the blue led
    */
-  void init(bool ledType_p, uint8_t redPin_p, uint8_t greenPin_p, uint8_t bluePin_p);
+  void init(bool ledType_p, Led redLed_p, Led greenLed_p, Led blueLed_p);
   /**
    * @brief 
    * @param colorPin_p color selector, can be RED, GREEN or BLUE

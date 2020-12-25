@@ -14,6 +14,10 @@
 
 #include "button.h"
 
+/**
+ * @class Switch
+ * @brief Switch class is responsible for managing a 2-positions switch input
+ */
 class Switch : public Button
 {
     public:

@@ -12,10 +12,14 @@
 #ifndef REMOTE_BATTERY_H
 #define REMOTE_BATTERY_H
 
+#include "battery.h"
+
 /**
+ * @class RemoteBattery
  * @brief RemoteBattery class is responsible for managing the battery level of the plane
  */
-class RemoteBattery
+
+class RemoteBattery : private Battery
 {
 private:
   /* data */

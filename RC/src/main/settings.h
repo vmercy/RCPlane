@@ -49,6 +49,7 @@
 #define DEFAULT_AUTOTHRUST_CURSOR_STEP 2
 
 /**
+ * @class Settings
  * @brief Settings class is responsible for 
  */
 class Settings

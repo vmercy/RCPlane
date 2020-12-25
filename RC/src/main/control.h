@@ -26,6 +26,7 @@
 #define CONTROL_IDLE 128
 
 /**
+ * @class Control
  * @brief Control class is responsible for translating Joystick, encoder and button inputs into power, pitch, yaw and roll values
  * @note Description of controls :
  *  - CTRL1 : mode selector : Ground (off) / Flight (on))

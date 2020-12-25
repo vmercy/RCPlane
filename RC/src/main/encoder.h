@@ -16,6 +16,7 @@
 #include "button.h"
 
 /**
+ * @class Encoder
  * @brief Encoder class is responsible for reading rotary encoder input
  */
 class Encoder
