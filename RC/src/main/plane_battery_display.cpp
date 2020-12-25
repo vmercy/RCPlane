@@ -1,7 +1,7 @@
 /**
  * @file battery_display.cpp
  * @author Valentin Mercy (https://github.com/vmercy)
- * @brief Definition of PlaneBatteryDisplay class
+ * @brief Definition of BatteryDisplaySet class
  * @version 0.1
  * @date 2020-11-26
  * 
@@ -11,17 +11,17 @@
 
 #include "plane_battery_display.h"
 
-PlaneBatteryDisplay::PlaneBatteryDisplay()
+BatteryDisplaySet::BatteryDisplaySet()
 {
   m_activeCell = 0;
   m_settings = NULL;
 }
 
-PlaneBatteryDisplay::~PlaneBatteryDisplay()
+BatteryDisplaySet::~BatteryDisplaySet()
 {
 }
 
-void PlaneBatteryDisplay::init(const uint8_t nbCells_p, const uint8_t cellIndicatorsPinout_p[NB_CELLS_TOTAL + 1], bool displayType_p, uint8_t nbDigits_p, const uint8_t *sevSegDigitsPinout_p, const uint8_t *sevSegSegmentsPinout_p, const Settings *p_settings_p)
+void BatteryDisplaySet::init(const uint8_t nbCells_p, const uint8_t cellIndicatorsPinout_p[NB_CELLS_TOTAL + 1], bool displayType_p, uint8_t nbDigits_p, const uint8_t *sevSegDigitsPinout_p, const uint8_t *sevSegSegmentsPinout_p, const Settings *p_settings_p)
 {
 
   for (uint8_t i = 0; i < (NB_CELLS_TOTAL + 1); i++)
@@ -33,7 +33,7 @@ void PlaneBatteryDisplay::init(const uint8_t nbCells_p, const uint8_t cellIndica
   m_displayedContent = false;
 }
 
-void PlaneBatteryDisplay::printCell(uint8_t cellSelect_p)
+void BatteryDisplaySet::printCell(uint8_t cellSelect_p)
 {
   if ((millis() - m_lastChange) >= m_displayTime)
     m_displayedContent != m_displayedContent;
@@ -48,19 +48,19 @@ void PlaneBatteryDisplay::printCell(uint8_t cellSelect_p)
   //delay(1000);
 }
 
-void PlaneBatteryDisplay::printCellVoltage(uint8_t cellSelect_p)
+void BatteryDisplaySet::printCellVoltage(uint8_t cellSelect_p)
 {
   setNumber(352, 2);
   refreshDisplay();
 }
 
-void PlaneBatteryDisplay::printCellLevel(uint8_t cellSelect_p)
+void BatteryDisplaySet::printCellLevel(uint8_t cellSelect_p)
 {
   setNumber(39, 0); //add suffix letter "P" for "percent"
   refreshDisplay();
 }
 
-void PlaneBatteryDisplay::refreshDisplay()
+void BatteryDisplaySet::refreshDisplay()
 {
   SevsegScreen::refreshDisplay();
   printCell(m_activeCell);
@@ -71,7 +71,7 @@ void PlaneBatteryDisplay::refreshDisplay()
   m_lastChange = millis();
 }
 
-void PlaneBatteryDisplay::testDisplays()
+void BatteryDisplaySet::testDisplays()
 {
   testDisplay();
   for (uint8_t i = 0; i < NB_CELLS_TOTAL + 1; i++)

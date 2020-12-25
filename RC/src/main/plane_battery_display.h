@@ -21,10 +21,10 @@
 #define TEST_DELAY 100 //TODO: delete
 
 /**
- * @class PlaneBatteryDisplay
+ * @class BatteryDisplaySet
  * @brief Responsible for displaying battery informations on the battery display set (1x 4 digits 7 segments display + NB_CELLS_TOTAL x cell indicator LEDs + 1x "all cells" indicator LED)
  */
-class PlaneBatteryDisplay : private SevsegScreen
+class BatteryDisplaySet : private SevsegScreen
 {
 private:
   uint8_t m_nbCells;
@@ -38,8 +38,8 @@ private:
   bool m_displayedContent;
   Led m_displayedCellIndicators[NB_CELLS_TOTAL+1]; //cell0 ... cellN + all
 public:
-  PlaneBatteryDisplay();
-  ~PlaneBatteryDisplay();
+  BatteryDisplaySet();
+  ~BatteryDisplaySet();
   /**
    * @brief Initializes the display set
    * @param nbCells_p number of used cells

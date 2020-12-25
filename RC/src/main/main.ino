@@ -48,7 +48,7 @@ Joystick leftJoy;
 Joystick rightJoy;
 Encoder enc;
 Buzzer buzz;
-PlaneBatteryDisplay planeBatteryDisplay;
+BatteryDisplaySet planeBatteryDisplay;
 //LCDScreen mainScreen;
 
 Settings config;
@@ -164,8 +164,6 @@ void loop()
   radio.write(&frame, sizeof(TtoPDataFrame));
 
   //delay(50);
-
-  //gearLed.turnOff();
 
   planeBatteryDisplay.refreshDisplay();
 
