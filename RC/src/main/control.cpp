@@ -28,12 +28,15 @@ void Control::init(Joystick leftJoy_p, Joystick rioghtJoy_p, Encoder encoder_p, 
 
 Control::~Control()
 {
-
 }
 
 void Control::setMode(bool newMode_p)
 {
     m_mode = newMode_p;
+    if(newMode_p==GROUND_MODE)
+      m_rgbLed.displayColor(GROUND_MODE_COLOR);
+    else
+      m_rgbLed.displayColor(FLIGHT_MODE_COLOR);
 }
 
 uint8_t Control::getPower()
@@ -44,7 +47,7 @@ uint8_t Control::getPower()
     }
     else
     {
-      
+      //TODO 
     }
     
 }

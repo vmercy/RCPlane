@@ -23,6 +23,9 @@
 #define GROUND_MODE 0
 #define FLIGHT_MODE 1
 
+#define GROUND_MODE_COLOR RED
+#define FLIGHT_MODE_COLOR GREEN
+
 #define CONTROL_IDLE 128
 
 /**
@@ -72,7 +75,7 @@ private:
      */
     uint8_t m_autoThrustCursor;
 
-    Joystick m_leftJoy;
+    Joystick m_leftJoy; //TODO: replace all objects by pointers
     Joystick m_rightJoy;
     Encoder m_encoder;
     Buzzer m_buzzer;

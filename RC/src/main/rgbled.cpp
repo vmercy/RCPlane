@@ -34,10 +34,10 @@ void RGBLed::init(bool ledType_p, const uint8_t redPin_p, const uint8_t greenPin
   m_primaryColorsLeds[RED].init(redPin_p);
   m_primaryColorsLeds[GREEN].init(greenPin_p);
   m_primaryColorsLeds[BLUE].init(bluePin_p);
-
+  turnOff();
 }
 
-void RGBLed::writeColorPin(uint8_t color_p, bool newState_p)
+void RGBLed::writePrimaryColor(uint8_t color_p, bool newState_p)
 {
   m_primaryColorsLeds[color_p].setState(m_ledType != newState_p);
 }
@@ -45,41 +45,41 @@ void RGBLed::writeColorPin(uint8_t color_p, bool newState_p)
 void RGBLed::turnOff()
 {
   for (uint8_t i = 0; i < 3; i++)
-    writeColorPin(i, OFF);
+    writePrimaryColor(i, OFF);
 }
 
 void RGBLed::displayColor(uint8_t color_p)
 {
   turnOff();
   if (color_p >= RED && color_p <= BLUE)
-    writeColorPin(color_p, ON);
+    writePrimaryColor(color_p, ON);
   else
   {
     switch (color_p)
     {
     case CYAN:
     {
-      writeColorPin(GREEN, ON);
-      writeColorPin(BLUE, ON);
+      writePrimaryColor(GREEN, ON);
+      writePrimaryColor(BLUE, ON);
       break;
     }
     case MAGENTA:
     {
-      writeColorPin(RED, ON);
-      writeColorPin(BLUE, ON);
+      writePrimaryColor(RED, ON);
+      writePrimaryColor(BLUE, ON);
       break;
     }
     case YELLOW:
     {
-      writeColorPin(RED, ON);
-      writeColorPin(GREEN, ON);
+      writePrimaryColor(RED, ON);
+      writePrimaryColor(GREEN, ON);
       break;
     }
     case WHITE:
     {
-      writeColorPin(RED, ON);
-      writeColorPin(GREEN, ON);
-      writeColorPin(BLUE, ON);
+      writePrimaryColor(RED, ON);
+      writePrimaryColor(GREEN, ON);
+      writePrimaryColor(BLUE, ON);
       break;
     }
     default:
@@ -97,4 +97,5 @@ void RGBLed::test(int duration_p)
     displayColor(i);
     delay(del);
   }
+  turnOff();
 }

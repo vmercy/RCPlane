@@ -50,7 +50,7 @@ public:
   RGBLed();
   ~RGBLed();
   /**
-   * @brief initializes led type and pinout
+   * @brief initializes led type
    * @param ledType_p can be either RGB_COMMON_ANODE or RGB_COMMON_CATHODE
    * @param redLed_p the red led
    * @param greenLed_p the green led
@@ -70,7 +70,7 @@ public:
    * @param colorPin_p color selector, can be RED, GREEN or BLUE
    * @param newState_p new state, can be 
    */
-  void writeColorPin(uint8_t colorPin_p, bool newState_p);
+  void writePrimaryColor(uint8_t colorPin_p, bool newState_p);
   /**
    * @brief displays a specific color
    * @param color_p

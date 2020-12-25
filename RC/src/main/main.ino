@@ -165,6 +165,8 @@ void loop()
 
   //delay(50);
 
+  //gearLed.turnOff();
+
   planeBatteryDisplay.refreshDisplay();
 
 
