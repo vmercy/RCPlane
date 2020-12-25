@@ -1,3 +1,4 @@
 <map id="Graphical Class Hierarchy" name="Graphical Class Hierarchy">
-<area shape="rect" id="node1" href="$class_battery.html" title="Battery" alt="" coords="5,5,69,32"/>
+<area shape="rect" id="node1" href="$class_battery.html" title="Represents the Lipo battery pack and implements methods to get its charge level. " alt="" coords="5,5,69,32"/>
+<area shape="rect" id="node2" href="$class_remote_battery.html" title="RemoteBattery class is responsible for managing the battery level of the plane. " alt="" coords="117,5,228,32"/>
 </map>

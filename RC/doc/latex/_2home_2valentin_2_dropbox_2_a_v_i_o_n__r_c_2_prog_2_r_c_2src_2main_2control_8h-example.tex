@@ -1,52 +1,6 @@
 \hypertarget{_2home_2valentin_2_dropbox_2_a_v_i_o_n__r_c_2_prog_2_r_c_2src_2main_2control_8h-example}{}\section{/home/valentin/\+Dropbox/\+A\+V\+I\+O\+N\+\_\+\+R\+C/\+Prog/\+R\+C/src/main/control.\+h}
-\hyperlink{class_control}{Control} class is responsible for translating \hyperlink{class_joystick}{Joystick}, encoder and button inputs into power, pitch, yaw and roll values \begin{DoxyNote}{Note}
-Description of controls \+:
-\begin{DoxyItemize}
-\item C\+T\+R\+L1 \+: mode selector \+: Ground (off) / Flight (on))
-\item C\+T\+R\+L2 \+: auto-\/thrust activation \+: Disable (off) / Enable (on)
-\item C\+T\+R\+L3 \+: set auto-\/thrust to neutral (halfway)
-\item C\+T\+R\+L4 \+: yaw activation \+: Disable (off) / Enable (on)
-\item \hyperlink{class_encoder}{Encoder} \+:
-\begin{DoxyItemize}
-\item CW \+: auto-\/thrust cursor += get\+Setting(\+A\+U\+T\+O\+T\+H\+R\+U\+S\+T\+\_\+\+C\+U\+R\+S\+O\+R\+\_\+\+S\+T\+E\+P)
-\item C\+CW \+: auto-\/thrust cursor -\/= get\+Setting(\+A\+U\+T\+O\+T\+H\+R\+U\+S\+T\+\_\+\+C\+U\+R\+S\+O\+R\+\_\+\+S\+T\+E\+P)
-\item \hyperlink{class_switch}{Switch} (button) \+: reset auto-\/thrust to 0 (this is equivalent to temporarily disable auto-\/thrust) 
-\end{DoxyItemize}
-\end{DoxyItemize}
 
-Description of control modes \+:
 \begin{DoxyItemize}
-\item Ground mode \+:
-\begin{DoxyItemize}
-\item Left joystick \+:
-\begin{DoxyItemize}
-\item X axis \+: nothing
-\item Y axis \+: power (eventually reduced to map(power,0,255,0,get\+Setting(\+M\+A\+X\+\_\+\+G\+R\+O\+U\+N\+D\+\_\+\+P\+O\+W\+E\+R)) if get\+Setting(\+R\+E\+D\+U\+C\+E\+\_\+\+G\+R\+O\+U\+N\+D\+\_\+\+S\+P\+E\+E\+D) == true)
-\end{DoxyItemize}
-\item Right joystick \+:
-\begin{DoxyItemize}
-\item X axis \+: roll + yaw
-\item Y axis \+: pitch
-\end{DoxyItemize}
-\end{DoxyItemize}
-\item Flight mode \+:
-\begin{DoxyItemize}
-\item Left joystick \+:
-\begin{DoxyItemize}
-\item X axis \+: yaw
-\item Y axis \+: power
-\end{DoxyItemize}
-\item Right joystick \+:
-\begin{DoxyItemize}
-\item X axis \+: roll
-\item Y axis \+: pitch 
-\end{DoxyItemize}
-\end{DoxyItemize}
-\end{DoxyItemize}
-
-Description of auto-\/thrust \+:
-\begin{DoxyItemize}
-\item General case \+: power = cursor + map(joystick, min, max, halfway, max) //\+T\+O\+DO\+: check
 \item Particular cases \+:
 \begin{DoxyItemize}
 \item When m\+\_\+auto\+Thrust\+Cursor = 0 \+: power = map(joystick, min, max, halfway, max)
@@ -54,7 +8,7 @@ Description of auto-\/thrust \+:
 \item When m\+\_\+auto\+Thrust\+Cursor = 255 (max) \+: power = max
 \end{DoxyItemize}
 \end{DoxyItemize}
-\end{DoxyNote}
+
 
 \begin{DoxyCodeInclude}
 

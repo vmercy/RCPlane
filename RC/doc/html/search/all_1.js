@@ -1,6 +1,6 @@
 var searchData=
 [
-  ['battery',['Battery',['../class_battery.html',1,'Battery'],['../classbattery.html',1,'battery']]],
+  ['battery',['Battery',['../class_battery.html',1,'']]],
   ['battery_2ecpp',['battery.cpp',['../battery_8cpp.html',1,'']]],
   ['battery_2eh',['battery.h',['../battery_8h.html',1,'']]],
   ['blink',['blink',['../class_led.html#a5ffc6040a68800545f1d063641cad66d',1,'Led']]],

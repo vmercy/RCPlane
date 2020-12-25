@@ -65,15 +65,28 @@ $(function() {
 <div class="title">Battery Class Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
+
+<p>Represents the Lipo battery pack and implements methods to get its charge level.  
+ <a href="class_battery.html#details">More...</a></p>
+
+<p><code>#include &lt;<a class="el" href="battery_8h_source.html">battery.h</a>&gt;</code></p>
+<div class="dynheader">
+Inheritance diagram for Battery:</div>
+<div class="dyncontent">
+<div class="center"><img src="class_battery__inherit__graph.png" border="0" usemap="#_battery_inherit__map" alt="Inheritance graph"/></div>
+<map name="_battery_inherit__map" id="_battery_inherit__map">
+<area shape="rect" id="node2" href="class_remote_battery.html" title="RemoteBattery class is responsible for managing the battery level of the plane. " alt="" coords="5,80,116,107"/>
+</map>
+<center><span class="legend">[<a href="graph_legend.html">legend</a>]</span></center></div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:a637d8766eb5cbdb33ab2a19a30622bc3"><td class="memItemLeft" align="right" valign="top"><a id="a637d8766eb5cbdb33ab2a19a30622bc3"></a>
 &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_battery.html#a637d8766eb5cbdb33ab2a19a30622bc3">~Battery</a> ()</td></tr>
-<tr class="memdesc:a637d8766eb5cbdb33ab2a19a30622bc3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Destroy the <a class="el" href="class_battery.html">Battery</a> object. <br /></td></tr>
+<tr class="memdesc:a637d8766eb5cbdb33ab2a19a30622bc3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Destroy the <a class="el" href="class_battery.html" title="Represents the Lipo battery pack and implements methods to get its charge level. ">Battery</a> object. <br /></td></tr>
 <tr class="separator:a637d8766eb5cbdb33ab2a19a30622bc3"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aed541975df2c26475cbc0c37a9ddf659"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_battery.html#aed541975df2c26475cbc0c37a9ddf659">init</a> (uint8_t NbCells_p, float rectifierCoefficient_p)</td></tr>
-<tr class="memdesc:aed541975df2c26475cbc0c37a9ddf659"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initialize a <a class="el" href="class_battery.html">Battery</a> object with a specified number of cells.  <a href="#aed541975df2c26475cbc0c37a9ddf659">More...</a><br /></td></tr>
+<tr class="memdesc:aed541975df2c26475cbc0c37a9ddf659"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initialize a <a class="el" href="class_battery.html" title="Represents the Lipo battery pack and implements methods to get its charge level. ">Battery</a> object with a specified number of cells.  <a href="#aed541975df2c26475cbc0c37a9ddf659">More...</a><br /></td></tr>
 <tr class="separator:aed541975df2c26475cbc0c37a9ddf659"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:afb257ecd2eab7ed446d15ea9e78cc074"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_battery.html#afb257ecd2eab7ed446d15ea9e78cc074">setResistorValues</a> (const int resistorValues_p[][2])</td></tr>
 <tr class="memdesc:afb257ecd2eab7ed446d15ea9e78cc074"><td class="mdescLeft">&#160;</td><td class="mdescRight">set all resistor values used in voltage divider  <a href="#afb257ecd2eab7ed446d15ea9e78cc074">More...</a><br /></td></tr>
@@ -101,7 +114,9 @@ void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="clas
 <tr class="memdesc:a66ad0266d08fe7d72c90d54654dffcea"><td class="mdescLeft">&#160;</td><td class="mdescRight">prints all battery data to Serial monitor  <a href="#a66ad0266d08fe7d72c90d54654dffcea">More...</a><br /></td></tr>
 <tr class="separator:a66ad0266d08fe7d72c90d54654dffcea"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">Member Function Documentation</h2>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>Represents the Lipo battery pack and implements methods to get its charge level. </p>
+</div><h2 class="groupheader">Member Function Documentation</h2>
 <a id="a810c22577141039b044fdf59a9f9bdef"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a810c22577141039b044fdf59a9f9bdef">&#9670;&nbsp;</a></span>getCellLevel()</h2>
 
@@ -222,7 +237,7 @@ void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="clas
       </table>
 </div><div class="memdoc">
 
-<p>Initialize a <a class="el" href="class_battery.html">Battery</a> object with a specified number of cells. </p>
+<p>Initialize a <a class="el" href="class_battery.html" title="Represents the Lipo battery pack and implements methods to get its charge level. ">Battery</a> object with a specified number of cells. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">NbCells_p</td><td>number of cells of the battery pack </td></tr>

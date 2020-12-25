@@ -12,7 +12,7 @@
 \subsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-void \hyperlink{class_r_g_b_led_aa12ca52b63da78e35b6bbec3624df991}{init} (bool led\+Type\+\_\+p, uint8\+\_\+t red\+Pin\+\_\+p, uint8\+\_\+t green\+Pin\+\_\+p, uint8\+\_\+t blue\+Pin\+\_\+p)
+void \hyperlink{class_r_g_b_led_aa155ff1ce0d93655139e7eb54cc22bf4}{init} (bool led\+Type\+\_\+p, \hyperlink{class_led}{Led} red\+Led\+\_\+p, \hyperlink{class_led}{Led} green\+Led\+\_\+p, \hyperlink{class_led}{Led} blue\+Led\+\_\+p)
 \begin{DoxyCompactList}\small\item\em initializes led type and pinout \end{DoxyCompactList}\item 
 void \hyperlink{class_r_g_b_led_a9ab9701eb0f4d945fd9ca6e2235d7ee9}{write\+Color\+Pin} (uint8\+\_\+t color\+Pin\+\_\+p, bool new\+State\+\_\+p)
 \item 
@@ -47,11 +47,11 @@ displays a specific color
 {\em color\+\_\+p} & \\
 \hline
 \end{DoxyParams}
-\mbox{\Hypertarget{class_r_g_b_led_aa12ca52b63da78e35b6bbec3624df991}\label{class_r_g_b_led_aa12ca52b63da78e35b6bbec3624df991}} 
+\mbox{\Hypertarget{class_r_g_b_led_aa155ff1ce0d93655139e7eb54cc22bf4}\label{class_r_g_b_led_aa155ff1ce0d93655139e7eb54cc22bf4}} 
 \index{R\+G\+B\+Led@{R\+G\+B\+Led}!init@{init}}
 \index{init@{init}!R\+G\+B\+Led@{R\+G\+B\+Led}}
 \subsubsection{\texorpdfstring{init()}{init()}}
-{\footnotesize\ttfamily void R\+G\+B\+Led\+::init (\begin{DoxyParamCaption}\item[{bool}]{led\+Type\+\_\+p,  }\item[{uint8\+\_\+t}]{red\+Pin\+\_\+p,  }\item[{uint8\+\_\+t}]{green\+Pin\+\_\+p,  }\item[{uint8\+\_\+t}]{blue\+Pin\+\_\+p }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily void R\+G\+B\+Led\+::init (\begin{DoxyParamCaption}\item[{bool}]{led\+Type\+\_\+p,  }\item[{\hyperlink{class_led}{Led}}]{red\+Led\+\_\+p,  }\item[{\hyperlink{class_led}{Led}}]{green\+Led\+\_\+p,  }\item[{\hyperlink{class_led}{Led}}]{blue\+Led\+\_\+p }\end{DoxyParamCaption})}
 
 
 
@@ -61,11 +61,11 @@ initializes led type and pinout
 \begin{DoxyParams}{Parameters}
 {\em led\+Type\+\_\+p} & can be either R\+G\+B\+\_\+\+C\+O\+M\+M\+O\+N\+\_\+\+A\+N\+O\+DE or R\+G\+B\+\_\+\+C\+O\+M\+M\+O\+N\+\_\+\+C\+A\+T\+H\+O\+DE \\
 \hline
-{\em red\+Pin\+\_\+p} & the arduino pin the led red pin is connected to \\
+{\em red\+Led\+\_\+p} & the red led \\
 \hline
-{\em green\+Pin\+\_\+p} & the arduino pin the led green pin is connected to \\
+{\em green\+Led\+\_\+p} & the green led \\
 \hline
-{\em blue\+Pin\+\_\+p} & the arduino pin the led blue pin is connected to \\
+{\em blue\+Led\+\_\+p} & the blue led \\
 \hline
 \end{DoxyParams}
 \mbox{\Hypertarget{class_r_g_b_led_ab5c88bff636d49c1eaa34e75f6b4e380}\label{class_r_g_b_led_ab5c88bff636d49c1eaa34e75f6b4e380}} 

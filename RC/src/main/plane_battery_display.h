@@ -22,7 +22,7 @@
  * @class PlaneBatteryDisplay
  * @brief Responsible for displaying battery informations
  */
-class PlaneBatteryBisplay : public SevsegScreen
+class PlaneBatteryDisplay : public SevsegScreen
 {
 private:
   uint8_t m_nbCells;

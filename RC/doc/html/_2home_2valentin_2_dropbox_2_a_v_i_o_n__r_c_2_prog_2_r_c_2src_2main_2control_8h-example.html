@@ -62,52 +62,7 @@ $(function() {
 <div class="title">/home/valentin/Dropbox/AVION_RC/Prog/RC/src/main/control.h</div>  </div>
 </div><!--header-->
 <div class="contents">
-<p><a class="el" href="class_control.html">Control</a> class is responsible for translating <a class="el" href="class_joystick.html">Joystick</a>, encoder and button inputs into power, pitch, yaw and roll values </p><dl class="section note"><dt>Note</dt><dd>Description of controls :<ul>
-<li>CTRL1 : mode selector : Ground (off) / Flight (on))</li>
-<li>CTRL2 : auto-thrust activation : Disable (off) / Enable (on)</li>
-<li>CTRL3 : set auto-thrust to neutral (halfway)</li>
-<li>CTRL4 : yaw activation : Disable (off) / Enable (on)</li>
-<li><a class="el" href="class_encoder.html" title="Encoder class is responsible for reading rotary encoder input. ">Encoder</a> :<ul>
-<li>CW : auto-thrust cursor += getSetting(AUTOTHRUST_CURSOR_STEP)</li>
-<li>CCW : auto-thrust cursor -= getSetting(AUTOTHRUST_CURSOR_STEP)</li>
-<li><a class="el" href="class_switch.html">Switch</a> (button) : reset auto-thrust to 0 (this is equivalent to temporarily disable auto-thrust) </li>
-</ul>
-</li>
-</ul>
-</dd>
-<dd>
-Description of control modes :<ul>
-<li>Ground mode :<ul>
-<li>Left joystick :<ul>
-<li>X axis : nothing</li>
-<li>Y axis : power (eventually reduced to map(power,0,255,0,getSetting(MAX_GROUND_POWER)) if getSetting(REDUCE_GROUND_SPEED) == true)</li>
-</ul>
-</li>
-<li>Right joystick :<ul>
-<li>X axis : roll + yaw</li>
-<li>Y axis : pitch</li>
-</ul>
-</li>
-</ul>
-</li>
-<li>Flight mode :<ul>
-<li>Left joystick :<ul>
-<li>X axis : yaw</li>
-<li>Y axis : power</li>
-</ul>
-</li>
-<li>Right joystick :<ul>
-<li>X axis : roll</li>
-<li>Y axis : pitch </li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-</dd>
-<dd>
-Description of auto-thrust :<ul>
-<li>General case : power = cursor + map(joystick, min, max, halfway, max) //TODO: check</li>
+<ul>
 <li>Particular cases :<ul>
 <li>When m_autoThrustCursor = 0 : power = map(joystick, min, max, halfway, max)</li>
 <li>When m_autoThrustCursor = 128 (halfway) : power = joystick</li>
@@ -115,7 +70,6 @@ Description of auto-thrust :<ul>
 </ul>
 </li>
 </ul>
-</dd></dl>
 <div class="fragment"><div class="line"></div><div class="line"><span class="preprocessor">#ifndef CONTROL_H</span></div><div class="line"><span class="preprocessor">#define CONTROL_H</span></div><div class="line"></div><div class="line"><span class="preprocessor">#include &quot;<a class="code" href="joystick_8h.html">joystick.h</a>&quot;</span></div><div class="line"><span class="preprocessor">#include &quot;<a class="code" href="encoder_8h.html">encoder.h</a>&quot;</span></div><div class="line"><span class="preprocessor">#include &quot;<a class="code" href="buzzer_8h.html">buzzer.h</a>&quot;</span></div><div class="line"><span class="preprocessor">#include &quot;<a class="code" href="rgbled_8h.html">rgbled.h</a>&quot;</span></div><div class="line"><span class="preprocessor">#include &quot;<a class="code" href="switch_8h.html">switch.h</a>&quot;</span></div><div class="line"><span class="preprocessor">#include &quot;<a class="code" href="lcdscreen_8h.html">lcdscreen.h</a>&quot;</span></div><div class="line"><span class="preprocessor">#include &quot;<a class="code" href="settings_8h.html">settings.h</a>&quot;</span></div><div class="line"></div><div class="line"><span class="preprocessor">#define GROUND_MODE 0</span></div><div class="line"><span class="preprocessor">#define FLIGHT_MODE 1</span></div><div class="line"></div><div class="line"><span class="preprocessor">#define CONTROL_IDLE 128</span></div><div class="line"></div><div class="line"><span class="keyword">class </span><a name="_a0"></a><a class="code" href="class_control.html">Control</a></div><div class="line">{</div><div class="line"><span class="keyword">private</span>:</div><div class="line">    <span class="keywordtype">bool</span> m_mode;</div><div class="line">    uint8_t m_autoThrustCursor;</div><div class="line"></div><div class="line">    <a name="_a1"></a><a class="code" href="class_joystick.html">Joystick</a> m_leftJoy;</div><div class="line">    <a class="code" href="class_joystick.html">Joystick</a> m_rightJoy;</div><div class="line">    <a name="_a2"></a><a class="code" href="class_encoder.html">Encoder</a> m_encoder;</div><div class="line">    <a name="_a3"></a><a class="code" href="class_buzzer.html">Buzzer</a> m_buzzer;</div><div class="line">    <a name="_a4"></a><a class="code" href="class_r_g_b_led.html">RGBLed</a> m_rgbLed;</div><div class="line">    <a name="_a5"></a><a class="code" href="class_switch.html">Switch</a> m_CTRL1;</div><div class="line">    <a class="code" href="class_switch.html">Switch</a> m_CTRL2;</div><div class="line">    <a name="_a6"></a><a class="code" href="class_button.html">Button</a> m_CTRL3;</div><div class="line">    <a class="code" href="class_button.html">Button</a> m_CTRL4;</div><div class="line">    <span class="comment">//TODO: LCDScreen m_screen;</span></div><div class="line">    <span class="keyword">const</span> <a name="_a7"></a><a class="code" href="class_settings.html">Settings</a>* m_p_settings;</div><div class="line"><span class="keyword">public</span>:</div><div class="line">    <a class="code" href="class_control.html">Control</a>();</div><div class="line">    <span class="keywordtype">void</span> <a name="a8"></a><a class="code" href="class_control.html#a435c342eba3a2598f3eb40e68fa1a263">init</a>(<a class="code" href="class_joystick.html">Joystick</a> leftJoy_p, <a class="code" href="class_joystick.html">Joystick</a> rioghtJoy_p, <a class="code" href="class_encoder.html">Encoder</a> encoder_p, <a class="code" href="class_switch.html">Switch</a> gearSwitch_p, <a class="code" href="class_buzzer.html">Buzzer</a> buzzer_p, <a class="code" href="class_r_g_b_led.html">RGBLed</a> rgbLed_p, <span class="keyword">const</span> <a class="code" href="class_settings.html">Settings</a>* p_settings_p);</div><div class="line">    ~<a class="code" href="class_control.html">Control</a>();</div><div class="line">    <span class="keywordtype">void</span> <a name="a9"></a><a class="code" href="class_control.html#af7a1f77ddc2789d291e3193cfc046d50">setMode</a>(<span class="keywordtype">bool</span> newMode_p);</div><div class="line">    uint8_t getPower();</div><div class="line">    uint8_t getPitch();</div><div class="line">    uint8_t getYaw();</div><div class="line">    uint8_t getRoll();</div><div class="line">};</div><div class="line"></div><div class="line"><span class="preprocessor">#endif</span></div></div><!-- fragment --> </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>

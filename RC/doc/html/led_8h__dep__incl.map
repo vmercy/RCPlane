@@ -1,4 +1,8 @@
 <map id="src/main/led.h" name="src/main/led.h">
-<area shape="rect" id="node2" href="$led_8cpp.html" title="Definition of Led class. " alt="" coords="5,87,124,114"/>
-<area shape="rect" id="node3" href="$plane__battery__display_8h_source.html" title="src/main/plane_battery\l_display.h" alt="" coords="147,80,302,121"/>
+<area shape="rect" id="node2" href="$rgbled_8h.html" title="Declaration of RGBLed class. " alt="" coords="91,87,214,114"/>
+<area shape="rect" id="node6" href="$led_8cpp.html" title="Definition of Led class. " alt="" coords="239,87,357,114"/>
+<area shape="rect" id="node7" href="$plane__battery__display_8h_source.html" title="src/main/plane_battery\l_display.h" alt="" coords="381,80,535,121"/>
+<area shape="rect" id="node3" href="$control_8h.html" title="Declaration of control class. " alt="" coords="12,169,139,196"/>
+<area shape="rect" id="node5" href="$rgbled_8cpp.html" title="Definition of RGBLed class. " alt="" coords="163,169,299,196"/>
+<area shape="rect" id="node4" href="$control_8cpp.html" title="Definition of control class. " alt="" coords="5,244,145,271"/>
 </map>

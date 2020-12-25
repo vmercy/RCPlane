@@ -66,16 +66,16 @@ $(function() {
 </div><!--header-->
 <div class="contents">
 
-<p><a class="el" href="class_r_g_b_led.html" title="RGBLed class is responsible for displaying colors on an RGB Led. ">RGBLed</a> class is responsible for displaying colors on an RGB <a class="el" href="class_led.html">Led</a>.  
+<p><a class="el" href="class_r_g_b_led.html" title="RGBLed class is responsible for displaying colors on an RGB Led. ">RGBLed</a> class is responsible for displaying colors on an RGB <a class="el" href="class_led.html" title="Led class is responsible for managing an electro-lumiscent diode output. ">Led</a>.  
  <a href="class_r_g_b_led.html#details">More...</a></p>
 
 <p><code>#include &lt;<a class="el" href="rgbled_8h_source.html">rgbled.h</a>&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:aa12ca52b63da78e35b6bbec3624df991"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_r_g_b_led.html#aa12ca52b63da78e35b6bbec3624df991">init</a> (bool ledType_p, uint8_t redPin_p, uint8_t greenPin_p, uint8_t bluePin_p)</td></tr>
-<tr class="memdesc:aa12ca52b63da78e35b6bbec3624df991"><td class="mdescLeft">&#160;</td><td class="mdescRight">initializes led type and pinout  <a href="#aa12ca52b63da78e35b6bbec3624df991">More...</a><br /></td></tr>
-<tr class="separator:aa12ca52b63da78e35b6bbec3624df991"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa155ff1ce0d93655139e7eb54cc22bf4"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_r_g_b_led.html#aa155ff1ce0d93655139e7eb54cc22bf4">init</a> (bool ledType_p, <a class="el" href="class_led.html">Led</a> redLed_p, <a class="el" href="class_led.html">Led</a> greenLed_p, <a class="el" href="class_led.html">Led</a> blueLed_p)</td></tr>
+<tr class="memdesc:aa155ff1ce0d93655139e7eb54cc22bf4"><td class="mdescLeft">&#160;</td><td class="mdescRight">initializes led type and pinout  <a href="#aa155ff1ce0d93655139e7eb54cc22bf4">More...</a><br /></td></tr>
+<tr class="separator:aa155ff1ce0d93655139e7eb54cc22bf4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a9ab9701eb0f4d945fd9ca6e2235d7ee9"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_r_g_b_led.html#a9ab9701eb0f4d945fd9ca6e2235d7ee9">writeColorPin</a> (uint8_t colorPin_p, bool newState_p)</td></tr>
 <tr class="separator:a9ab9701eb0f4d945fd9ca6e2235d7ee9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a6a1e12a1f48fc29acd30aa88a1cfd1b1"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_r_g_b_led.html#a6a1e12a1f48fc29acd30aa88a1cfd1b1">displayColor</a> (uint8_t color_p)</td></tr>
@@ -89,7 +89,7 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>turnOff</b> ()</td></
 <tr class="separator:ab5c88bff636d49c1eaa34e75f6b4e380"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p><a class="el" href="class_r_g_b_led.html" title="RGBLed class is responsible for displaying colors on an RGB Led. ">RGBLed</a> class is responsible for displaying colors on an RGB <a class="el" href="class_led.html">Led</a>. </p>
+<div class="textblock"><p><a class="el" href="class_r_g_b_led.html" title="RGBLed class is responsible for displaying colors on an RGB Led. ">RGBLed</a> class is responsible for displaying colors on an RGB <a class="el" href="class_led.html" title="Led class is responsible for managing an electro-lumiscent diode output. ">Led</a>. </p>
 <dl><dt><b>Examples: </b></dt><dd><a class="el" href="_2home_2valentin_2_dropbox_2_a_v_i_o_n__r_c_2_prog_2_r_c_2src_2main_2control_8h-example.html#_a4">/home/valentin/Dropbox/AVION_RC/Prog/RC/src/main/control.h</a>.</dd>
 </dl></div><h2 class="groupheader">Member Function Documentation</h2>
 <a id="a6a1e12a1f48fc29acd30aa88a1cfd1b1"></a>
@@ -118,8 +118,8 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>turnOff</b> ()</td></
 
 </div>
 </div>
-<a id="aa12ca52b63da78e35b6bbec3624df991"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aa12ca52b63da78e35b6bbec3624df991">&#9670;&nbsp;</a></span>init()</h2>
+<a id="aa155ff1ce0d93655139e7eb54cc22bf4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa155ff1ce0d93655139e7eb54cc22bf4">&#9670;&nbsp;</a></span>init()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -133,20 +133,20 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>turnOff</b> ()</td></
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">uint8_t&#160;</td>
-          <td class="paramname"><em>redPin_p</em>, </td>
+          <td class="paramtype"><a class="el" href="class_led.html">Led</a>&#160;</td>
+          <td class="paramname"><em>redLed_p</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">uint8_t&#160;</td>
-          <td class="paramname"><em>greenPin_p</em>, </td>
+          <td class="paramtype"><a class="el" href="class_led.html">Led</a>&#160;</td>
+          <td class="paramname"><em>greenLed_p</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">uint8_t&#160;</td>
-          <td class="paramname"><em>bluePin_p</em>&#160;</td>
+          <td class="paramtype"><a class="el" href="class_led.html">Led</a>&#160;</td>
+          <td class="paramname"><em>blueLed_p</em>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -160,9 +160,9 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>turnOff</b> ()</td></
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">ledType_p</td><td>can be either RGB_COMMON_ANODE or RGB_COMMON_CATHODE </td></tr>
-    <tr><td class="paramname">redPin_p</td><td>the arduino pin the led red pin is connected to </td></tr>
-    <tr><td class="paramname">greenPin_p</td><td>the arduino pin the led green pin is connected to </td></tr>
-    <tr><td class="paramname">bluePin_p</td><td>the arduino pin the led blue pin is connected to </td></tr>
+    <tr><td class="paramname">redLed_p</td><td>the red led </td></tr>
+    <tr><td class="paramname">greenLed_p</td><td>the green led </td></tr>
+    <tr><td class="paramname">blueLed_p</td><td>the blue led </td></tr>
   </table>
   </dd>
 </dl>
