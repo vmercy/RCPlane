@@ -12,7 +12,12 @@
 #ifndef REMOTE_BATTERY_H
 #define REMOTE_BATTERY_H
 
+#include <Arduino.h>
 #include "battery.h"
+#include "math_functions.h"
+
+#define LIPO_CELL_MINIMUM_VOLTAGE 2.5
+#define LIPO_CELL_MAXIMUM_VOLTAGE 4.5
 
 /**
  * @class RemoteBattery
@@ -22,10 +27,11 @@
 class RemoteBattery : private Battery
 {
 private:
-  /* data */
+  
 public:
-  RemoteBattery(/* args */);
+  RemoteBattery();
   ~RemoteBattery();
+  static uint8_t toByte(float input_p);
 };
 
 #endif

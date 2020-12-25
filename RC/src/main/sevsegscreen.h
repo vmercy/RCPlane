@@ -20,7 +20,7 @@
  * @class SevsegScreen
  * @brief SevsegScreen class is responsible for displaying content on a 7-segment display
  */
-class SevsegScreen : public SevSeg
+class SevsegScreen : protected SevSeg
 {
 private:
   uint8_t m_nbDigits;

@@ -58,6 +58,14 @@ public:
    */
   void init(bool ledType_p, Led redLed_p, Led greenLed_p, Led blueLed_p);
   /**
+   * @brief initializes led type and pinout
+   * @param ledType_p can be either RGB_COMMON_ANODE or RGB_COMMON_CATHODE
+   * @param redPin_p the arduino pin the red led is attached to
+   * @param greenPin_p the arduino pin the green led is attached to
+   * @param bluePin_p the arduino pin the blue led is attached to
+   */
+  void init(bool ledType_p, const uint8_t redPin_p, const uint8_t greenPin_p, const uint8_t bluePin_p);
+  /**
    * @brief 
    * @param colorPin_p color selector, can be RED, GREEN or BLUE
    * @param newState_p new state, can be 

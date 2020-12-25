@@ -33,12 +33,18 @@ void PlaneBatteryDisplay::printCell(uint8_t cellSelect_p)
 
 void PlaneBatteryDisplay::printCellVoltage(uint8_t cellSelect_p)
 {
-  
+  setNumber(352,2);
+  refreshDisplay();
 }
 
 void PlaneBatteryDisplay::printCellLevel(uint8_t cellSelect_p)
 {
   
+}
+
+void PlaneBatteryDisplay::refreshDisplay()
+{
+  SevsegScreen::refreshDisplay();
 }
 
 void PlaneBatteryDisplay::printNextCell()

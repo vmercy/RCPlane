@@ -15,6 +15,11 @@ Led::Led()
 {
 }
 
+Led::~Led()
+{
+  
+}
+
 void Led::init(uint8_t pinout_p)
 {
   m_pinout = pinout_p;
@@ -24,7 +29,7 @@ void Led::init(uint8_t pinout_p)
 
 void Led::setState(bool newState_p)
 {
-  m_ledState = newState_p
+  m_ledState = newState_p;
   digitalWrite(m_pinout, newState_p);
 }
 
@@ -53,8 +58,4 @@ void Led::blink(int period_p, int duration_p)
   turnOff();
   delay(del);
   }
-}
-
-Led::~Led()
-{
 }

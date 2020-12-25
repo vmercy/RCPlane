@@ -20,6 +20,10 @@ Settings::Settings()
   setSetting(ENABLE_BUZZER, DEFAULT_ENABLE_BUZZER);
   setSetting(REDUCE_GROUND_SPEED, DEFAULT_REDUCE_GROUND_SPEED);
   setSetting(MAX_GROUND_POWER, DEFAULT_MAX_GROUND_POWER);
+  setSetting(BATTERY_CELL_ALERT_VOLTAGE_BYTE, DEFAULT_BATTERY_CELL_ALERT_VOLTAGE_BYTE);
+  setSetting(BATTERY_CELL_CRITICAL_VOLTAGE_BYTE, DEFAULT_BATTERY_CELL_CRITICAL_VOLTAGE_BYTE);
+  setSetting(AUTOTHRUST_CURSOR_STEP, DEFAULT_AUTOTHRUST_CURSOR_STEP);
+  setSetting(BATTERY_DISPLAY_DELAY, DEFAULT_BATTERY_DISPLAY_DELAY);
   //TODO: update with new settings
 }
 
@@ -55,7 +59,7 @@ bool Settings::writeToMem(uint16_t index_p = -1)
       }
     }
   }
-  else if((index_p < NB_SETTINGS)&& !upToDate(index_p))
+  else if ((index_p < NB_SETTINGS) && !upToDate(index_p))
   {
     //TODO
     writeOperated = true;

@@ -20,3 +20,8 @@ RemoteBattery::~RemoteBattery()
 {
   
 }
+
+uint8_t RemoteBattery::toByte(float input_p)
+{
+  return mathFunctions::map<float, uint8_t, uint8_t>(input_p, LIPO_CELL_MINIMUM_VOLTAGE, LIPO_CELL_MAXIMUM_VOLTAGE, 0, UINT8_MAX);
+}

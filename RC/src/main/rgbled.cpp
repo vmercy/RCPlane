@@ -28,9 +28,18 @@ void RGBLed::init(bool ledType_p, Led redLed_p, Led greenLed_p, Led blueLed_p)
   turnOff();
 }
 
+void RGBLed::init(bool ledType_p, const uint8_t redPin_p, const uint8_t greenPin_p, const uint8_t bluePin_p)
+{
+  m_ledType = ledType_p;
+  m_primaryColorsLeds[RED].init(redPin_p);
+  m_primaryColorsLeds[GREEN].init(greenPin_p);
+  m_primaryColorsLeds[BLUE].init(bluePin_p);
+
+}
+
 void RGBLed::writeColorPin(uint8_t color_p, bool newState_p)
 {
-  m_primaryColorsLeds[color_p].setState(m_ledType != newState_p)
+  m_primaryColorsLeds[color_p].setState(m_ledType != newState_p);
 }
 
 void RGBLed::turnOff()

@@ -24,7 +24,7 @@
  * @class PlaneBatteryDisplay
  * @brief Responsible for displaying battery informations on the battery display set (1x 4 digits 7 segments display + NB_CELLS_TOTAL x cell indicator LEDs + 1x "all cells" indicator LED)
  */
-class PlaneBatteryDisplay : public SevsegScreen
+class PlaneBatteryDisplay : private SevsegScreen
 {
 private:
   uint8_t m_nbCells;
@@ -60,8 +60,12 @@ public:
    * @param cellSelect_p battery cell selector
    */
   void printCellLevel(uint8_t cellSelect_p);
+  /**
+   * @brief prints next cell informations
+   */
   void printNextCell();
   void testDisplays();
+  void refreshDisplay();
 };
 
 #endif
