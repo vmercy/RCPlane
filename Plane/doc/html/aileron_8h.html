@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.13"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>RCPlane: src/main/aileron.h File Reference</title>
+<title>Plane Code: src/main/aileron.h File Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -21,8 +21,7 @@
  <tbody>
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
-   <div id="projectname">RCPlane
-   &#160;<span id="projectnumber">0.1</span>
+   <div id="projectname">Plane Code
    </div>
   </td>
  </tr>
@@ -73,7 +72,7 @@ $(function() {
 
 <p>Declaration of aileron class.  
 <a href="#details">More...</a></p>
-<div class="textblock"><code>#include &lt;stdint.h&gt;</code><br />
+<div class="textblock"><code>#include &lt;Arduino.h&gt;</code><br />
 <code>#include &quot;Servo.h&quot;</code><br />
 </div><div class="textblock"><div class="dynheader">
 Include dependency graph for aileron.h:</div>
@@ -88,6 +87,8 @@ This graph shows which files directly or indirectly include this file:</div>
 <div class="center"><img src="aileron_8h__dep__incl.png" border="0" usemap="#src_2main_2aileron_8hdep" alt=""/></div>
 <map name="src_2main_2aileron_8hdep" id="src_2main_2aileron_8hdep">
 <area shape="rect" id="node2" href="aileron_8cpp.html" title="Definition of aileron class. " alt="" coords="5,80,144,107"/>
+<area shape="rect" id="node3" href="roll_8h.html" title="Declaration of Roll class. " alt="" coords="168,80,272,107"/>
+<area shape="rect" id="node4" href="roll_8cpp.html" title="Definition of Roll class. " alt="" coords="161,155,279,181"/>
 </map>
 </div>
 </div>
@@ -96,6 +97,7 @@ This graph shows which files directly or indirectly include this file:</div>
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
 Classes</h2></td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_aileron.html">Aileron</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Representation of the ailerons.  <a href="class_aileron.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="define-members"></a>
@@ -103,7 +105,8 @@ Macros</h2></td></tr>
 <tr class="memitem:ab6629cfdc7f2e70868390615fb77aca1"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="aileron_8h.html#ab6629cfdc7f2e70868390615fb77aca1">SLOWEST_MOVEMENT_DELAY</a>&#160;&#160;&#160;100</td></tr>
 <tr class="memdesc:ab6629cfdc7f2e70868390615fb77aca1"><td class="mdescLeft">&#160;</td><td class="mdescRight">the delay between two steps (1°) for a the slowest movement available  <a href="#ab6629cfdc7f2e70868390615fb77aca1">More...</a><br /></td></tr>
 <tr class="separator:ab6629cfdc7f2e70868390615fb77aca1"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aebf857e287971afa34efe8ee8fbe5545"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="aileron_8h.html#aebf857e287971afa34efe8ee8fbe5545">SERVO_H</a></td></tr>
+<tr class="memitem:aebf857e287971afa34efe8ee8fbe5545"><td class="memItemLeft" align="right" valign="top"><a id="aebf857e287971afa34efe8ee8fbe5545"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><b>SERVO_H</b></td></tr>
 <tr class="separator:aebf857e287971afa34efe8ee8fbe5545"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
@@ -113,20 +116,6 @@ Macros</h2></td></tr>
 <dl class="section date"><dt>Date</dt><dd>2020-11-22 </dd></dl>
 <dl class="section copyright"><dt>Copyright</dt><dd>Copyright (c) 2020 </dd></dl>
 </div><h2 class="groupheader">Macro Definition Documentation</h2>
-<a id="aebf857e287971afa34efe8ee8fbe5545"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aebf857e287971afa34efe8ee8fbe5545">&#9670;&nbsp;</a></span>SERVO_H</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">#define SERVO_H</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
 <a id="ab6629cfdc7f2e70868390615fb77aca1"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ab6629cfdc7f2e70868390615fb77aca1">&#9670;&nbsp;</a></span>SLOWEST_MOVEMENT_DELAY</h2>
 

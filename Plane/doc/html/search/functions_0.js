@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['aileron',['Aileron',['../class_aileron.html#ad2f851e39ec1eb19aeb0fbe2bdf4ef9c',1,'Aileron']]],
-  ['arm',['arm',['../class_motor.html#af21376271175d094adf9a077f70d2208',1,'Motor']]]
+  ['arm',['arm',['../class_motor.html#af21376271175d094adf9a077f70d2208',1,'Motor']]],
+  ['authenticateremote',['authenticateRemote',['../class_radio.html#a50a86b8fbc5cd906c721d54406f98b9b',1,'Radio']]]
 ];

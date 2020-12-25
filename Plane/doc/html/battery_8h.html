@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.13"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>RCPlane: src/main/battery.h File Reference</title>
+<title>Plane Code: src/main/battery.h File Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -21,8 +21,7 @@
  <tbody>
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
-   <div id="projectname">RCPlane
-   &#160;<span id="projectnumber">0.1</span>
+   <div id="projectname">Plane Code
    </div>
   </td>
  </tr>
@@ -73,12 +72,14 @@ $(function() {
 
 <p>declaration of battery class  
 <a href="#details">More...</a></p>
-<div class="textblock"><code>#include &lt;stdint.h&gt;</code><br />
+<div class="textblock"><code>#include &lt;Arduino.h&gt;</code><br />
+<code>#include &quot;<a class="el" href="math__functions_8h_source.html">math_functions.h</a>&quot;</code><br />
 </div><div class="textblock"><div class="dynheader">
 Include dependency graph for battery.h:</div>
 <div class="dyncontent">
 <div class="center"><img src="battery_8h__incl.png" border="0" usemap="#src_2main_2battery_8h" alt=""/></div>
 <map name="src_2main_2battery_8h" id="src_2main_2battery_8h">
+<area shape="rect" id="node3" href="math__functions_8h.html" title="Declaration of a set of mathematical functions. " alt="" coords="57,80,179,107"/>
 </map>
 </div>
 </div><div class="textblock"><div class="dynheader">
@@ -87,6 +88,9 @@ This graph shows which files directly or indirectly include this file:</div>
 <div class="center"><img src="battery_8h__dep__incl.png" border="0" usemap="#src_2main_2battery_8hdep" alt=""/></div>
 <map name="src_2main_2battery_8hdep" id="src_2main_2battery_8hdep">
 <area shape="rect" id="node2" href="battery_8cpp.html" title="definition of battery class " alt="" coords="5,80,147,107"/>
+<area shape="rect" id="node3" href="frame_8h.html" title="Declaration of frame types and incomingFrame class. " alt="" coords="171,80,291,107"/>
+<area shape="rect" id="node4" href="radio_8h.html" title="Declaration of radio class. " alt="" coords="173,155,288,181"/>
+<area shape="rect" id="node5" href="radio_8cpp.html" title="Definition of radio class. " alt="" coords="166,229,295,256"/>
 </map>
 </div>
 </div>
@@ -95,18 +99,47 @@ This graph shows which files directly or indirectly include this file:</div>
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
 Classes</h2></td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_battery.html">Battery</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Represents the Lipo battery pack and implements methods to get its charge level.  <a href="class_battery.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="define-members"></a>
 Macros</h2></td></tr>
-<tr class="memitem:ad5ec179af884bf5d81f7d7d277ad72d0"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="battery_8h.html#ad5ec179af884bf5d81f7d7d277ad72d0">LIPO_LOWEST_VOLTAGE</a>&#160;&#160;&#160;3.0</td></tr>
+<tr class="memitem:af81c563d212b04612a2fdf09f5b2957c"><td class="memItemLeft" align="right" valign="top"><a id="af81c563d212b04612a2fdf09f5b2957c"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><b>LIPO_1S</b>&#160;&#160;&#160;1</td></tr>
+<tr class="separator:af81c563d212b04612a2fdf09f5b2957c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0ff9eb1042b121287d6abfe776ec1a8c"><td class="memItemLeft" align="right" valign="top"><a id="a0ff9eb1042b121287d6abfe776ec1a8c"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><b>LIPO_2S</b>&#160;&#160;&#160;2</td></tr>
+<tr class="separator:a0ff9eb1042b121287d6abfe776ec1a8c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a194fd11d79140854ebb63b4aae64f105"><td class="memItemLeft" align="right" valign="top"><a id="a194fd11d79140854ebb63b4aae64f105"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><b>LIPO_3S</b>&#160;&#160;&#160;3</td></tr>
+<tr class="separator:a194fd11d79140854ebb63b4aae64f105"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:adb9cf7290df946a808d907fd52b36adf"><td class="memItemLeft" align="right" valign="top"><a id="adb9cf7290df946a808d907fd52b36adf"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><b>LIPO_4S</b>&#160;&#160;&#160;4</td></tr>
+<tr class="separator:adb9cf7290df946a808d907fd52b36adf"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a96a8f65f4f6e996672b62adfe98d7c46"><td class="memItemLeft" align="right" valign="top"><a id="a96a8f65f4f6e996672b62adfe98d7c46"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><b>LIPO_5S</b>&#160;&#160;&#160;5</td></tr>
+<tr class="separator:a96a8f65f4f6e996672b62adfe98d7c46"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a62ca371673d32217c9314773078b55ee"><td class="memItemLeft" align="right" valign="top"><a id="a62ca371673d32217c9314773078b55ee"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><b>LIPO_6S</b>&#160;&#160;&#160;6</td></tr>
+<tr class="separator:a62ca371673d32217c9314773078b55ee"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad5ec179af884bf5d81f7d7d277ad72d0"><td class="memItemLeft" align="right" valign="top"><a id="ad5ec179af884bf5d81f7d7d277ad72d0"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><b>LIPO_LOWEST_VOLTAGE</b>&#160;&#160;&#160;3.3</td></tr>
 <tr class="separator:ad5ec179af884bf5d81f7d7d277ad72d0"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a01732358c09897aadb81cf1e07a73eca"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="battery_8h.html#a01732358c09897aadb81cf1e07a73eca">LIPO_HIGHEST_VOLTAGE</a>&#160;&#160;&#160;4.2</td></tr>
+<tr class="memitem:a01732358c09897aadb81cf1e07a73eca"><td class="memItemLeft" align="right" valign="top"><a id="a01732358c09897aadb81cf1e07a73eca"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><b>LIPO_HIGHEST_VOLTAGE</b>&#160;&#160;&#160;4.2</td></tr>
 <tr class="separator:a01732358c09897aadb81cf1e07a73eca"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af5eb7e3dc57a2c282b06f32e51970839"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="battery_8h.html#af5eb7e3dc57a2c282b06f32e51970839">ANALOG_REF</a>&#160;&#160;&#160;5.0</td></tr>
+<tr class="memitem:af5eb7e3dc57a2c282b06f32e51970839"><td class="memItemLeft" align="right" valign="top"><a id="af5eb7e3dc57a2c282b06f32e51970839"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><b>ANALOG_REF</b>&#160;&#160;&#160;5.0</td></tr>
 <tr class="separator:af5eb7e3dc57a2c282b06f32e51970839"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a38b266fc2a691a397cb0739a9e19c0a1"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="battery_8h.html#a38b266fc2a691a397cb0739a9e19c0a1">ANALOG_PRECISION</a>&#160;&#160;&#160;1023</td></tr>
+<tr class="memitem:a38b266fc2a691a397cb0739a9e19c0a1"><td class="memItemLeft" align="right" valign="top"><a id="a38b266fc2a691a397cb0739a9e19c0a1"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><b>ANALOG_PRECISION</b>&#160;&#160;&#160;1023</td></tr>
 <tr class="separator:a38b266fc2a691a397cb0739a9e19c0a1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2674a2c5313fff69210125ef15558bf7"><td class="memItemLeft" align="right" valign="top"><a id="a2674a2c5313fff69210125ef15558bf7"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><b>NB_SAMPLES_BATTERY</b>&#160;&#160;&#160;10</td></tr>
+<tr class="separator:a2674a2c5313fff69210125ef15558bf7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a33fa689903e4d19edd814aa108d49a91"><td class="memItemLeft" align="right" valign="top"><a id="a33fa689903e4d19edd814aa108d49a91"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><b>DELAY_SAMPLES_BATTERY</b>&#160;&#160;&#160;500</td></tr>
+<tr class="separator:a33fa689903e4d19edd814aa108d49a91"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>declaration of battery class </p>
@@ -114,64 +147,7 @@ Macros</h2></td></tr>
 <dl class="section version"><dt>Version</dt><dd>0.1 </dd></dl>
 <dl class="section date"><dt>Date</dt><dd>2020-11-21</dd></dl>
 <dl class="section copyright"><dt>Copyright</dt><dd>Copyright (c) 2020 </dd></dl>
-</div><h2 class="groupheader">Macro Definition Documentation</h2>
-<a id="a38b266fc2a691a397cb0739a9e19c0a1"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a38b266fc2a691a397cb0739a9e19c0a1">&#9670;&nbsp;</a></span>ANALOG_PRECISION</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">#define ANALOG_PRECISION&#160;&#160;&#160;1023</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="af5eb7e3dc57a2c282b06f32e51970839"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#af5eb7e3dc57a2c282b06f32e51970839">&#9670;&nbsp;</a></span>ANALOG_REF</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">#define ANALOG_REF&#160;&#160;&#160;5.0</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="a01732358c09897aadb81cf1e07a73eca"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a01732358c09897aadb81cf1e07a73eca">&#9670;&nbsp;</a></span>LIPO_HIGHEST_VOLTAGE</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">#define LIPO_HIGHEST_VOLTAGE&#160;&#160;&#160;4.2</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="ad5ec179af884bf5d81f7d7d277ad72d0"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ad5ec179af884bf5d81f7d7d277ad72d0">&#9670;&nbsp;</a></span>LIPO_LOWEST_VOLTAGE</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">#define LIPO_LOWEST_VOLTAGE&#160;&#160;&#160;3.0</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-</div><!-- contents -->
+</div></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
 Generated by &#160;<a href="http://www.doxygen.org/index.html">

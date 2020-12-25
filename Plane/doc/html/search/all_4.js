@@ -1,5 +1,7 @@
 var searchData=
 [
-  ['lipo_5fhighest_5fvoltage',['LIPO_HIGHEST_VOLTAGE',['../battery_8h.html#a01732358c09897aadb81cf1e07a73eca',1,'battery.h']]],
-  ['lipo_5flowest_5fvoltage',['LIPO_LOWEST_VOLTAGE',['../battery_8h.html#ad5ec179af884bf5d81f7d7d277ad72d0',1,'battery.h']]]
+  ['getcelllevel',['getCellLevel',['../class_battery.html#a810c22577141039b044fdf59a9f9bdef',1,'Battery']]],
+  ['getcellvoltage',['getCellVoltage',['../class_battery.html#ae449209593f825ca7cefc958d51ba232',1,'Battery']]],
+  ['getgloballevel',['getGlobalLevel',['../class_battery.html#a16e5bfb8a07ce93c08382fbcfb0b19be',1,'Battery']]],
+  ['getglobalvoltage',['getGlobalVoltage',['../class_battery.html#a288d5d3b5ebbe964751a9d64519aacdb',1,'Battery']]]
 ];

@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['battery',['Battery',['../class_battery.html#a36a6234c583e3b3506f4a77e3eb49989',1,'Battery']]]
+  ['extractdigit',['extractDigit',['../namespacemath_functions.html#a32a0226ce7d0593d33c203874e28397e',1,'mathFunctions']]]
 ];

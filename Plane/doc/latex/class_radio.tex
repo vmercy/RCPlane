@@ -1,0 +1,117 @@
+\hypertarget{class_radio}{}\section{Radio Class Reference}
+\label{class_radio}\index{Radio@{Radio}}
+
+
+\hyperlink{class_radio}{Radio} class responsible for communicating with the \hyperlink{class_radio}{Radio} Transmitter on the ground.  
+
+
+
+
+{\ttfamily \#include $<$radio.\+h$>$}
+
+
+
+Inheritance diagram for Radio\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=122pt]{class_radio__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for Radio\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=122pt]{class_radio__coll__graph}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_radio_a0775d3e885563f797abf893bd7dab722}\label{class_radio_a0775d3e885563f797abf893bd7dab722}} 
+{\bfseries Radio} (uint8\+\_\+t C\+Epin\+\_\+p, uint8\+\_\+t C\+Spin\+\_\+p)
+\item 
+\mbox{\Hypertarget{class_radio_a0824b3e73e1285a98b818a40e30eb784}\label{class_radio_a0824b3e73e1285a98b818a40e30eb784}} 
+void {\bfseries init} (uint8\+\_\+t C\+Epin\+\_\+p, uint8\+\_\+t C\+Spin\+\_\+p)
+\item 
+bool \hyperlink{class_radio_acb313b8c4ccfbe9eed993d566e563f89}{wait\+For\+Connection} (int time\+Out\+\_\+p)
+\begin{DoxyCompactList}\small\item\em wait until Transmitter handshake \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_radio_a531aebd77214bc665027819db617a81d}\label{class_radio_a531aebd77214bc665027819db617a81d}} 
+bool {\bfseries is\+Connected} ()
+\item 
+bool \hyperlink{class_radio_a50a86b8fbc5cd906c721d54406f98b9b}{authenticate\+Remote} ()
+\begin{DoxyCompactList}\small\item\em validates an authentication frame \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_radio_a85f5d3b2851f7787337c410f8608a45a}\label{class_radio_a85f5d3b2851f7787337c410f8608a45a}} 
+bool {\bfseries data\+Available} ()
+\item 
+\mbox{\Hypertarget{class_radio_af5f2ff2feaa025d251f6ec3682fb6477}\label{class_radio_af5f2ff2feaa025d251f6ec3682fb6477}} 
+bool {\bfseries receive\+Data} ()
+\item 
+\mbox{\Hypertarget{class_radio_a470a9f109780600f2e3ff815ff85f2f5}\label{class_radio_a470a9f109780600f2e3ff815ff85f2f5}} 
+bool {\bfseries send\+Authentication\+Ack} ()
+\item 
+\mbox{\Hypertarget{class_radio_a666fdbfbf97b5cdd91e8a07fa9cd3fed}\label{class_radio_a666fdbfbf97b5cdd91e8a07fa9cd3fed}} 
+bool {\bfseries send\+Data} ()
+\item 
+\mbox{\Hypertarget{class_radio_a269cbab3a0ae4e0d4e514f7ce83fe4fb}\label{class_radio_a269cbab3a0ae4e0d4e514f7ce83fe4fb}} 
+uint8\+\_\+t {\bfseries get\+Roll} ()
+\item 
+\mbox{\Hypertarget{class_radio_a497f8533da9df3d64ca8bbe5ddb6477c}\label{class_radio_a497f8533da9df3d64ca8bbe5ddb6477c}} 
+uint8\+\_\+t {\bfseries get\+Pitch} ()
+\item 
+\mbox{\Hypertarget{class_radio_ab5828ab85c10d920c650a44b78225563}\label{class_radio_ab5828ab85c10d920c650a44b78225563}} 
+uint8\+\_\+t {\bfseries get\+Yaw} ()
+\item 
+\mbox{\Hypertarget{class_radio_a4060add1b24bc065f05abd969acc5573}\label{class_radio_a4060add1b24bc065f05abd969acc5573}} 
+uint8\+\_\+t {\bfseries get\+Power} ()
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+\hyperlink{class_radio}{Radio} class responsible for communicating with the \hyperlink{class_radio}{Radio} Transmitter on the ground. 
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{class_radio_a50a86b8fbc5cd906c721d54406f98b9b}\label{class_radio_a50a86b8fbc5cd906c721d54406f98b9b}} 
+\index{Radio@{Radio}!authenticate\+Remote@{authenticate\+Remote}}
+\index{authenticate\+Remote@{authenticate\+Remote}!Radio@{Radio}}
+\subsubsection{\texorpdfstring{authenticate\+Remote()}{authenticateRemote()}}
+{\footnotesize\ttfamily bool Radio\+::authenticate\+Remote (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+validates an authentication frame 
+
+\begin{DoxyReturn}{Returns}
+true if last frame is a valid authentication frame 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_radio_acb313b8c4ccfbe9eed993d566e563f89}\label{class_radio_acb313b8c4ccfbe9eed993d566e563f89}} 
+\index{Radio@{Radio}!wait\+For\+Connection@{wait\+For\+Connection}}
+\index{wait\+For\+Connection@{wait\+For\+Connection}!Radio@{Radio}}
+\subsubsection{\texorpdfstring{wait\+For\+Connection()}{waitForConnection()}}
+{\footnotesize\ttfamily bool Radio\+::wait\+For\+Connection (\begin{DoxyParamCaption}\item[{int}]{time\+Out\+\_\+p = {\ttfamily -\/1} }\end{DoxyParamCaption})}
+
+
+
+wait until Transmitter handshake 
+
+\begin{DoxyNote}{Note}
+blocking method with optional timeout 
+\end{DoxyNote}
+
+\begin{DoxyParams}{Parameters}
+{\em time\+Out\+\_\+p} & optional timeout in seconds \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true if connection is established before timeout 
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+src/main/\hyperlink{radio_8h}{radio.\+h}\item 
+src/main/\hyperlink{radio_8cpp}{radio.\+cpp}\end{DoxyCompactItemize}

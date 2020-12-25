@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.13"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>RCPlane: Aileron Class Reference</title>
+<title>Plane Code: Aileron Class Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -21,8 +21,7 @@
  <tbody>
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
-   <div id="projectname">RCPlane
-   &#160;<span id="projectnumber">0.1</span>
+   <div id="projectname">Plane Code
    </div>
   </td>
  </tr>
@@ -67,91 +66,45 @@ $(function() {
 </div><!--header-->
 <div class="contents">
 
+<p>Representation of the ailerons.  
+ <a href="class_aileron.html#details">More...</a></p>
+
 <p><code>#include &lt;<a class="el" href="aileron_8h_source.html">aileron.h</a>&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:ad2f851e39ec1eb19aeb0fbe2bdf4ef9c"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_aileron.html#ad2f851e39ec1eb19aeb0fbe2bdf4ef9c">Aileron</a> ()</td></tr>
-<tr class="separator:ad2f851e39ec1eb19aeb0fbe2bdf4ef9c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad28b0e5e53705b1f43a3fa73c0765a96"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_aileron.html#ad28b0e5e53705b1f43a3fa73c0765a96">init</a> (int pin_p, int min_p, int max_p)</td></tr>
 <tr class="memdesc:ad28b0e5e53705b1f43a3fa73c0765a96"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initialize the servomotor associated with the aileron.  <a href="#ad28b0e5e53705b1f43a3fa73c0765a96">More...</a><br /></td></tr>
 <tr class="separator:ad28b0e5e53705b1f43a3fa73c0765a96"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af05fcc71c65e31b919612cce2b0a5449"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_aileron.html#af05fcc71c65e31b919612cce2b0a5449">~Aileron</a> ()</td></tr>
-<tr class="separator:af05fcc71c65e31b919612cce2b0a5449"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a5d5579971f2679d708d01657d63da414"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_aileron.html#a5d5579971f2679d708d01657d63da414">reverse</a> ()</td></tr>
-<tr class="memdesc:a5d5579971f2679d708d01657d63da414"><td class="mdescLeft">&#160;</td><td class="mdescRight">reverses the current sense of rotation of the servomotor  <a href="#a5d5579971f2679d708d01657d63da414">More...</a><br /></td></tr>
+<tr class="memitem:a5d5579971f2679d708d01657d63da414"><td class="memItemLeft" align="right" valign="top"><a id="a5d5579971f2679d708d01657d63da414"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_aileron.html#a5d5579971f2679d708d01657d63da414">reverse</a> ()</td></tr>
+<tr class="memdesc:a5d5579971f2679d708d01657d63da414"><td class="mdescLeft">&#160;</td><td class="mdescRight">reverses the current sense of rotation of the servomotor <br /></td></tr>
 <tr class="separator:a5d5579971f2679d708d01657d63da414"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a54db168cd8d880e8ec4b49af69ad70ae"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_aileron.html#a54db168cd8d880e8ec4b49af69ad70ae">moveTo</a> (uint8_t percent_p)</td></tr>
-<tr class="memdesc:a54db168cd8d880e8ec4b49af69ad70ae"><td class="mdescLeft">&#160;</td><td class="mdescRight">moves aileron with a given angle  <a href="#a54db168cd8d880e8ec4b49af69ad70ae">More...</a><br /></td></tr>
-<tr class="separator:a54db168cd8d880e8ec4b49af69ad70ae"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0873615152c2c2811e6c15fb7ce32539"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_aileron.html#a0873615152c2c2811e6c15fb7ce32539">moveSpeed</a> (uint8_t final_p, uint8_t speed_p=100, int start_p=-1)</td></tr>
-<tr class="memdesc:a0873615152c2c2811e6c15fb7ce32539"><td class="mdescLeft">&#160;</td><td class="mdescRight">moves aileron at specified speed  <a href="#a0873615152c2c2811e6c15fb7ce32539">More...</a><br /></td></tr>
-<tr class="separator:a0873615152c2c2811e6c15fb7ce32539"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:abeee29a990a1a9b3d8bc884991b7221f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_aileron.html#abeee29a990a1a9b3d8bc884991b7221f">moveUp</a> ()</td></tr>
-<tr class="memdesc:abeee29a990a1a9b3d8bc884991b7221f"><td class="mdescLeft">&#160;</td><td class="mdescRight">moves aileron upward at max speed  <a href="#abeee29a990a1a9b3d8bc884991b7221f">More...</a><br /></td></tr>
+<tr class="memitem:af05ea195df6881618c7835153537cba1"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_aileron.html#af05ea195df6881618c7835153537cba1">moveTo</a> (uint8_t position_p)</td></tr>
+<tr class="memdesc:af05ea195df6881618c7835153537cba1"><td class="mdescLeft">&#160;</td><td class="mdescRight">moves aileron with a given angle  <a href="#af05ea195df6881618c7835153537cba1">More...</a><br /></td></tr>
+<tr class="separator:af05ea195df6881618c7835153537cba1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a02d1842c6782dbb43fd70d1e3669c960"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_aileron.html#a02d1842c6782dbb43fd70d1e3669c960">moveSpeed</a> (uint8_t position_p, uint8_t speed_p=100, int start_p=-1)</td></tr>
+<tr class="memdesc:a02d1842c6782dbb43fd70d1e3669c960"><td class="mdescLeft">&#160;</td><td class="mdescRight">moves aileron at specified speed  <a href="#a02d1842c6782dbb43fd70d1e3669c960">More...</a><br /></td></tr>
+<tr class="separator:a02d1842c6782dbb43fd70d1e3669c960"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abeee29a990a1a9b3d8bc884991b7221f"><td class="memItemLeft" align="right" valign="top"><a id="abeee29a990a1a9b3d8bc884991b7221f"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_aileron.html#abeee29a990a1a9b3d8bc884991b7221f">moveUp</a> ()</td></tr>
+<tr class="memdesc:abeee29a990a1a9b3d8bc884991b7221f"><td class="mdescLeft">&#160;</td><td class="mdescRight">moves aileron upward at max speed <br /></td></tr>
 <tr class="separator:abeee29a990a1a9b3d8bc884991b7221f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a7c4b7d445e5b0b7469e819e5068db841"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_aileron.html#a7c4b7d445e5b0b7469e819e5068db841">moveDown</a> ()</td></tr>
-<tr class="memdesc:a7c4b7d445e5b0b7469e819e5068db841"><td class="mdescLeft">&#160;</td><td class="mdescRight">moves aileron downward at max speed  <a href="#a7c4b7d445e5b0b7469e819e5068db841">More...</a><br /></td></tr>
+<tr class="memitem:a7c4b7d445e5b0b7469e819e5068db841"><td class="memItemLeft" align="right" valign="top"><a id="a7c4b7d445e5b0b7469e819e5068db841"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_aileron.html#a7c4b7d445e5b0b7469e819e5068db841">moveDown</a> ()</td></tr>
+<tr class="memdesc:a7c4b7d445e5b0b7469e819e5068db841"><td class="mdescLeft">&#160;</td><td class="mdescRight">moves aileron downward at max speed <br /></td></tr>
 <tr class="separator:a7c4b7d445e5b0b7469e819e5068db841"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a52f780193672d894137866203860f817"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_aileron.html#a52f780193672d894137866203860f817">moveIdle</a> ()</td></tr>
-<tr class="memdesc:a52f780193672d894137866203860f817"><td class="mdescLeft">&#160;</td><td class="mdescRight">moves aileron to idle position  <a href="#a52f780193672d894137866203860f817">More...</a><br /></td></tr>
+<tr class="memitem:a52f780193672d894137866203860f817"><td class="memItemLeft" align="right" valign="top"><a id="a52f780193672d894137866203860f817"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_aileron.html#a52f780193672d894137866203860f817">moveIdle</a> ()</td></tr>
+<tr class="memdesc:a52f780193672d894137866203860f817"><td class="mdescLeft">&#160;</td><td class="mdescRight">moves aileron to idle position <br /></td></tr>
 <tr class="separator:a52f780193672d894137866203860f817"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2eaf14f5794bb55035b19499f0c1ec6c"><td class="memItemLeft" align="right" valign="top">uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_aileron.html#a2eaf14f5794bb55035b19499f0c1ec6c">getPosition</a> ()</td></tr>
+<tr class="memitem:a2eaf14f5794bb55035b19499f0c1ec6c"><td class="memItemLeft" align="right" valign="top"><a id="a2eaf14f5794bb55035b19499f0c1ec6c"></a>
+uint8_t&#160;</td><td class="memItemRight" valign="bottom"><b>getPosition</b> ()</td></tr>
 <tr class="separator:a2eaf14f5794bb55035b19499f0c1ec6c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
-<a id="ad2f851e39ec1eb19aeb0fbe2bdf4ef9c"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ad2f851e39ec1eb19aeb0fbe2bdf4ef9c">&#9670;&nbsp;</a></span>Aileron()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">Aileron::Aileron </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="af05fcc71c65e31b919612cce2b0a5449"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#af05fcc71c65e31b919612cce2b0a5449">&#9670;&nbsp;</a></span>~Aileron()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">Aileron::~Aileron </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<h2 class="groupheader">Member Function Documentation</h2>
-<a id="a2eaf14f5794bb55035b19499f0c1ec6c"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a2eaf14f5794bb55035b19499f0c1ec6c">&#9670;&nbsp;</a></span>getPosition()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">uint8_t Aileron::getPosition </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>Representation of the ailerons. </p>
+</div><h2 class="groupheader">Member Function Documentation</h2>
 <a id="ad28b0e5e53705b1f43a3fa73c0765a96"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ad28b0e5e53705b1f43a3fa73c0765a96">&#9670;&nbsp;</a></span>init()</h2>
 
@@ -197,46 +150,8 @@ Public Member Functions</h2></td></tr>
 
 </div>
 </div>
-<a id="a7c4b7d445e5b0b7469e819e5068db841"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a7c4b7d445e5b0b7469e819e5068db841">&#9670;&nbsp;</a></span>moveDown()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void Aileron::moveDown </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>moves aileron downward at max speed </p>
-
-</div>
-</div>
-<a id="a52f780193672d894137866203860f817"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a52f780193672d894137866203860f817">&#9670;&nbsp;</a></span>moveIdle()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void Aileron::moveIdle </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>moves aileron to idle position </p>
-
-</div>
-</div>
-<a id="a0873615152c2c2811e6c15fb7ce32539"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a0873615152c2c2811e6c15fb7ce32539">&#9670;&nbsp;</a></span>moveSpeed()</h2>
+<a id="a02d1842c6782dbb43fd70d1e3669c960"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a02d1842c6782dbb43fd70d1e3669c960">&#9670;&nbsp;</a></span>moveSpeed()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -245,7 +160,7 @@ Public Member Functions</h2></td></tr>
           <td class="memname">void Aileron::moveSpeed </td>
           <td>(</td>
           <td class="paramtype">uint8_t&#160;</td>
-          <td class="paramname"><em>final_p</em>, </td>
+          <td class="paramname"><em>position_p</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
@@ -270,7 +185,7 @@ Public Member Functions</h2></td></tr>
 <p>moves aileron at specified speed </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">percent_p</td><td>final position in percent </td></tr>
+    <tr><td class="paramname">position_p</td><td>final position in range 0-255 </td></tr>
     <tr><td class="paramname">speed_p</td><td>movement speed (in percent, optional) </td></tr>
     <tr><td class="paramname">start_p</td><td>start position (in percent, optional) </td></tr>
   </table>
@@ -279,8 +194,8 @@ Public Member Functions</h2></td></tr>
 
 </div>
 </div>
-<a id="a54db168cd8d880e8ec4b49af69ad70ae"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a54db168cd8d880e8ec4b49af69ad70ae">&#9670;&nbsp;</a></span>moveTo()</h2>
+<a id="af05ea195df6881618c7835153537cba1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af05ea195df6881618c7835153537cba1">&#9670;&nbsp;</a></span>moveTo()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -289,7 +204,7 @@ Public Member Functions</h2></td></tr>
           <td class="memname">void Aileron::moveTo </td>
           <td>(</td>
           <td class="paramtype">uint8_t&#160;</td>
-          <td class="paramname"><em>percent_p</em></td><td>)</td>
+          <td class="paramname"><em>position_p</em></td><td>)</td>
           <td></td>
         </tr>
       </table>
@@ -298,48 +213,11 @@ Public Member Functions</h2></td></tr>
 <p>moves aileron with a given angle </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">percent_p</td><td>final position in percent </td></tr>
+    <tr><td class="paramname">position_p</td><td>final position in range 0-255 </td></tr>
   </table>
   </dd>
 </dl>
-
-</div>
-</div>
-<a id="abeee29a990a1a9b3d8bc884991b7221f"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#abeee29a990a1a9b3d8bc884991b7221f">&#9670;&nbsp;</a></span>moveUp()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void Aileron::moveUp </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>moves aileron upward at max speed </p>
-
-</div>
-</div>
-<a id="a5d5579971f2679d708d01657d63da414"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a5d5579971f2679d708d01657d63da414">&#9670;&nbsp;</a></span>reverse()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void Aileron::reverse </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>reverses the current sense of rotation of the servomotor </p>
+<dl class="section note"><dt>Note</dt><dd>position_p = 0 moves the aileron down, position_p = 255 moves the aileron up </dd></dl>
 
 </div>
 </div>

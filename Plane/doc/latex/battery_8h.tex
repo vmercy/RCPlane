@@ -5,13 +5,14 @@
 declaration of battery class  
 
 
-{\ttfamily \#include $<$stdint.\+h$>$}\newline
+{\ttfamily \#include $<$Arduino.\+h$>$}\newline
+{\ttfamily \#include \char`\"{}math\+\_\+functions.\+h\char`\"{}}\newline
 Include dependency graph for battery.\+h\+:
 \nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
-\includegraphics[width=175pt]{battery_8h__incl}
+\includegraphics[width=211pt]{battery_8h__incl}
 \end{center}
 \end{figure}
 This graph shows which files directly or indirectly include this file\+:
@@ -19,24 +20,52 @@ This graph shows which files directly or indirectly include this file\+:
 \begin{figure}[H]
 \begin{center}
 \leavevmode
-\includegraphics[width=186pt]{battery_8h__dep__incl}
+\includegraphics[width=298pt]{battery_8h__dep__incl}
 \end{center}
 \end{figure}
 \subsection*{Classes}
 \begin{DoxyCompactItemize}
 \item 
 class \hyperlink{class_battery}{Battery}
-\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Represents the Lipo battery pack and implements methods to get its charge level. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \subsection*{Macros}
 \begin{DoxyCompactItemize}
 \item 
-\#define \hyperlink{battery_8h_ad5ec179af884bf5d81f7d7d277ad72d0}{L\+I\+P\+O\+\_\+\+L\+O\+W\+E\+S\+T\+\_\+\+V\+O\+L\+T\+A\+GE}~3.\+0
+\mbox{\Hypertarget{battery_8h_af81c563d212b04612a2fdf09f5b2957c}\label{battery_8h_af81c563d212b04612a2fdf09f5b2957c}} 
+\#define {\bfseries L\+I\+P\+O\+\_\+1S}~1
 \item 
-\#define \hyperlink{battery_8h_a01732358c09897aadb81cf1e07a73eca}{L\+I\+P\+O\+\_\+\+H\+I\+G\+H\+E\+S\+T\+\_\+\+V\+O\+L\+T\+A\+GE}~4.\+2
+\mbox{\Hypertarget{battery_8h_a0ff9eb1042b121287d6abfe776ec1a8c}\label{battery_8h_a0ff9eb1042b121287d6abfe776ec1a8c}} 
+\#define {\bfseries L\+I\+P\+O\+\_\+2S}~2
 \item 
-\#define \hyperlink{battery_8h_af5eb7e3dc57a2c282b06f32e51970839}{A\+N\+A\+L\+O\+G\+\_\+\+R\+EF}~5.\+0
+\mbox{\Hypertarget{battery_8h_a194fd11d79140854ebb63b4aae64f105}\label{battery_8h_a194fd11d79140854ebb63b4aae64f105}} 
+\#define {\bfseries L\+I\+P\+O\+\_\+3S}~3
 \item 
-\#define \hyperlink{battery_8h_a38b266fc2a691a397cb0739a9e19c0a1}{A\+N\+A\+L\+O\+G\+\_\+\+P\+R\+E\+C\+I\+S\+I\+ON}~1023
+\mbox{\Hypertarget{battery_8h_adb9cf7290df946a808d907fd52b36adf}\label{battery_8h_adb9cf7290df946a808d907fd52b36adf}} 
+\#define {\bfseries L\+I\+P\+O\+\_\+4S}~4
+\item 
+\mbox{\Hypertarget{battery_8h_a96a8f65f4f6e996672b62adfe98d7c46}\label{battery_8h_a96a8f65f4f6e996672b62adfe98d7c46}} 
+\#define {\bfseries L\+I\+P\+O\+\_\+5S}~5
+\item 
+\mbox{\Hypertarget{battery_8h_a62ca371673d32217c9314773078b55ee}\label{battery_8h_a62ca371673d32217c9314773078b55ee}} 
+\#define {\bfseries L\+I\+P\+O\+\_\+6S}~6
+\item 
+\mbox{\Hypertarget{battery_8h_ad5ec179af884bf5d81f7d7d277ad72d0}\label{battery_8h_ad5ec179af884bf5d81f7d7d277ad72d0}} 
+\#define {\bfseries L\+I\+P\+O\+\_\+\+L\+O\+W\+E\+S\+T\+\_\+\+V\+O\+L\+T\+A\+GE}~3.\+3
+\item 
+\mbox{\Hypertarget{battery_8h_a01732358c09897aadb81cf1e07a73eca}\label{battery_8h_a01732358c09897aadb81cf1e07a73eca}} 
+\#define {\bfseries L\+I\+P\+O\+\_\+\+H\+I\+G\+H\+E\+S\+T\+\_\+\+V\+O\+L\+T\+A\+GE}~4.\+2
+\item 
+\mbox{\Hypertarget{battery_8h_af5eb7e3dc57a2c282b06f32e51970839}\label{battery_8h_af5eb7e3dc57a2c282b06f32e51970839}} 
+\#define {\bfseries A\+N\+A\+L\+O\+G\+\_\+\+R\+EF}~5.\+0
+\item 
+\mbox{\Hypertarget{battery_8h_a38b266fc2a691a397cb0739a9e19c0a1}\label{battery_8h_a38b266fc2a691a397cb0739a9e19c0a1}} 
+\#define {\bfseries A\+N\+A\+L\+O\+G\+\_\+\+P\+R\+E\+C\+I\+S\+I\+ON}~1023
+\item 
+\mbox{\Hypertarget{battery_8h_a2674a2c5313fff69210125ef15558bf7}\label{battery_8h_a2674a2c5313fff69210125ef15558bf7}} 
+\#define {\bfseries N\+B\+\_\+\+S\+A\+M\+P\+L\+E\+S\+\_\+\+B\+A\+T\+T\+E\+RY}~10
+\item 
+\mbox{\Hypertarget{battery_8h_a33fa689903e4d19edd814aa108d49a91}\label{battery_8h_a33fa689903e4d19edd814aa108d49a91}} 
+\#define {\bfseries D\+E\+L\+A\+Y\+\_\+\+S\+A\+M\+P\+L\+E\+S\+\_\+\+B\+A\+T\+T\+E\+RY}~500
 \end{DoxyCompactItemize}
 
 
@@ -55,30 +84,3 @@ Valentin Mercy (\href{https://github.com/vmercy}{\tt https\+://github.\+com/vmer
 \begin{DoxyCopyright}{Copyright}
 Copyright (c) 2020 
 \end{DoxyCopyright}
-
-
-\subsection{Macro Definition Documentation}
-\mbox{\Hypertarget{battery_8h_a38b266fc2a691a397cb0739a9e19c0a1}\label{battery_8h_a38b266fc2a691a397cb0739a9e19c0a1}} 
-\index{battery.\+h@{battery.\+h}!A\+N\+A\+L\+O\+G\+\_\+\+P\+R\+E\+C\+I\+S\+I\+ON@{A\+N\+A\+L\+O\+G\+\_\+\+P\+R\+E\+C\+I\+S\+I\+ON}}
-\index{A\+N\+A\+L\+O\+G\+\_\+\+P\+R\+E\+C\+I\+S\+I\+ON@{A\+N\+A\+L\+O\+G\+\_\+\+P\+R\+E\+C\+I\+S\+I\+ON}!battery.\+h@{battery.\+h}}
-\subsubsection{\texorpdfstring{A\+N\+A\+L\+O\+G\+\_\+\+P\+R\+E\+C\+I\+S\+I\+ON}{ANALOG\_PRECISION}}
-{\footnotesize\ttfamily \#define A\+N\+A\+L\+O\+G\+\_\+\+P\+R\+E\+C\+I\+S\+I\+ON~1023}
-
-\mbox{\Hypertarget{battery_8h_af5eb7e3dc57a2c282b06f32e51970839}\label{battery_8h_af5eb7e3dc57a2c282b06f32e51970839}} 
-\index{battery.\+h@{battery.\+h}!A\+N\+A\+L\+O\+G\+\_\+\+R\+EF@{A\+N\+A\+L\+O\+G\+\_\+\+R\+EF}}
-\index{A\+N\+A\+L\+O\+G\+\_\+\+R\+EF@{A\+N\+A\+L\+O\+G\+\_\+\+R\+EF}!battery.\+h@{battery.\+h}}
-\subsubsection{\texorpdfstring{A\+N\+A\+L\+O\+G\+\_\+\+R\+EF}{ANALOG\_REF}}
-{\footnotesize\ttfamily \#define A\+N\+A\+L\+O\+G\+\_\+\+R\+EF~5.\+0}
-
-\mbox{\Hypertarget{battery_8h_a01732358c09897aadb81cf1e07a73eca}\label{battery_8h_a01732358c09897aadb81cf1e07a73eca}} 
-\index{battery.\+h@{battery.\+h}!L\+I\+P\+O\+\_\+\+H\+I\+G\+H\+E\+S\+T\+\_\+\+V\+O\+L\+T\+A\+GE@{L\+I\+P\+O\+\_\+\+H\+I\+G\+H\+E\+S\+T\+\_\+\+V\+O\+L\+T\+A\+GE}}
-\index{L\+I\+P\+O\+\_\+\+H\+I\+G\+H\+E\+S\+T\+\_\+\+V\+O\+L\+T\+A\+GE@{L\+I\+P\+O\+\_\+\+H\+I\+G\+H\+E\+S\+T\+\_\+\+V\+O\+L\+T\+A\+GE}!battery.\+h@{battery.\+h}}
-\subsubsection{\texorpdfstring{L\+I\+P\+O\+\_\+\+H\+I\+G\+H\+E\+S\+T\+\_\+\+V\+O\+L\+T\+A\+GE}{LIPO\_HIGHEST\_VOLTAGE}}
-{\footnotesize\ttfamily \#define L\+I\+P\+O\+\_\+\+H\+I\+G\+H\+E\+S\+T\+\_\+\+V\+O\+L\+T\+A\+GE~4.\+2}
-
-\mbox{\Hypertarget{battery_8h_ad5ec179af884bf5d81f7d7d277ad72d0}\label{battery_8h_ad5ec179af884bf5d81f7d7d277ad72d0}} 
-\index{battery.\+h@{battery.\+h}!L\+I\+P\+O\+\_\+\+L\+O\+W\+E\+S\+T\+\_\+\+V\+O\+L\+T\+A\+GE@{L\+I\+P\+O\+\_\+\+L\+O\+W\+E\+S\+T\+\_\+\+V\+O\+L\+T\+A\+GE}}
-\index{L\+I\+P\+O\+\_\+\+L\+O\+W\+E\+S\+T\+\_\+\+V\+O\+L\+T\+A\+GE@{L\+I\+P\+O\+\_\+\+L\+O\+W\+E\+S\+T\+\_\+\+V\+O\+L\+T\+A\+GE}!battery.\+h@{battery.\+h}}
-\subsubsection{\texorpdfstring{L\+I\+P\+O\+\_\+\+L\+O\+W\+E\+S\+T\+\_\+\+V\+O\+L\+T\+A\+GE}{LIPO\_LOWEST\_VOLTAGE}}
-{\footnotesize\ttfamily \#define L\+I\+P\+O\+\_\+\+L\+O\+W\+E\+S\+T\+\_\+\+V\+O\+L\+T\+A\+GE~3.\+0}
-
