@@ -20,10 +20,10 @@ SevsegScreen::~SevsegScreen()
 {
 }
 
-void SevsegScreen::init(bool displayType_p, uint8_t nbDigits_p, uint8_t *sevSegDigitsPinout_p, uint8_t *sevSegSegmentsPinout_p)
+void SevsegScreen::init(bool displayType_p, uint8_t nbDigits_p, const uint8_t *sevSegDigitsPinout_p, const uint8_t *sevSegSegmentsPinout_p)
 {
   m_nbDigits = nbDigits_p;
-  begin(displayType_p, nbDigits_p, sevSegDigitsPinout_p, sevSegSegmentsPinout_p, true);
+  begin(displayType_p, nbDigits_p, (byte*)sevSegDigitsPinout_p, (byte*)sevSegSegmentsPinout_p, true);
 }
 
 void SevsegScreen::testDisplay()

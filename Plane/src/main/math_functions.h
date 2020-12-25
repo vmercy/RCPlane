@@ -15,6 +15,7 @@
 #include <Arduino.h>
 
 /**
+ * @namespace mathFunctions
  * @brief collection of useful templated math functions
  */
 namespace mathFunctions

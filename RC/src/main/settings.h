@@ -18,7 +18,7 @@
 /* Number of settings */
 #define NB_BOOL_SETTINGS 6
 #define NB_BYTE_SETTINGS 4
-#define NB_INT_SETTINGS 0
+#define NB_INT_SETTINGS 1
 #define NB_SETTINGS (NB_BOOL_SETTINGS + NB_BYTE_SETTINGS + NB_INT_SETTINGS)
 
 /* Settings */
@@ -35,6 +35,7 @@
 #define BATTERY_CELL_CRITICAL_VOLTAGE 8
 #define AUTOTHRUST_CURSOR_STEP 9
 /* Integers */
+#define BATTERY_DISPLAY_DELAY 10 //in milliseconds
 
 /* Default settings values */
 #define DEFAULT_REVERT_POWER false
@@ -47,6 +48,7 @@
 #define DEFAULT_BATTERY_CELL_CRITICAL_VOLTAGE_BYTE RemoteBattery::toByte(BATTERY_CELL_CRITICAL_VOLTAGE_FLOAT)
 #define DEFAULT_MAX_GROUND_POWER 50
 #define DEFAULT_AUTOTHRUST_CURSOR_STEP 2
+#define DEFAULT_BATTERY_DISPLAY_DELAY 1000
 
 /**
  * @class Settings

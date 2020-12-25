@@ -44,7 +44,7 @@ Joystick leftJoy;
 Joystick rightJoy;
 Encoder enc;
 Buzzer buzz;
-PlaneBatteryBisplay planeBatteryDisplay;
+PlaneBatteryDisplay planeBatteryDisplay;
 //LCDScreen mainScreen;
 
 /* Settings config;

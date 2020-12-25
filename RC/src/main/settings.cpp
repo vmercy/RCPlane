@@ -20,6 +20,7 @@ Settings::Settings()
   setSetting(ENABLE_BUZZER, DEFAULT_ENABLE_BUZZER);
   setSetting(REDUCE_GROUND_SPEED, DEFAULT_REDUCE_GROUND_SPEED);
   setSetting(MAX_GROUND_POWER, DEFAULT_MAX_GROUND_POWER);
+  //TODO: update with new settings
 }
 
 bool Settings::upToDate(uint8_t index_p)

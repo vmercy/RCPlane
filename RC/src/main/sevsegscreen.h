@@ -34,7 +34,7 @@ public:
    * @param sevSegDigitsPinout_p pinout of display segments in the order {A,B,C,D,E,F,G,DP}
    * @param sevSegSegmentsPinout_p pinout of the display digits
    */
-  void SevsegScreen::init(bool displayType_p, uint8_t nbDigits_p, uint8_t* sevSegDigitsPinout_p, uint8_t* sevSegSegmentsPinout_p);
+  void SevsegScreen::init(bool displayType_p, uint8_t nbDigits_p, const uint8_t* sevSegDigitsPinout_p, const uint8_t* sevSegSegmentsPinout_p);
   /**
    * @brief test the display with a simple chronometer
    * @note this function must be called in a while(true) loop
