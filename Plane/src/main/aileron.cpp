@@ -42,7 +42,7 @@ void Aileron::reverse()
 
 void Aileron::moveTo(uint8_t position_p)
 {
-  uint8_t targetAngle = map(position_p, 0, 255, m_reversed ? m_maxAngle : m_minAngle, m_reversed ? m_minAngle : m_maxAngle);
+  uint8_t targetAngle = map(position_p, 0, UINT8_MAX, m_reversed ? m_maxAngle : m_minAngle, m_reversed ? m_minAngle : m_maxAngle);
   m_servo.write(targetAngle);
 }
 
@@ -64,7 +64,7 @@ void Aileron::moveSpeed(uint8_t position_p, uint8_t speed_p = 100, int start_p =
 
 void Aileron::moveUp()
 {
-	moveTo(255);
+	moveTo(UINT8_MAX);
 }
 
 void Aileron::moveDown()

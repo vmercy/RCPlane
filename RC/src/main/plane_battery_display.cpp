@@ -36,28 +36,25 @@ void BatteryDisplaySet::init(const uint8_t nbCells_p, const uint8_t cellIndicato
 void BatteryDisplaySet::printCell(uint8_t cellSelect_p)
 {
   if ((millis() - m_lastChange) >= m_displayTime)
-    m_displayedContent != m_displayedContent;
-  if(m_displayedContent)
-    printCellVoltage(cellSelect_p);
-  else
-    printCellLevel(cellSelect_p);
-
-  //delay(m_settings->getSetting<uint16_t>(BATTERY_DISPLAY_DELAY)); //TODO: replace by non-blocking delay
-  //delay(1000);
-  //delay(m_settings->getSetting<uint16_t>(BATTERY_DISPLAY_DELAY)); //TODO: replace by non-blocking delay
-  //delay(1000);
+  {
+    m_lastChange = millis();
+    m_displayedCellIndicators[m_activeCell].turnOn();
+    m_displayedContent = !m_displayedContent;
+    if (m_displayedContent)
+      printCellVoltage(cellSelect_p);
+    else
+      printCellLevel(cellSelect_p);
+  }
 }
 
 void BatteryDisplaySet::printCellVoltage(uint8_t cellSelect_p)
 {
-  setNumber(352, 2);
-  refreshDisplay();
+  setNumber(352, 2); //TODO
 }
 
 void BatteryDisplaySet::printCellLevel(uint8_t cellSelect_p)
 {
-  setNumber(39, 0); //add suffix letter "P" for "percent"
-  refreshDisplay();
+  setNumber(39, 0); //TODO add suffix letter "P" for "percent"
 }
 
 void BatteryDisplaySet::refreshDisplay()
@@ -68,7 +65,6 @@ void BatteryDisplaySet::refreshDisplay()
   {
     m_activeCell = (m_activeCell + 1) % m_nbCells;
   }
-  m_lastChange = millis();
 }
 
 void BatteryDisplaySet::testDisplays()

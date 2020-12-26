@@ -36,7 +36,7 @@ void Motor::setSpeed(uint8_t newSpeed_p)
 {
   if (m_armed || (!newSpeed_p))
     {
-      m_speed = map(newSpeed_p, 0, 255, 0, MAX_SPEED);
+      m_speed = map(newSpeed_p, 0, UINT8_MAX, 0, MAX_SPEED);
       m_ESC.write(m_speed);
     }
 }
@@ -57,7 +57,7 @@ void Motor::test(int duration_p)
     {
       int del = duration_p / MAX_SPEED;
       idle();
-      for (uint8_t i = 0; i < 255; i++)
+      for (uint8_t i = 0; i < UINT8_MAX; i++)
       {
         setSpeed(i);
         delay(del);

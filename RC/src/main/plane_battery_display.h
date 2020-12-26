@@ -30,6 +30,7 @@ private:
   uint8_t m_nbCells;
   uint8_t m_activeCell;
   unsigned long m_lastChange;
+  unsigned long m_lastCellChange;
   const Settings* m_settings;
   uint16_t m_displayTime;
   /**
@@ -69,7 +70,9 @@ public:
   /**
    * @brief prints next cell informations
    */
-  void printNextCell();
+  void printTotalVoltage();
+  void printTotalLevel();
+  void printTotal();
   void testDisplays();
   void refreshDisplay();
 };

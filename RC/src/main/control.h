@@ -19,6 +19,7 @@
 #include "switch.h"
 #include "lcdscreen.h"
 #include "settings.h"
+#include "math_functions.h"
 
 #define GROUND_MODE 0
 #define FLIGHT_MODE 1
@@ -44,7 +45,7 @@
  *  - Ground mode : 
  *    - Left joystick :
  *      - X axis : nothing
- *      - Y axis : power (eventually reduced to map(power,0,255,0,getSetting(MAX_GROUND_POWER)) if getSetting(REDUCE_GROUND_SPEED) == true)
+ *      - Y axis : power (eventually reduced to map(power,0,UINT8_MAX,0,getSetting(MAX_GROUND_POWER)) if getSetting(REDUCE_GROUND_SPEED) == true)
  *    - Right joystick :
  *      - X axis : roll + yaw
  *      - Y axis : pitch
@@ -61,7 +62,7 @@
  * - Particular cases :
  *  - When m_autoThrustCursor = 0 : power = map(joystick, min, max, halfway, max)
  *  - When m_autoThrustCursor = 128 (halfway) : power = joystick
- *  - When m_autoThrustCursor = 255 (max) : power = max
+ *  - When m_autoThrustCursor = UINT8_MAX (max) : power = max
  */
 class Control
 {
@@ -92,6 +93,8 @@ private:
     Button m_CTRL4;
     //TODO: LCDScreen m_screen;
     const Settings* m_p_settings;
+    bool m_reduceGroundSpeed;
+    uint8_t m_maxGroundPower;
 public:
     Control();
     /**
@@ -112,10 +115,16 @@ public:
      * @param newMode_p new desired mode (GROUND_MODE or FLIGHT_MODE)
      */
     void setMode(bool newMode_p);
+    void updateSettings();
     uint8_t getPower();
     uint8_t getPitch();
     uint8_t getYaw();
     uint8_t getRoll();
+    /**
+     * @brief reads button and switches inputs and updates control modes
+     * @note must be called in a while loop
+     */
+    void updateControls();
 };
 
 #endif

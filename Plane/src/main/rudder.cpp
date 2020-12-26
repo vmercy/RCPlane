@@ -28,7 +28,7 @@ void Rudder::init(uint8_t pinout_p,  uint8_t minAngle_p, uint8_t maxAngle_p)
 
 void Rudder::moveTo(uint8_t position_p)
 {
-  uint8_t targetAngle = map(position_p, 0, 255, m_reversed ? m_maxAngle : m_minAngle, m_reversed ? m_minAngle : m_maxAngle);
+  uint8_t targetAngle = map(position_p, 0, UINT8_MAX, m_reversed ? m_maxAngle : m_minAngle, m_reversed ? m_minAngle : m_maxAngle);
   write(targetAngle);
 }
 

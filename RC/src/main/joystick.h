@@ -14,13 +14,13 @@
 
 #include <Arduino.h>
 
-#define NB_SAMPLES_JOYSTICK 10 //number of readings (must be <=255)
+#define NB_SAMPLES_JOYSTICK 10 //number of readings (must be <=UINT8_MAX)
 #define SAMPLE_DELAY 1 //delay between two readings (in milliseconds)
 
 #define IDLE_TOLERANCE 1 //a joystick will be considered at idle position if its reading is IDLE_POSITION +/- IDLE_TOLERANCE
 
 #define JOYSTICK_MIN_POSITION 0
-#define JOYSTICK_MAX_POSITION 255
+#define JOYSTICK_MAX_POSITION UINT8_MAX
 
 #define UNDEFINED_POSITION 0
 #define BOTTOM_LEFT 1

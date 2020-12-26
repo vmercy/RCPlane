@@ -31,7 +31,7 @@ public:
   /**
    * @brief Set the Roll object
    * 
-   * @param newRoll_p 0 = full left,  255 = full right
+   * @param newRoll_p 0 = full left,  UINT8_MAX = full right
    */
   void setRoll(uint8_t newRoll_p);
   void moveRight();

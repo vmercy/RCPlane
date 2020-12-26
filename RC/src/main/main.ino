@@ -29,8 +29,8 @@
 
 #include "header.h"
 
-#define ENABLE_START true //TODO: set to true
-#define ENABLE_BUZZER_DEFAULT false //let true except for development purposes
+#define ENABLE_START true           //TODO: set to true
+#define ENABLE_BUZZER_DEFAULT false //TODO: set to true
 #define VOLTAGE_RECTIFIER_COEFF 1.0132
 
 /* Objects Declarations */
@@ -54,10 +54,9 @@ BatteryDisplaySet planeBatteryDisplay;
 Settings config;
 Control control;
 
-RF24 radio(7,8);
+RF24 radio(7, 8);
 const byte channel = 120;
 const uint8_t pipe[] = {0x01, 0x02};
-
 
 void start() //ligth all LEDS and screens
 {
@@ -93,7 +92,7 @@ void setup()
   enc.init(ENCODER_A, ENCODER_B, ENCODER_SW);
   buzz.init(BUZZER, ENABLE_BUZZER_DEFAULT);
   rcLipo.init(LIPO_2S, VOLTAGE_RECTIFIER_COEFF);
-  
+
   CTRL1.init(CTRL1_SWITCH);
   CTRL2.init(CTRL2_SWITCH);
   CTRL3.init(CTRL3_BTN);
@@ -119,6 +118,8 @@ void setup()
   radio.openWritingPipe(pipe[1]);
   radio.setPALevel(RF24_PA_MIN);
 
+  radio.stopListening();
+
   /*   
   radio.enableDynamicAck();
   radio.enableDynamicPayloads(); */
@@ -129,9 +130,11 @@ void setup()
   Serial.println("SETUP FINISHED");
 }
 
+TtoPDataFrame frame;
+
 void loop()
 {
-/*   if(CTRL1.state())
+  /*   if(CTRL1.state())
   {
     
   } */
@@ -142,30 +145,26 @@ void loop()
 
   transmitter.sendData(); */
 
-/*   if(enc.isPressed())
+  /*   if(enc.isPressed())
   {
     gearLed.displayColor(WHITE);
     Serial.println("Pressed");
   } */
 
-  TtoPDataFrame frame;
-  if(leftJoy.readY()>LEFT_JOY_Y_IDLE_POSITION)
-    frame.power = map(leftJoy.readY(),LEFT_JOY_Y_IDLE_POSITION,255,0,255);
+  if (leftJoy.readY() > LEFT_JOY_Y_IDLE_POSITION)
+    frame.power = map(leftJoy.readY(), LEFT_JOY_Y_IDLE_POSITION, UINT8_MAX, 0, UINT8_MAX);
   else
     frame.power = 0;
 
   frame.roll = rightJoy.readX();
   frame.pitch = rightJoy.readY();
-  frame.yaw = 255-rightJoy.readX();
+  frame.yaw = UINT8_MAX - rightJoy.readX();
   /* leftJoy.print();
   rightJoy.print(); */
 
-  radio.stopListening();
   radio.write(&frame, sizeof(TtoPDataFrame));
 
   //delay(50);
 
-  planeBatteryDisplay.refreshDisplay();
-
-
+  planeBatteryDisplay.BatteryDisplaySet::refreshDisplay();
 }
