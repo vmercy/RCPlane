@@ -23,7 +23,9 @@ BatteryDisplaySet::~BatteryDisplaySet()
 
 void BatteryDisplaySet::init(const uint8_t nbCells_p, const uint8_t cellIndicatorsPinout_p[NB_CELLS_TOTAL + 1], bool displayType_p, uint8_t nbDigits_p, const uint8_t *sevSegDigitsPinout_p, const uint8_t *sevSegSegmentsPinout_p, const Settings *p_settings_p)
 {
-
+  m_nbCells = nbCells_p;
+  if(nbCells_p)
+    m_activeCell = nbCells_p - 1;
   for (uint8_t i = 0; i < (NB_CELLS_TOTAL + 1); i++)
     m_displayedCellIndicators[i].init(cellIndicatorsPinout_p[i]);
   SevsegScreen::init(displayType_p, nbDigits_p, sevSegDigitsPinout_p, sevSegSegmentsPinout_p);
@@ -38,18 +40,24 @@ void BatteryDisplaySet::printCell(uint8_t cellSelect_p)
   if ((millis() - m_lastChange) >= m_displayTime)
   {
     m_lastChange = millis();
-    m_displayedCellIndicators[m_activeCell].turnOn();
     m_displayedContent = !m_displayedContent;
     if (m_displayedContent)
+    {
       printCellVoltage(cellSelect_p);
+    }
     else
+    {
       printCellLevel(cellSelect_p);
+    }
   }
 }
 
 void BatteryDisplaySet::printCellVoltage(uint8_t cellSelect_p)
 {
-  setNumber(352, 2); //TODO
+  m_displayedCellIndicators[m_activeCell].turnOff();
+  m_activeCell = (m_activeCell + 1) % m_nbCells;
+  m_displayedCellIndicators[m_activeCell].turnOn();
+  setNumber(352, 2); //TODO add suffix letter "U" for "voltage"
 }
 
 void BatteryDisplaySet::printCellLevel(uint8_t cellSelect_p)
@@ -61,10 +69,6 @@ void BatteryDisplaySet::refreshDisplay()
 {
   SevsegScreen::refreshDisplay();
   printCell(m_activeCell);
-  if ((millis() - m_lastChange) >= 2 * m_displayTime)
-  {
-    m_activeCell = (m_activeCell + 1) % m_nbCells;
-  }
 }
 
 void BatteryDisplaySet::testDisplays()

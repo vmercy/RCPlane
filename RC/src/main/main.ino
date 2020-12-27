@@ -106,7 +106,7 @@ void setup()
   const uint8_t cellIndicatorsPinout[] = {CELL0_LED, CELL1_LED, CELL2_LED, CELLALL_LED};
   const uint8_t sevSegDigitsPinout[] = {SEVSEG_DIG1, SEVSEG_DIG2, SEVSEG_DIG3, SEVSEG_DIG4};
   const uint8_t sevSegSegmentsPinout[] = {SEVSEG_A, SEVSEG_B, SEVSEG_C, SEVSEG_D, SEVSEG_E, SEVSEG_F, SEVSEG_G, SEVSEG_DP};
-  planeBatteryDisplay.init(3, cellIndicatorsPinout, COMMON_CATHODE, SEVSEG_NB_DIGITS, sevSegDigitsPinout, sevSegSegmentsPinout, &config);
+  planeBatteryDisplay.init(LIPO_2S, cellIndicatorsPinout, COMMON_CATHODE, SEVSEG_NB_DIGITS, sevSegDigitsPinout, sevSegSegmentsPinout, &config);
   //planeBatteryDisplay.setBrightness(SEVSEG_DEFAULT_BRIGHTNESS);
   const int lipoResistors[][2] = {{0, 0}, {R2, R3}};
   rcLipo.setResistorValues(lipoResistors);
@@ -136,7 +136,7 @@ TtoPDataFrame signal;
 void loop()
 {
 
-  control.updateControls();
+  //control.updateControls();  TODO: slow down all loop
   //control.updateSettings();
 
   signal.pitch = control.getPitch();
@@ -147,9 +147,9 @@ void loop()
 
   //radio.write(&signal, sizeof(TtoPDataFrame));
 
-  control.print();
+  //control.print(); TODO: slow down all loop
 
   //delay(50);
 
-  //planeBatteryDisplay.BatteryDisplaySet::refreshDisplay();
+  planeBatteryDisplay.BatteryDisplaySet::refreshDisplay();
 }
