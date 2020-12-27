@@ -70,7 +70,8 @@ void setup()
   radio.begin();
   radio.setChannel(channel);
   radio.openReadingPipe(1, pipe[1]);
-  radio.setPALevel(RF24_PA_MIN);
+
+  //radio.setPALevel(RF24_PA_MIN);
 
   /*   radio.enableDynamicAck();
   radio.enableDynamicPayloads(); */

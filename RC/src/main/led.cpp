@@ -17,7 +17,6 @@ Led::Led()
 
 Led::~Led()
 {
-  
 }
 
 void Led::init(uint8_t pinout_p)
@@ -50,12 +49,12 @@ void Led::turnOff()
 
 void Led::blink(int period_p, int duration_p)
 {
-  int del = period_p/2;
-  for(int i = 0; i<duration_p; i++)
+  int del = period_p / 2;
+  for (int i = 0; i < duration_p; i++)
   {
-  turnOn();
-  delay(del);
-  turnOff();
-  delay(del);
+    turnOn();
+    delay(del);
+    turnOff();
+    delay(del);
   }
 }

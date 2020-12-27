@@ -91,11 +91,23 @@ void RGBLed::displayColor(uint8_t color_p)
 
 void RGBLed::test(int duration_p)
 {
-  int del = 1000*duration_p/7;
-  for(uint8_t i = RED; i<=WHITE; i++)
+  int del = 1000 * duration_p / 7;
+  for (uint8_t i = RED; i <= WHITE; i++)
   {
     displayColor(i);
     delay(del);
   }
   turnOff();
+}
+
+void RGBLed::blink(uint8_t color_p, uint16_t onDuration_p = DEFAULT_BLINK_ON_DURATION, uint16_t period_p = DEFAULT_BLINK_PERIOD, uint8_t nbRepeat = DEFAULT_BLINK_REPEAT)
+{
+  for (uint8_t i = 0; i < nbRepeat; i++)
+  {
+    displayColor(color_p);
+    delay(onDuration_p);
+    displayColor(color_p);
+    if (period_p > onDuration_p)
+      delay(period_p - onDuration_p);
+  }
 }

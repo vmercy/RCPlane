@@ -29,7 +29,7 @@
 
 #include "header.h"
 
-#define ENABLE_START true           //TODO: set to true
+#define ENABLE_START false           //TODO: set to true
 #define ENABLE_BUZZER_DEFAULT false //TODO: set to true
 #define VOLTAGE_RECTIFIER_COEFF 1.0132
 
@@ -89,8 +89,9 @@ void setup()
   menuBtn.init(MENU_BTN);
   gearLed.init(RGB_COMMON_ANODE, RGB_RED, RGB_GREEN, RGB_BLUE);
   escLed.init(ESC_ARM_LED);
+  escLed.turnOff();
   enc.init(ENCODER_A, ENCODER_B, ENCODER_SW);
-  buzz.init(BUZZER, ENABLE_BUZZER_DEFAULT);
+  buzz.init(BUZZER, ENABLE_BUZZER_DEFAULT, &gearLed); //TODO: update to set enable_p to getSetting<bool>...
   rcLipo.init(LIPO_2S, VOLTAGE_RECTIFIER_COEFF);
 
   CTRL1.init(CTRL1_SWITCH);
@@ -98,9 +99,9 @@ void setup()
   CTRL3.init(CTRL3_BTN);
   CTRL4.init(CTRL4_BTN);
 
-  //TODO: config.readFromMem();
+  control.init(&leftJoy, &rightJoy, &enc, &buzz, &gearLed, &CTRL1, &CTRL2, &CTRL3, &CTRL4, &config);
 
-  //control.init(leftJoy, rightJoy, enc, CTRL1, buzz, gearLed, &config);
+  //TODO: config.readFromMem();
 
   const uint8_t cellIndicatorsPinout[] = {CELL0_LED, CELL1_LED, CELL2_LED, CELLALL_LED};
   const uint8_t sevSegDigitsPinout[] = {SEVSEG_DIG1, SEVSEG_DIG2, SEVSEG_DIG3, SEVSEG_DIG4};
@@ -116,7 +117,7 @@ void setup()
   radio.begin();
   radio.setChannel(channel);
   radio.openWritingPipe(pipe[1]);
-  radio.setPALevel(RF24_PA_MIN);
+  //radio.setPALevel(RF24_PA_MIN);
 
   radio.stopListening();
 
@@ -130,41 +131,25 @@ void setup()
   Serial.println("SETUP FINISHED");
 }
 
-TtoPDataFrame frame;
+TtoPDataFrame signal;
 
 void loop()
 {
-  /*   if(CTRL1.state())
-  {
-    
-  } */
-  /* transmitter.setRoll(rightJoy.readX());
-  transmitter.setPower(leftJoy.readY());
-  transmitter.setPitch(rightJoy.readY());
-  transmitter.setYaw(leftJoy.readX());
 
-  transmitter.sendData(); */
+  control.updateControls();
+  //control.updateSettings();
 
-  /*   if(enc.isPressed())
-  {
-    gearLed.displayColor(WHITE);
-    Serial.println("Pressed");
-  } */
+  signal.pitch = control.getPitch();
+  signal.roll = control.getRoll();
+  signal.yaw = control.getYaw();
+  signal.power = control.getPower();
 
-  if (leftJoy.readY() > LEFT_JOY_Y_IDLE_POSITION)
-    frame.power = map(leftJoy.readY(), LEFT_JOY_Y_IDLE_POSITION, UINT8_MAX, 0, UINT8_MAX);
-  else
-    frame.power = 0;
 
-  frame.roll = rightJoy.readX();
-  frame.pitch = rightJoy.readY();
-  frame.yaw = UINT8_MAX - rightJoy.readX();
-  /* leftJoy.print();
-  rightJoy.print(); */
+  //radio.write(&signal, sizeof(TtoPDataFrame));
 
-  radio.write(&frame, sizeof(TtoPDataFrame));
+  control.print();
 
   //delay(50);
 
-  planeBatteryDisplay.BatteryDisplaySet::refreshDisplay();
+  //planeBatteryDisplay.BatteryDisplaySet::refreshDisplay();
 }

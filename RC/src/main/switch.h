@@ -12,6 +12,8 @@
 #ifndef SWITCH_H
 #define SWITCH_H
 
+#define SWITCH_DEBOUNCE_DELAY 20
+
 #include "button.h"
 
 /**

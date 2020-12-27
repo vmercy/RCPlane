@@ -13,12 +13,10 @@
 
 Button::Button()
 {
-  
 }
 
 Button::~Button()
 {
-
 }
 
 void Button::init(uint8_t pinout_p)
@@ -27,10 +25,14 @@ void Button::init(uint8_t pinout_p)
   pinMode(m_pinout, INPUT_PULLUP);
 }
 
-bool Button::isPressed()
+bool Button::isPressed(bool waitUntilReleased = true)
 {
-  if((millis() - m_lastDebounceTime) <= DEBOUNCE_DELAY)
+  if ((millis() - m_lastDebounceTime) <= DEBOUNCE_DELAY)
     return false;
   m_lastDebounceTime = millis();
-  return !digitalRead(m_pinout);
+  bool state = (!digitalRead(m_pinout));
+  if (state && waitUntilReleased)
+    while (!digitalRead(m_pinout))
+      ;
+  return state;
 }

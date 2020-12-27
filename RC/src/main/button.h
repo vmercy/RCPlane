@@ -17,7 +17,7 @@
 #define DEBOUNCE_DELAY 2 // the debounce time (in milliseconds) to increase if the output flickers
 
 /**
- * @¢lass Button
+ * @class Button
  * @brief Button class is responsible for reading a pushbutton state with debounce feature
  */
 
@@ -35,7 +35,7 @@ public:
    * @param pinout_p the Arduino pin the button is attached to
    */
   void init(uint8_t pinout_p);
-  bool isPressed();
+  bool isPressed(bool waitUntilReleased = true);
 };
 
 #endif

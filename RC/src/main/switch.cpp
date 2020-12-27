@@ -13,5 +13,6 @@
 
 bool Switch::state()
 {
-    return this->isPressed();
+    delay(SWITCH_DEBOUNCE_DELAY);
+    return this->isPressed(false);
 }

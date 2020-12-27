@@ -26,6 +26,10 @@
 #define YELLOW 5
 #define WHITE 6
 
+#define DEFAULT_BLINK_ON_DURATION 100//in milliseconds
+#define DEFAULT_BLINK_PERIOD 200//in milliseconds
+#define DEFAULT_BLINK_REPEAT 3
+
 #ifndef LED_STATES
 #define LED_STATES
 #define ON 1
@@ -78,8 +82,19 @@ public:
   void displayColor(uint8_t color_p);
   void turnOff();
   /**
+   * @brief blinks the LED
+   * @param color_p desired color for blinking
+   * @param onDuration_p duration of "on" state for each blinking period (optional)
+   * @param period_p period of blinking (optional)
+   * @param nbRepeat number of repeats (optional)
+   * @note period_p must be >= onDuration_p
+   * @note blocking method
+   */
+  void blink(uint8_t color_p, uint16_t onDuration_p = DEFAULT_BLINK_ON_DURATION, uint16_t period_p = DEFAULT_BLINK_PERIOD, uint8_t nbRepeat = DEFAULT_BLINK_REPEAT);
+  /**
    * @brief displays all possible colors
    * @param duration_p duration of test (in seconds)
+   * @note blocking method
    */
   void test(int duration_p);
 };
